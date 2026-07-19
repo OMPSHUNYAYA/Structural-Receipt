@@ -985,7 +985,7 @@ It does not establish universal correctness for every possible financial documen
 | Verifier Reconstruction | **6/6 PASS** |
 | Frozen Conformance | **8/8 PASS** |
 | Tamper Corpus | **7/7 PASS** |
-| Separate Verifier Fixtures | **4/4 PASS** |
+| Independent Verifier Fixtures | **4/4 PASS** |
 | Demonstration Cases | **10/10 PASS** |
 | Purpose Profile Data | **6/6 PASS** |
 | Evaluation Context | **8/8 PASS** |
