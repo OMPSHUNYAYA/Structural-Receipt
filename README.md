@@ -4,17 +4,17 @@
 
 ### **Declare once. Resolve by purpose. Preserve through change. Verify independently.**
 
-![Structural Receipt](https://img.shields.io/badge/Structural%20Receipt-Purpose--Resolvable%20Evidence-black)
-![Version](https://img.shields.io/badge/Release-v0.5.3-blue)
-![Audit](https://img.shields.io/badge/Browser%20Audit-221%2F221%20PASS-green)
-![Conformance](https://img.shields.io/badge/Conformance-308%2F308%20PASS-green)
-![Tamper](https://img.shields.io/badge/Tamper%20Corpus-12%2F12%20PASS-green)
-![Hostile Input](https://img.shields.io/badge/Hostile%20Input-13%2F13%20PASS-green)
-![Standalone Verifier](https://img.shields.io/badge/Standalone%20Audit-35%2F35%20PASS-green)
-![Bridge](https://img.shields.io/badge/Bridge%20Self--Test-21%2F21%20PASS-green)
-![Operation](https://img.shields.io/badge/Operation-Local%20and%20Portable-orange)
-![Deterministic](https://img.shields.io/badge/Core%20Model-Deterministic-purple)
-![Shunyaya](https://img.shields.io/badge/Part%20of-Shunyaya%20Framework-gold)
+![Structural Receipt](https://img.shields.io/badge/Structural%20Receipt-Purpose--Resolvable%20Evidence-black.svg)
+![Version](https://img.shields.io/badge/Release-v0.5.3-blue.svg)
+![Audit](https://img.shields.io/badge/Browser%20Audit-221%2F221%20PASS-green.svg)
+![Conformance](https://img.shields.io/badge/Conformance-308%2F308%20PASS-green.svg)
+![Tamper](https://img.shields.io/badge/Tamper%20Corpus-12%2F12%20PASS-green.svg)
+![Hostile Input](https://img.shields.io/badge/Hostile%20Input-13%2F13%20PASS-green.svg)
+![Standalone Verifier](https://img.shields.io/badge/Standalone%20Audit-35%2F35%20PASS-green.svg)
+![Bridge](https://img.shields.io/badge/Bridge%20Self--Test-21%2F21%20PASS-green.svg)
+![Operation](https://img.shields.io/badge/Operation-Local%20and%20Portable-orange.svg)
+![Deterministic](https://img.shields.io/badge/Core%20Model-Deterministic-purple.svg)
+![Shunyaya](https://img.shields.io/badge/Part%20of-Shunyaya%20Framework-gold.svg)
 
 ---
 
