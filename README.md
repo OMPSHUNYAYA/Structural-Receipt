@@ -16,6 +16,8 @@
 ![Deterministic](https://img.shields.io/badge/Core%20Model-Deterministic-purple)
 ![Shunyaya](https://img.shields.io/badge/Part%20of-Shunyaya%20Framework-gold)
 
+[![Structural Receipt Verify](https://github.com/OMPSHUNYAYA/Structural-Receipt/actions/workflows/structural-receipt-verify.yml/badge.svg?branch=main)](https://github.com/OMPSHUNYAYA/Structural-Receipt/actions/workflows/structural-receipt-verify.yml)
+
 ---
 
 # **One transaction should not have to be understood from scratch every time it is used.**
@@ -939,7 +941,7 @@ Structural Receipt is therefore positioned as:
 |---|---:|
 | Browser full release audit | **221/221 PASS** |
 | Browser quick regression | **72/72 PASS** |
-| Permanent browser regression checks | **120** |
+| Permanent browser regression checks | **122** |
 | Standalone verifier audit | **35/35 PASS** |
 | Standalone verifier quick audit | **12/12 PASS** |
 | Permanent standalone verifier regressions | **23** |
