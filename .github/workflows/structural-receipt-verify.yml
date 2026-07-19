@@ -1,0 +1,854 @@
+name: Structural Receipt Verify
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          package-manager-cache: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+
+      - name: Verify v0.5.3 executable checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python <<'PY'
+          from pathlib import Path
+          import hashlib
+          import re
+          import sys
+
+          pins = {
+              "demo/Structural_Receipt_Reference_Demo_v0_5_3.html":
+                  "9db3181add9226d4616abaf75a7624b8f8597ef13b86fd0dee133d81e562255e",
+
+              "verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html":
+                  "48eef081235f265c5685fb27705ada9fb436fd2fda491a73205d94d42dfcb609",
+
+              "verify/Structural_Receipt_Independent_Verifier_v0_5_3.py":
+                  "f447aa92845f59f07f8253f74e71033b91d8c09b109c16fcfa3d664150ebe38b",
+
+              "bridge/Structural_Receipt_Bridge_v0_5_3.py":
+                  "81373c03ec742389433811221c2cfe9e576b408ed0e13deebfce1e6a1cac6d4e",
+          }
+
+          manifest_path = Path("SHA256SUMS.txt")
+
+          if not manifest_path.is_file():
+              print("FAIL: SHA256SUMS.txt is missing.")
+              sys.exit(1)
+
+          manifest = {}
+
+          for raw_line in manifest_path.read_text(
+              encoding="utf-8-sig"
+          ).splitlines():
+
+              line = raw_line.strip()
+
+              if not line:
+                  continue
+
+              parts = line.split(maxsplit=1)
+
+              if len(parts) != 2:
+                  print(f"FAIL: Invalid SHA256SUMS.txt line: {raw_line!r}")
+                  sys.exit(1)
+
+              digest, relative_path = parts
+              digest = digest.lower()
+              relative_path = relative_path.strip()
+
+              if not re.fullmatch(r"[0-9a-f]{64}", digest):
+                  print(
+                      f"FAIL: Invalid SHA-256 digest for "
+                      f"{relative_path}."
+                  )
+                  sys.exit(1)
+
+              if relative_path in manifest:
+                  print(
+                      f"FAIL: Duplicate checksum entry: "
+                      f"{relative_path}"
+                  )
+                  sys.exit(1)
+
+              manifest[relative_path] = digest
+
+          if manifest != pins:
+              print("FAIL: SHA256SUMS.txt does not match the frozen v0.5.3 checkpoint.")
+
+              print("")
+              print("Expected:")
+              for path, digest in pins.items():
+                  print(f"{digest}  {path}")
+
+              print("")
+              print("Found:")
+              for path, digest in manifest.items():
+                  print(f"{digest}  {path}")
+
+              sys.exit(1)
+
+          for relative_path, expected in pins.items():
+              path = Path(relative_path)
+
+              if not path.is_file():
+                  print(f"FAIL: Missing frozen artifact: {relative_path}")
+                  sys.exit(1)
+
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+
+              print(f"FILE:     {relative_path}")
+              print(f"EXPECTED: {expected}")
+              print(f"ACTUAL:   {actual}")
+
+              if actual != expected:
+                  print(
+                      f"FAIL: Frozen SHA-256 mismatch: "
+                      f"{relative_path}"
+                  )
+                  sys.exit(1)
+
+              print("PASS")
+              print("")
+
+          print("Structural Receipt v0.5.3 executable checkpoint verified.")
+          PY
+
+      - name: Validate published JSON artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python <<'PY'
+          from pathlib import Path
+          import json
+          import sys
+
+          roots = [
+              Path("bridge"),
+              Path("examples"),
+              Path("profiles"),
+              Path("verify"),
+          ]
+
+          files = []
+
+          for root in roots:
+              if root.exists():
+                  files.extend(root.rglob("*.json"))
+
+          files = sorted(set(files))
+
+          if not files:
+              print("FAIL: No published JSON artifacts were found.")
+              sys.exit(1)
+
+          def reject_duplicate_keys(pairs):
+              obj = {}
+
+              for key, value in pairs:
+                  if key in obj:
+                      raise ValueError(
+                          f"Duplicate decoded object key: {key!r}"
+                      )
+
+                  obj[key] = value
+
+              return obj
+
+          failed = False
+
+          for path in files:
+              try:
+                  json.loads(
+                      path.read_text(encoding="utf-8-sig"),
+                      object_pairs_hook=reject_duplicate_keys,
+                  )
+
+                  print(f"PASS: {path.as_posix()}")
+
+              except Exception as error:
+                  print(f"FAIL: {path.as_posix()}")
+                  print(error)
+                  failed = True
+
+          if failed:
+              sys.exit(1)
+
+          print("")
+          print(
+              f"Published JSON artifacts verified: "
+              f"{len(files)} file(s)."
+          )
+          PY
+
+      - name: Verify Python syntax
+        run: |
+          python -m py_compile \
+            bridge/Structural_Receipt_Bridge_v0_5_3.py \
+            verify/Structural_Receipt_Independent_Verifier_v0_5_3.py
+
+          echo "Python syntax verification passed."
+
+      - name: Run Structural Receipt bridge self-test
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RESULT="$RUNNER_TEMP/structural-receipt-bridge-result.json"
+
+          python \
+            bridge/Structural_Receipt_Bridge_v0_5_3.py \
+            --self-test \
+            --summary-json \
+            > "$RESULT"
+
+          cat "$RESULT"
+
+          python - "$RESULT" <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+
+          path = Path(sys.argv[1])
+          result = json.loads(path.read_text(encoding="utf-8"))
+
+          passed = (
+              result.get("status") == "PASS"
+              and result.get("pass") == 21
+              and result.get("total") == 21
+          )
+
+          print("")
+          print(
+              "PASS: Bridge self-test"
+              if passed
+              else "FAIL: Bridge self-test"
+          )
+
+          if not passed:
+              sys.exit(1)
+
+          print("BRIDGE SELF-TEST: 21/21 PASS")
+          PY
+
+      - name: Run separate Python release verification
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RESULT="$RUNNER_TEMP/structural-receipt-python-verification.json"
+
+          python \
+            verify/Structural_Receipt_Independent_Verifier_v0_5_3.py \
+            --all \
+            --json \
+            > "$RESULT"
+
+          python - "$RESULT" <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+
+          path = Path(sys.argv[1])
+          report = json.loads(path.read_text(encoding="utf-8"))
+
+          expected = {
+              "FROZEN CONFORMANCE": 308,
+              "TAMPER CORPUS": 12,
+              "HOSTILE INPUT CORPUS": 13,
+          }
+
+          failed = False
+
+          for name, total in expected.items():
+              result = report.get(name)
+
+              passed = (
+                  isinstance(result, dict)
+                  and result.get("status") == "PASS"
+                  and result.get("pass") == total
+                  and result.get("fail") == 0
+                  and result.get("total") == total
+              )
+
+              print(
+                  f"{'PASS' if passed else 'FAIL'}: "
+                  f"{name}"
+              )
+
+              if result:
+                  print(
+                      f"  RESULT: "
+                      f"{result.get('pass')}/"
+                      f"{result.get('total')} "
+                      f"{result.get('status')}"
+                  )
+
+              if not passed:
+                  failed = True
+
+          if failed:
+              print("")
+              print(
+                  "Structural Receipt separate Python "
+                  "verification failed."
+              )
+              sys.exit(1)
+
+          print("")
+          print("CONFORMANCE: 308/308 PASS")
+          print("TAMPER CORPUS: 12/12 PASS")
+          print("HOSTILE INPUT CORPUS: 13/13 PASS")
+          print("")
+          print(
+              "Structural Receipt separate Python "
+              "verification passed."
+          )
+          PY
+
+      - name: Install Playwright Chromium
+        run: |
+          npm install \
+            --no-save \
+            --package-lock=false \
+            playwright@1.61.1
+
+          npx playwright install --with-deps chromium
+
+      - name: Run Structural Receipt browser release verification
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          const { pathToFileURL } = require("url");
+          const { chromium } = require("playwright");
+
+          const PURPOSE_MANIFEST_SET_ID =
+            "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381";
+
+          function printCheck(name, pass) {
+            console.log(`${pass ? "PASS" : "FAIL"}: ${name}`);
+            return Boolean(pass);
+          }
+
+          async function openAuditPage(
+            browser,
+            relativePath,
+            requireStandalone = false
+          ) {
+            const pageErrors = [];
+
+            const page = await browser.newPage({
+              viewport: {
+                width: 1600,
+                height: 1200,
+              },
+            });
+
+            page.on("pageerror", (error) => {
+              pageErrors.push(error.message);
+              console.error(
+                "PAGE ERROR:",
+                error.message
+              );
+            });
+
+            page.on("console", (message) => {
+              if (message.type() === "error") {
+                console.error(
+                  "BROWSER CONSOLE ERROR:",
+                  message.text()
+                );
+              }
+            });
+
+            const filePath = path.resolve(relativePath);
+            const fileUrl = pathToFileURL(filePath).href;
+
+            await page.goto(fileUrl, {
+              waitUntil: "load",
+            });
+
+            await page.waitForFunction(
+              (standaloneRequired) => {
+                const auditReady =
+                  typeof globalThis.SR_AUDIT === "object" &&
+                  typeof globalThis.SR_AUDIT.runAll === "function" &&
+                  typeof globalThis.SR_AUDIT.quick === "function" &&
+                  typeof globalThis.SR_AUDIT.regressions === "function" &&
+                  typeof globalThis.SR_AUDIT.coverage === "function" &&
+                  typeof globalThis.SR_AUDIT.inspect === "function" &&
+                  typeof globalThis.SR_AUDIT.runConformance === "function" &&
+                  typeof globalThis.SR_AUDIT.runTamperCorpus === "function" &&
+                  typeof globalThis.SR_AUDIT.runHostile === "function";
+
+                const standaloneReady =
+                  !standaloneRequired ||
+                  (
+                    typeof globalThis.SR_STANDALONE === "object" &&
+                    typeof globalThis.SR_STANDALONE.verifyText === "function"
+                  );
+
+                return auditReady && standaloneReady;
+              },
+              requireStandalone,
+              {
+                timeout: 30000,
+              }
+            );
+
+            return {
+              page,
+              pageErrors,
+            };
+          }
+
+          (async () => {
+            const browser = await chromium.launch({
+              headless: true,
+            });
+
+            let failed = false;
+
+            try {
+              /*
+               * -------------------------------------------------
+               * Browser reference implementation
+               * -------------------------------------------------
+               */
+
+              const demoSession = await openAuditPage(
+                browser,
+                "demo/Structural_Receipt_Reference_Demo_v0_5_3.html"
+              );
+
+              const demoReport =
+                await demoSession.page.evaluate(async () => {
+                  const full =
+                    await globalThis.SR_AUDIT.runAll();
+
+                  const quick =
+                    await globalThis.SR_AUDIT.quick();
+
+                  const regressions =
+                    globalThis.SR_AUDIT.regressions();
+
+                  const coverage =
+                    globalThis.SR_AUDIT.coverage();
+
+                  const inspect =
+                    globalThis.SR_AUDIT.inspect();
+
+                  const conformance =
+                    globalThis.SR_AUDIT.runConformance();
+
+                  const tamper =
+                    globalThis.SR_AUDIT.runTamperCorpus();
+
+                  const hostile =
+                    globalThis.SR_AUDIT.runHostile();
+
+                  return {
+                    full,
+                    quick,
+                    regressions,
+                    coverage,
+                    inspect,
+                    conformance,
+                    tamper,
+                    hostile,
+                  };
+                });
+
+              console.log("");
+              console.log(
+                "STRUCTURAL RECEIPT BROWSER REFERENCE"
+              );
+
+              const demoChecks = [
+                [
+                  "Release version",
+                  demoReport.coverage.release_version ===
+                    "0.5.3",
+                ],
+                [
+                  "Full browser audit",
+                  demoReport.full.pass === 221 &&
+                    demoReport.full.fail === 0 &&
+                    demoReport.full.total === 221,
+                ],
+                [
+                  "Integrity regression",
+                  demoReport.full.integrity_regression === 0,
+                ],
+                [
+                  "Unexpected mutation",
+                  demoReport.full.unexpected_mutation === 0,
+                ],
+                [
+                  "Quick browser audit",
+                  demoReport.quick.status === "PASS" &&
+                    demoReport.quick.pass === 72 &&
+                    demoReport.quick.total === 72,
+                ],
+                [
+                  "Permanent browser regressions",
+                  Array.isArray(
+                    demoReport.regressions
+                  ) &&
+                    demoReport.regressions.length === 122,
+                ],
+                [
+                  "Browser audit coverage",
+                  demoReport.coverage.tests === 221 &&
+                    demoReport.coverage.purposes === 9,
+                ],
+                [
+                  "Purpose manifest set identity",
+                  demoReport.inspect
+                    .purpose_manifest_set_id ===
+                    PURPOSE_MANIFEST_SET_ID,
+                ],
+                [
+                  "Frozen conformance",
+                  demoReport.conformance.status === "PASS" &&
+                    demoReport.conformance.pass === 308 &&
+                    demoReport.conformance.fail === 0 &&
+                    demoReport.conformance.total === 308,
+                ],
+                [
+                  "Tamper corpus",
+                  demoReport.tamper.status === "PASS" &&
+                    demoReport.tamper.pass === 12 &&
+                    demoReport.tamper.fail === 0 &&
+                    demoReport.tamper.total === 12,
+                ],
+                [
+                  "Hostile input corpus",
+                  demoReport.hostile.status === "PASS" &&
+                    demoReport.hostile.pass === 13 &&
+                    demoReport.hostile.fail === 0 &&
+                    demoReport.hostile.total === 13,
+                ],
+              ];
+
+              for (const [name, pass] of demoChecks) {
+                if (!printCheck(name, pass)) {
+                  failed = true;
+                }
+              }
+
+              if (demoSession.pageErrors.length > 0) {
+                console.error(
+                  "Unexpected browser-reference page errors:"
+                );
+
+                for (const error of demoSession.pageErrors) {
+                  console.error("-", error);
+                }
+
+                failed = true;
+              }
+
+              console.log("");
+              console.log(
+                `FULL BROWSER AUDIT: ` +
+                `${demoReport.full.pass}/` +
+                `${demoReport.full.total} PASS`
+              );
+
+              console.log(
+                `QUICK BROWSER AUDIT: ` +
+                `${demoReport.quick.pass}/` +
+                `${demoReport.quick.total} PASS`
+              );
+
+              console.log(
+                `PERMANENT REGRESSIONS: ` +
+                `${demoReport.regressions.length}`
+              );
+
+              await demoSession.page.close();
+
+              /*
+               * -------------------------------------------------
+               * Standalone browser verifier
+               * -------------------------------------------------
+               */
+
+              const verifierSession =
+                await openAuditPage(
+                  browser,
+                  "verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html",
+                  true
+                );
+
+              const cleanBundleText =
+                fs.readFileSync(
+                  path.resolve(
+                    "examples/browser_to_verifier_roundtrip/" +
+                    "Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json"
+                  ),
+                  "utf8"
+                );
+
+              const tamperedBundleText =
+                fs.readFileSync(
+                  path.resolve(
+                    "examples/browser_to_verifier_roundtrip/" +
+                    "Structural_Receipt_Evidence_Bundle_SR-1001_Tampered_v0_5_3.json"
+                  ),
+                  "utf8"
+                );
+
+              const verifierReport =
+                await verifierSession.page.evaluate(
+                  async ({
+                    cleanBundleText,
+                    tamperedBundleText,
+                  }) => {
+                    const full =
+                      await globalThis.SR_AUDIT.runAll();
+
+                    const quick =
+                      await globalThis.SR_AUDIT.quick();
+
+                    const regressions =
+                      globalThis.SR_AUDIT.regressions();
+
+                    const coverage =
+                      globalThis.SR_AUDIT.coverage();
+
+                    const inspect =
+                      globalThis.SR_AUDIT.inspect();
+
+                    const conformance =
+                      globalThis.SR_AUDIT.runConformance();
+
+                    const tamper =
+                      globalThis.SR_AUDIT.runTamperCorpus();
+
+                    const hostile =
+                      globalThis.SR_AUDIT.runHostile();
+
+                    const cleanBundle =
+                      await globalThis.SR_STANDALONE.verifyText(
+                        cleanBundleText
+                      );
+
+                    const tamperedBundle =
+                      await globalThis.SR_STANDALONE.verifyText(
+                        tamperedBundleText
+                      );
+
+                    return {
+                      full,
+                      quick,
+                      regressions,
+                      coverage,
+                      inspect,
+                      conformance,
+                      tamper,
+                      hostile,
+                      cleanBundle,
+                      tamperedBundle,
+                    };
+                  },
+                  {
+                    cleanBundleText,
+                    tamperedBundleText,
+                  }
+                );
+
+              console.log("");
+              console.log(
+                "STRUCTURAL RECEIPT STANDALONE VERIFIER"
+              );
+
+              const verifierChecks = [
+                [
+                  "Standalone release version",
+                  verifierReport.coverage.release_version ===
+                    "0.5.3",
+                ],
+                [
+                  "Standalone full audit",
+                  verifierReport.full.pass === 35 &&
+                    verifierReport.full.fail === 0 &&
+                    verifierReport.full.total === 35 &&
+                    verifierReport.full.status === "PASS",
+                ],
+                [
+                  "Standalone quick audit",
+                  verifierReport.quick.pass === 12 &&
+                    verifierReport.quick.fail === 0 &&
+                    verifierReport.quick.total === 12 &&
+                    verifierReport.quick.status === "PASS",
+                ],
+                [
+                  "Permanent verifier regressions",
+                  Array.isArray(
+                    verifierReport.regressions
+                  ) &&
+                    verifierReport.regressions.length === 23,
+                ],
+                [
+                  "Standalone audit coverage",
+                  verifierReport.coverage.tests === 35 &&
+                    verifierReport.coverage.quick_tests === 12 &&
+                    verifierReport.coverage.purposes === 9,
+                ],
+                [
+                  "Standalone purpose manifest set identity",
+                  verifierReport.inspect
+                    .purpose_manifest_set_id ===
+                    PURPOSE_MANIFEST_SET_ID,
+                ],
+                [
+                  "Standalone frozen conformance",
+                  verifierReport.conformance.status ===
+                    "PASS" &&
+                    verifierReport.conformance.pass === 308 &&
+                    verifierReport.conformance.fail === 0 &&
+                    verifierReport.conformance.total === 308,
+                ],
+                [
+                  "Standalone tamper corpus",
+                  verifierReport.tamper.status === "PASS" &&
+                    verifierReport.tamper.pass === 12 &&
+                    verifierReport.tamper.fail === 0 &&
+                    verifierReport.tamper.total === 12,
+                ],
+                [
+                  "Standalone hostile input corpus",
+                  verifierReport.hostile.status === "PASS" &&
+                    verifierReport.hostile.pass === 13 &&
+                    verifierReport.hostile.fail === 0 &&
+                    verifierReport.hostile.total === 13,
+                ],
+                [
+                  "Published clean SR-1001 bundle",
+                  verifierReport.cleanBundle.status ===
+                    "PASS" &&
+                    verifierReport.cleanBundle.pass === 20 &&
+                    verifierReport.cleanBundle.total === 20,
+                ],
+                [
+                  "Published tampered SR-1001 bundle",
+                  verifierReport.tamperedBundle.status ===
+                    "FAIL",
+                ],
+              ];
+
+              for (
+                const [name, pass]
+                of verifierChecks
+              ) {
+                if (!printCheck(name, pass)) {
+                  failed = true;
+                }
+              }
+
+              if (
+                verifierSession.pageErrors.length > 0
+              ) {
+                console.error(
+                  "Unexpected standalone-verifier page errors:"
+                );
+
+                for (
+                  const error
+                  of verifierSession.pageErrors
+                ) {
+                  console.error("-", error);
+                }
+
+                failed = true;
+              }
+
+              console.log("");
+              console.log(
+                `STANDALONE AUDIT: ` +
+                `${verifierReport.full.pass}/` +
+                `${verifierReport.full.total} ` +
+                `${verifierReport.full.status}`
+              );
+
+              console.log(
+                `STANDALONE QUICK AUDIT: ` +
+                `${verifierReport.quick.pass}/` +
+                `${verifierReport.quick.total} ` +
+                `${verifierReport.quick.status}`
+              );
+
+              console.log(
+                `PERMANENT VERIFIER REGRESSIONS: ` +
+                `${verifierReport.regressions.length}`
+              );
+
+              console.log(
+                `CLEAN BUNDLE: ` +
+                `${verifierReport.cleanBundle.pass}/` +
+                `${verifierReport.cleanBundle.total} ` +
+                `${verifierReport.cleanBundle.status}`
+              );
+
+              console.log(
+                `TAMPERED BUNDLE: ` +
+                `${verifierReport.tamperedBundle.status}`
+              );
+
+              await verifierSession.page.close();
+
+              /*
+               * -------------------------------------------------
+               * Final result
+               * -------------------------------------------------
+               */
+
+              if (failed) {
+                console.error("");
+                console.error(
+                  "Structural Receipt verification failed."
+                );
+
+                process.exitCode = 1;
+              } else {
+                console.log("");
+                console.log(
+                  "Structural Receipt verification passed."
+                );
+              }
+            } finally {
+              await browser.close();
+            }
+          })().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
