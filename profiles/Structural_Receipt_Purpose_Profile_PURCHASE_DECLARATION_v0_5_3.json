@@ -1,0 +1,24 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "PURCHASE_DECLARATION",
+    "profile": "SR-PURCHASE-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Is the bounded purchase declaration structurally complete?",
+    "authority_state": "DECLARATION_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "merchant",
+      "receipt_number",
+      "transaction_date",
+      "currency",
+      "item_lines",
+      "declared_total"
+    ],
+    "context_requirements": [],
+    "limitations": "A complete declaration does not prove payment, delivery, issuer authenticity, or physical occurrence."
+  }
+}

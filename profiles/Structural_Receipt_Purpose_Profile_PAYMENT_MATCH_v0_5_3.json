@@ -1,0 +1,23 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "PAYMENT_MATCH",
+    "profile": "SR-PAYMENT-MATCH-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Does available independent payment evidence match the declared amount and currency?",
+    "authority_state": "EVIDENCE_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "declared_total",
+      "transaction_currency",
+      "payment_reference",
+      "payment_amount",
+      "payment_currency"
+    ],
+    "context_requirements": [],
+    "limitations": "A match is evidence compatibility only. It does not execute settlement or prove finality."
+  }
+}

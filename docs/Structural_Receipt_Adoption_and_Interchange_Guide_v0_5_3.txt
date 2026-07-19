@@ -1,0 +1,375 @@
+STRUCTURAL RECEIPT
+
+Adoption and Interchange Guide
+
+Release: v0.5.3
+Status: Release guide
+
+Primary adoption principle:
+
+`Adopt on one side. Verify on the other. Integrate only when useful.`
+
+
+1 Purpose
+
+This guide explains how Structural Receipt can be adopted without requiring coordinated migration by every organization, application, or transaction participant.
+
+The central adoption problem is simple:
+
+`a new evidence format is difficult to adopt if both producer and receiver must change before either side receives value`
+
+Structural Receipt v0.5.3 addresses that problem through:
+
+- sidecar adoption;
+- a standalone local verifier;
+- a separate Python verifier;
+- a generic JSON bridge;
+- portable purpose-profile artifacts;
+- reproducible cross-boundary examples.
+
+The release does not require a central service, account, shared database, or common cloud platform for the bounded local verification path.
+
+
+2 Adoption Paths
+
+2.1 Producer-Side Adoption
+
+An existing producer keeps its current transaction system and adds a Structural Receipt sidecar or evidence bundle.
+
+`existing system -> Structural Receipt sidecar -> portable evidence bundle -> recipient verifier`
+
+Only the producer changes initially.
+
+The recipient can verify the portable bundle with the standalone browser verifier or separate Python verifier.
+
+
+2.2 Verifier-Side Adoption
+
+A receiver already has existing structured transaction data and wants deterministic purpose resolution or reconstruction.
+
+`existing structured source -> declared bridge -> WRAPPED Structural Receipt -> verification or purpose resolution`
+
+Only the verifier side changes initially.
+
+The source system remains untouched.
+
+
+2.3 Native End-to-End Adoption
+
+Both sides use the Structural Receipt model directly.
+
+`native Structural Receipt producer -> portable evidence bundle -> Structural Receipt-aware verifier`
+
+This is the strongest interoperability path but is not required for first adoption.
+
+
+3 Sidecar Deployment
+
+Structural Receipt should normally be introduced beside existing artifacts rather than requiring their immediate replacement.
+
+Examples:
+
+`receipt.pdf`
+
+plus:
+
+`receipt.sr.json`
+
+or:
+
+`receipt.sr.bundle.json`
+
+The sidecar may carry structural identity, provenance, purpose-profile bindings, lineage, and verifier-facing evidence while the existing human-readable or operational record remains in place.
+
+The sidecar principle is:
+
+`existing operational artifact may remain`
+
+while:
+
+`existing operational artifact != sole structural resolution authority`
+
+
+4 Verification Without Integration
+
+The standalone verifier is located at:
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+A recipient can open it locally, select a supported evidence bundle, and reconstruct the bundle without connecting to the producer application.
+
+The demonstrated local verification path is:
+
+`producer exports bundle -> recipient opens local verifier -> reconstruction result`
+
+The recipient does not need:
+
+- an account;
+- a central registry;
+- a shared database;
+- a network call;
+- a producer API integration;
+- the producer user interface.
+
+The standalone path provides bounded structural reconstruction without relying on the producer application or producer PASS assertions as verification authority. It does not establish issuer authentication or independent third-party certification.
+
+
+5 Machine-Oriented Verification
+
+The separate Python verifier is located at:
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+A direct bundle verification command is:
+
+`python Structural_Receipt_Independent_Verifier_v0_5_3.py --bundle path_to_bundle.json --verbose`
+
+The machine result profile is:
+
+`SR-VERIFICATION-RESULT-1-D01`
+
+Malformed JSON, duplicate object keys, and unreadable bundle inputs return controlled `FAIL` results rather than raw traceback output.
+
+An existing workflow may therefore consume a verification result as input to local policy.
+
+The architecture preserves:
+
+`verification output != execution authority`
+
+A local application remains responsible for deciding what operational action, if any, follows from verification.
+
+
+6 Bridge from Existing JSON
+
+The bridge is located at:
+
+`bridge/Structural_Receipt_Bridge_v0_5_3.py`
+
+The generic adapter manifest is:
+
+`bridge/Structural_Receipt_Generic_Adapter_Manifest_v0_5_3.json`
+
+The bridge relation is:
+
+`source JSON + declared path mapping -> WRAPPED Structural Receipt`
+
+The bridge preserves:
+
+- source artifact SHA-256;
+- adapter profile identity;
+- declared source profile;
+- unmapped source paths;
+- declared warnings;
+- origin class;
+- purpose context where mapped;
+- payment evidence where mapped;
+- supported return, refund, or credit lineage where mapped;
+- declared evaluation context where mapped.
+
+The bridge explicitly declares:
+
+`origin_class = WRAPPED`
+
+and:
+
+`semantic_equivalence = NOT_ASSUMED`
+
+Therefore:
+
+`conversion success != proof of complete source-schema equivalence`
+
+
+7 Generic Bridge Command
+
+From the `bridge/` folder:
+
+`python Structural_Receipt_Bridge_v0_5_3.py source.json --manifest Structural_Receipt_Generic_Adapter_Manifest_v0_5_3.json --output Structural_Receipt_Output.json`
+
+The adapter manifest may be changed to match the source system's JSON paths without changing the bridge program itself.
+
+A bridge self-test is available through:
+
+`python Structural_Receipt_Bridge_v0_5_3.py --self-test`
+
+The current release result is:
+
+`21/21 PASS`
+
+
+8 Origin Classes
+
+The current origin classes are:
+
+`NATIVE`
+
+`WRAPPED`
+
+`DERIVED`
+
+Use `NATIVE` only when the Structural Receipt structure is declared at origin under the applicable native path.
+
+Use `WRAPPED` when a declared adapter converts an existing structured source.
+
+Use `DERIVED` when structure is reconstructed from a presentation, manual process, or other derived source.
+
+The current browser import boundary accepts only this closed set:
+
+`NATIVE | WRAPPED | DERIVED`
+
+An imported value outside that set is rejected before it can enter the active receipt state. Display paths still treat origin labels as untrusted text and escape them defensively.
+
+The origin class must not be upgraded merely because verification succeeds.
+
+The rule is:
+
+`integrity reconstruction does not rewrite provenance history`
+
+
+9 Minimal Interchange Contract
+
+A minimal Structural Receipt interchange needs two independent questions.
+
+What may be sent?
+
+- a Structural Receipt object;
+- an evidence bundle;
+- a purpose receipt;
+- a profile manifest;
+- an adapter-generated WRAPPED object.
+
+What may be received?
+
+- a reconstruction result;
+- a purpose result;
+- a machine verification result;
+- explicit unsupported conditions.
+
+What must be preserved?
+
+- profile identities;
+- structural identities;
+- origin class;
+- declared evaluation context;
+- trust boundaries;
+- lineage identity where applicable.
+
+What does not need to be shared?
+
+- the sender's database;
+- the sender's UI;
+- the receiver's workflow;
+- a central platform;
+- a universal application-specific conclusion.
+
+The compact interchange relation is:
+
+`portable bundle in -> deterministic reconstruction out`
+
+
+10 Portable Purpose Profiles
+
+The current purpose profiles are published under:
+
+`profiles/`
+
+This enables implementers to inspect the governing questions and boundaries without reverse-engineering the browser implementation.
+
+The current complete profile-set identity is:
+
+`20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+The filenames are convenience labels.
+
+The canonical identified profile subjects remain the governing identity boundary.
+
+
+11 Recommended Adoption Sequence
+
+For an organization that already has structured transaction data:
+
+1. keep the current system unchanged;
+2. identify one bounded transaction source;
+3. create an adapter manifest;
+4. run the bridge to produce WRAPPED Structural Receipt sidecars;
+5. verify outputs locally;
+6. choose one or two purpose profiles that provide immediate value;
+7. integrate machine verification results only where useful;
+8. expand the mapping only after provenance and unmapped-field behavior remain clear.
+
+For an organization that controls receipt generation:
+
+1. produce native Structural Receipt structure at origin;
+2. retain existing human-readable presentation if required;
+3. export a portable evidence bundle;
+4. allow recipients to verify locally;
+5. integrate deeper workflows only where there is a real operational benefit.
+
+
+12 Example Paths
+
+The repository contains:
+
+`examples/legacy_json_to_structural_receipt/`
+
+This demonstrates:
+
+`legacy structured JSON -> bridge -> WRAPPED Structural Receipt -> evidence bundle -> verifier`
+
+The repository also contains:
+
+`examples/browser_to_verifier_roundtrip/`
+
+This demonstrates:
+
+`browser producer -> clean bundle -> verifier PASS`
+
+and:
+
+`materially tampered bundle -> verifier FAIL`
+
+These examples are intended to make the adoption paths reproducible.
+
+They do not claim universal source compatibility.
+
+
+13 Operational Boundaries
+
+Structural Receipt does not automatically:
+
+- execute payments;
+- approve reimbursements;
+- post accounting entries;
+- determine tax treatment;
+- approve returns;
+- authenticate issuers;
+- prove physical delivery;
+- establish legal validity.
+
+The current release preserves:
+
+`execution_authority = NONE`
+
+for all current purpose profiles and verification results.
+
+
+14 Adoption Summary
+
+The release is designed so adoption does not begin with a large migration project.
+
+A producer can add a sidecar.
+
+A receiver can verify without integration.
+
+An organization can wrap existing JSON while preserving provenance.
+
+Purpose profiles can be inspected as standalone artifacts.
+
+Examples can be reproduced locally.
+
+The core adoption relation is:
+
+`one side may adopt first`
+
+The public principle is:
+
+`Adopt on one side. Verify on the other. Integrate only when useful.`

@@ -1,0 +1,19 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "ACCOUNTING_CLASSIFICATION",
+    "profile": "SR-ACCOUNTING-PROPOSAL-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Can the available transaction evidence support a bounded accounting-classification proposal?",
+    "authority_state": "PROPOSAL_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "purchase_declaration"
+    ],
+    "context_requirements": [],
+    "limitations": "RESOLVED means the proposal question was resolved. It never means APPROVED, POSTED, or authoritative accounting treatment."
+  }
+}

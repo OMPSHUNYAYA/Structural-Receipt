@@ -1,0 +1,424 @@
+STRUCTURAL RECEIPT
+
+Verification Guide
+
+Release: v0.5.3
+Status: Release guide
+
+Third-party verification:
+
+`NOT_CLAIMED`
+
+Execution authority:
+
+`NONE`
+
+
+1 Purpose
+
+This guide defines the recommended verification procedure for the Structural Receipt v0.5.3 repository.
+
+It covers:
+
+- browser release audit;
+- frozen corpus reconstruction;
+- standalone local bundle verification;
+- separate Python reconstruction;
+- bridge self-test;
+- corpus identity checks;
+- exact file-byte SHA-256 checks.
+
+The current verification architecture demonstrates bounded reconstruction within the declared v0.5.3 profiles.
+
+It does not establish independent third-party certification, issuer authenticity, real-world occurrence, legal validity, tax correctness, accounting correctness, payment settlement, or operational execution authority.
+
+
+2 Repository Paths
+
+Browser reference:
+
+`demo/Structural_Receipt_Reference_Demo_v0_5_3.html`
+
+Verification tools and corpora:
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+`verify/Structural_Receipt_Conformance_Corpus_v0_5_3.json`
+
+`verify/Structural_Receipt_Tamper_Corpus_v0_5_3.json`
+
+`verify/Structural_Receipt_Hostile_Input_Corpus_v0_5_3.json`
+
+Bridge:
+
+`bridge/Structural_Receipt_Bridge_v0_5_3.py`
+
+
+3 Browser Full Release Audit
+
+Open the browser demo and use the browser developer console.
+
+Primary command:
+
+`await SR_AUDIT.runAll()`
+
+Expected result:
+
+`221/221 PASS`
+
+Current release metadata:
+
+`release version = 0.5.3`
+
+`audit groups = 27`
+
+`permanent regression checks = 122`
+
+Tracked regression counters should remain:
+
+`integrity_regression = 0`
+
+`unexpected_mutation = 0`
+
+`authority_escalation = 0`
+
+`evidence_reconstruction_regression = 0`
+
+`conformance_regression = 0`
+
+`tamper_corpus_regression = 0`
+
+`hostile_input_regression = 0`
+
+`ui_interaction_regression = 0`
+
+`ui_security_regression = 0`
+
+`release_consistency_regression = 0`
+
+Quick regression command:
+
+`await SR_AUDIT.quick()`
+
+Expected result:
+
+`72/72 PASS`
+
+
+4 Browser Frozen Corpus Checks
+
+Conformance:
+
+`SR_AUDIT.runConformance()`
+
+Expected:
+
+`308/308 PASS`
+
+Tamper:
+
+`SR_AUDIT.runTamperCorpus()`
+
+Expected:
+
+`12/12 PASS`
+
+Hostile input:
+
+`SR_AUDIT.runHostile()`
+
+Expected:
+
+`13/13 PASS`
+
+Published corpus identities:
+
+`conformance = 9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e`
+
+`tamper = 3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5`
+
+`hostile = 1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603`
+
+The three generated browser corpus IDs should exactly match those published release identities.
+
+
+5 Evidence Bundle Reconstruction in the Browser Demo
+
+The browser demo can build and reconstruct an evidence bundle internally.
+
+The clean reference path reconstructs:
+
+`20/20 PASS`
+
+This remains producer-family reconstruction and does not replace separate verification.
+
+
+6 Standalone Browser Verifier
+
+Open:
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+The standalone verifier has its own verifier-specific audit surface.
+
+Full standalone audit:
+
+`await SR_AUDIT.runAll()`
+
+Expected:
+
+`35/35 PASS`
+
+Quick verifier regression gate:
+
+`await SR_AUDIT.quick()`
+
+Expected:
+
+`12/12 PASS`
+
+Additional verifier checks:
+
+`SR_AUDIT.runConformance() -> 308/308 PASS`
+
+`SR_AUDIT.runTamperCorpus() -> 12/12 PASS`
+
+`SR_AUDIT.runHostile() -> 13/13 PASS`
+
+For a supported clean evidence bundle, the expected reconstruction includes:
+
+`VERIFICATION STATUS = PASS`
+
+`RECONSTRUCTION CHECKS = 20`
+
+`RECEIPT IDENTITY = PASS`
+
+`STRUCTURE IDENTITY = PASS`
+
+`PROFILES = PASS`
+
+`LINEAGE = PASS`
+
+`PURPOSE RECEIPTS = PASS`
+
+`BUNDLE IDENTITY = PASS`
+
+`THIRD-PARTY VERIFICATION = NOT_CLAIMED`
+
+`EXECUTION AUTHORITY = NONE`
+
+The current standalone audit also confirms strict rejection of duplicate object keys, trailing data, malformed JSON, non-finite numeric input, and invalid imported quantities.
+
+A deliberate material mutation of the declared total produces:
+
+`VERIFICATION STATUS = FAIL`
+
+The standalone path reconstructs supported subjects without relying on producer PASS assertions or the producer application as verification authority.
+
+This is project-produced separate reconstruction.
+
+It is not independent third-party certification.
+
+
+7 Separate Python Bundle Verification
+
+From the `verify/` folder, verify a real evidence bundle with:
+
+`python Structural_Receipt_Independent_Verifier_v0_5_3.py --bundle path_to_bundle.json --verbose`
+
+For machine-readable output:
+
+`python Structural_Receipt_Independent_Verifier_v0_5_3.py --bundle path_to_bundle.json --json`
+
+For a clean supported bundle, expected output includes:
+
+`STATUS: PASS`
+
+`VERIFICATION SCOPE: SEPARATE_IMPLEMENTATION_RECONSTRUCTION`
+
+`SEPARATE IMPLEMENTATION PATH: PASS`
+
+`THIRD-PARTY VERIFICATION: NOT_CLAIMED`
+
+`MACHINE RESULT PROFILE: SR-VERIFICATION-RESULT-1-D01`
+
+`EXECUTION AUTHORITY: NONE`
+
+Malformed JSON, duplicate object keys, unreadable paths, and other input-stage failures return a controlled machine result with:
+
+`verification_status = FAIL`
+
+and unreached reconstruction dimensions remain:
+
+`NOT_CHECKED`
+
+The verifier does not use a raw traceback as the verification result.
+
+
+8 Complete Python Frozen-Corpus Verification
+
+Place the Python verifier and the three frozen corpus files together under:
+
+`verify/`
+
+Then run:
+
+`python Structural_Receipt_Independent_Verifier_v0_5_3.py --all --verbose`
+
+Expected results:
+
+`FROZEN CONFORMANCE = 308/308 PASS`
+
+`TAMPER CORPUS = 12/12 PASS`
+
+`HOSTILE INPUT CORPUS = 13/13 PASS`
+
+`PUBLISHED CORPUS IDENTITY PARITY = PASS`
+
+The separate Python path is project-produced.
+
+It is a separate implementation path, not independent third-party certification.
+
+
+9 Bridge Self-Test
+
+From the `bridge/` folder:
+
+`python Structural_Receipt_Bridge_v0_5_3.py --self-test`
+
+Expected result:
+
+`RESULT: 21/21 PASS`
+
+The test covers current bridge properties including:
+
+- profile and schema version;
+- WRAPPED origin;
+- source profile;
+- source artifact hash;
+- item and payment mapping;
+- evaluation context;
+- currency profile;
+- unmapped path preservation;
+- deterministic output;
+- duplicate-key rejection;
+- missing required field rejection;
+- invalid quantity rejection;
+- explicit unsupported exponent handling;
+- source-byte identity change;
+- `semantic_equivalence = NOT_ASSUMED`.
+
+
+10 Purpose-Profile Identity Check
+
+The current standalone purpose profiles are under:
+
+`profiles/`
+
+The expected purpose-manifest set identity is:
+
+`20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+The profile-set artifact and browser implementation should reconstruct the same identity.
+
+
+11 Corpus Identity Versus File Identity
+
+Two different identity questions must remain separate.
+
+`corpus_id`
+
+identifies the canonical semantic corpus subject under the declared profile.
+
+`file SHA-256`
+
+identifies the exact published file bytes.
+
+A repository release should preserve both.
+
+A changed file with a deliberately regenerated internal corpus ID is still a different published file.
+
+Therefore exact release verification should pin file hashes separately from semantic corpus IDs.
+
+
+12 SHA256SUMS
+
+The repository root contains:
+
+`SHA256SUMS.txt`
+
+It is the authoritative exact-file checkpoint for the selected executable artifacts in the current release:
+
+`demo/Structural_Receipt_Reference_Demo_v0_5_3.html`
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+`bridge/Structural_Receipt_Bridge_v0_5_3.py`
+
+Other identity domains use their own declared identities rather than duplicating a second file-hash registry:
+
+`semantic corpora -> corpus_id`
+
+`purpose rules -> purpose_profile_id + purpose_manifest_set_id`
+
+`evidence bundles -> bundle_id`
+
+`verification evidence -> reconstructed identities + recorded result`
+
+On Windows, an individual file may be checked with:
+
+`certutil -hashfile filename SHA256`
+
+Compare the resulting digest with the applicable line in `SHA256SUMS.txt`.
+
+The checksum file should be regenerated whenever the release intentionally changes an artifact covered by that checkpoint.
+
+Do not silently replace a frozen artifact while retaining an old checksum.
+
+
+13 Cross-Boundary Verification
+
+The current release demonstrates:
+
+`browser producer -> portable evidence bundle -> standalone browser verifier -> PASS`
+
+`browser producer -> portable evidence bundle -> separate Python verifier -> PASS`
+
+and:
+
+`material payload mutation -> both verifier paths reject`
+
+The reproducible reference files are under:
+
+`examples/browser_to_verifier_roundtrip/`
+
+The bridge adoption example is under:
+
+`examples/legacy_json_to_structural_receipt/`
+
+
+14 Assurance Boundary
+
+The strongest demonstrated current claim is:
+
+`same supported subject + same frozen profile set + same declared evaluation context -> same reconstructed identities and supported states across the demonstrated project-produced implementation paths`
+
+The release does not claim:
+
+- independent third-party verification;
+- production certification;
+- issuer authenticity;
+- physical transaction occurrence;
+- legal validity;
+- tax correctness;
+- accounting correctness;
+- payment settlement finality;
+- execution authority.
+
+The final trust relation is:
+
+`verification != authentication != approval != execution`

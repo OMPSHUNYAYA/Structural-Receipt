@@ -1,0 +1,87 @@
+{
+  "profile": "SR-RECEIPT-2-D02",
+  "schema_version": "2.1.0",
+  "ruleset_version": "SR-RULES-3.0.0",
+  "origin": {
+    "class": "WRAPPED",
+    "source_profile": "SR-GENERIC-JSON-ADAPTER-1-D01",
+    "source_artifact_id": "SHA256:f88b2b17413c1dd5f761ab9357a676c327810a831f41cc50b706a47da13eb741",
+    "unmapped_fields": [
+      "/legacy_notes/migration_batch",
+      "/legacy_notes/source_comment",
+      "/receipt/channel",
+      "/seller/internal_vendor_code"
+    ],
+    "warnings": [
+      "UNMAPPED_SOURCE_FIELDS_PRESERVED_AS_PATH_LIST"
+    ]
+  },
+  "transaction": {
+    "merchant": "Northstar Office Store",
+    "receipt_number": "LEGACY-1001",
+    "date": "2026-07-18",
+    "currency": "USD",
+    "items": [
+      {
+        "id": "ITEM-1",
+        "description": "Portable document scanner",
+        "qty": 1,
+        "unit_price": "240.00"
+      },
+      {
+        "id": "ITEM-2",
+        "description": "USB-C cable",
+        "qty": 2,
+        "unit_price": "15.00"
+      }
+    ],
+    "discount": "10.00",
+    "tax": "20.80",
+    "charges": "0.00",
+    "declared_total": "280.80"
+  },
+  "evidence": {
+    "payment": [
+      {
+        "kind": "INDEPENDENT_PAYMENT",
+        "reference": "PAY-LEGACY-1001",
+        "amount": "280.80",
+        "currency": "USD"
+      }
+    ]
+  },
+  "purpose_context": {
+    "expense": {
+      "business_purpose": "Office document digitization",
+      "claimant_role": "Employee"
+    },
+    "warranty": {
+      "item_reference": "ITEM-1"
+    },
+    "return_eligibility": {
+      "requested_amount": "25.00"
+    }
+  },
+  "lineage": [
+    {
+      "profile": "SR-LINEAGE-EVENT-1-D01",
+      "type": "RETURN",
+      "amount": "40.00",
+      "reference": "RET-LEGACY-1001",
+      "description": "Partial item return"
+    },
+    {
+      "profile": "SR-LINEAGE-EVENT-1-D01",
+      "type": "REFUND",
+      "amount": "40.00",
+      "reference": "RF-LEGACY-1001",
+      "description": "Refund for returned value"
+    }
+  ],
+  "evaluation_context": {
+    "profile": "SR-EVALUATION-CONTEXT-1-D01",
+    "as_of": "2026-07-18",
+    "jurisdiction_profile": "UNSPECIFIED",
+    "currency_profile": "SR-MONEY-2DP-1-D01"
+  }
+}

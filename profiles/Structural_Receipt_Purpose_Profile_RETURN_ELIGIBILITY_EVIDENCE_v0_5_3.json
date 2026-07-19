@@ -1,0 +1,24 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "RETURN_ELIGIBILITY_EVIDENCE",
+    "profile": "SR-RETURN-EVIDENCE-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Does the bounded receipt and lineage structure support the requested return amount?",
+    "authority_state": "EVIDENCE_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "purchase_declaration",
+      "lineage_consistency",
+      "return_request_amount",
+      "remaining_returnable_value"
+    ],
+    "context_requirements": [
+      "as_of"
+    ],
+    "limitations": "This does not approve a merchant return or override external return policy."
+  }
+}

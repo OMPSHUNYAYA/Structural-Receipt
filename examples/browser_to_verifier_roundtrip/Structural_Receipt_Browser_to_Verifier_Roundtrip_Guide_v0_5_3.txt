@@ -1,0 +1,64 @@
+STRUCTURAL RECEIPT v0.5.3
+BROWSER TO VERIFIER ROUND-TRIP EXAMPLE
+
+PURPOSE
+
+This example demonstrates portable verification without application integration.
+A Structural Receipt evidence bundle can be consumed by the standalone browser verifier or by the separate Python verifier without requiring the receiving side to adopt the producer application.
+
+CLEAN BUNDLE
+
+Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json
+
+Expected:
+
+verification_status = PASS
+receipt_identity = PASS
+structure_identity = PASS
+evaluation_context_identity = PASS
+purpose_profiles = PASS
+lineage = PASS
+purpose_receipts = PASS
+bundle_identity = PASS
+separate_implementation = PASS
+third_party_verification = NOT_CLAIMED
+execution_authority = NONE
+
+PYTHON VERIFICATION FROM THE REPOSITORY ROOT
+
+python verify/Structural_Receipt_Independent_Verifier_v0_5_3.py --bundle examples/browser_to_verifier_roundtrip/Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json --verbose
+
+STANDALONE BROWSER VERIFICATION
+
+Open:
+
+verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html
+
+Then select:
+
+examples/browser_to_verifier_roundtrip/Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json
+
+Expected verification status:
+
+PASS
+
+NEGATIVE EXAMPLE
+
+Structural_Receipt_Evidence_Bundle_SR-1001_Tampered_v0_5_3.json
+
+The declared total is changed from 280.80 to 999.99 without regenerating the claimed dependent identities.
+
+Python verification:
+
+python verify/Structural_Receipt_Independent_Verifier_v0_5_3.py --bundle examples/browser_to_verifier_roundtrip/Structural_Receipt_Evidence_Bundle_SR-1001_Tampered_v0_5_3.json --verbose
+
+Expected verification status:
+
+FAIL
+
+The negative example demonstrates selective dependency propagation: a material payload mutation invalidates the identities and purpose receipts that depend on the changed structure while independently unchanged subjects can remain unchanged.
+
+CLAIM BOUNDARY
+
+PASS means the bundle reconstructs within the declared v0.5.3 profiles.
+It does not establish issuer authenticity, physical occurrence, approval, execution authority, or independent third-party certification.

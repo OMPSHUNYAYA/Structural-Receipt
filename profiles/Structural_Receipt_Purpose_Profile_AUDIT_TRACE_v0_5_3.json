@@ -1,0 +1,22 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "AUDIT_TRACE",
+    "profile": "SR-AUDIT-TRACE-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Can the structural identities and linked events be reconstructed into a bounded audit trace?",
+    "authority_state": "TRACE_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "receipt_identity",
+      "structure_identity",
+      "origin_class",
+      "lineage_event_identities"
+    ],
+    "context_requirements": [],
+    "limitations": "A reconstructable trace is producer-side evidence, not independent audit assurance or certification."
+  }
+}

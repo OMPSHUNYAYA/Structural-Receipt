@@ -1,0 +1,101 @@
+{
+  "format": "SR-HOSTILE-INPUT-CORPUS-1-D01",
+  "canonicalization_profile": "SR-CANON-1-D01",
+  "strict_json_profile": "SR-JSON-INPUT-1-D01",
+  "money_profile": "SR-MONEY-2DP-1-D01",
+  "profile_manifest": {
+    "architecture": "SR-CORE-5",
+    "resolver": "SR-RESOLVER-5-D01",
+    "canonicalization": "SR-CANON-1-D01",
+    "dependency": "SR-DEPENDENCY-1-D01",
+    "authority": "SR-AUTHORITY-1-D01",
+    "lineage": "SR-LINEAGE-1-D01",
+    "lineage_graph": "SR-LINEAGE-GRAPH-1-D01",
+    "money": "SR-MONEY-2DP-1-D01",
+    "purpose": "SR-PURPOSE-3",
+    "purpose_receipt": "SR-PURPOSE-RECEIPT-1-D01",
+    "bundle": "SR-EVIDENCE-BUNDLE-2-D01",
+    "verifier": "SR-VERIFIER-2-D01",
+    "independent_verifier": "SR-INDEPENDENT-VERIFIER-2-D01",
+    "conformance": "SR-CONFORMANCE-2-D01",
+    "corpus": "SR-CONFORMANCE-CORPUS-2-D01",
+    "tamper_corpus": "SR-TAMPER-CORPUS-2-D01",
+    "adapter": "SR-ADAPTER-1-D01",
+    "schema": "SR-RECEIPT-2-D02",
+    "version": "0.5.3",
+    "purpose_manifest": "SR-PURPOSE-MANIFEST-1-D01",
+    "evaluation_context": "SR-EVALUATION-CONTEXT-1-D01",
+    "trust_context": "SR-TRUST-CONTEXT-1-D01",
+    "money_context": "SR-MONEY-CONTEXT-1-D01",
+    "strict_json": "SR-JSON-INPUT-1-D01",
+    "hostile_corpus": "SR-HOSTILE-INPUT-CORPUS-1-D01"
+  },
+  "cases": [
+    {
+      "id": "unicode_nfc_nfd_distinct",
+      "expected_status": "PASS",
+      "detail": "No Unicode normalization is performed by SR-CANON-1-D01."
+    },
+    {
+      "id": "duplicate_json_keys_rejected",
+      "expected_status": "PASS",
+      "detail": "Strict import parsing rejects duplicate decoded object keys."
+    },
+    {
+      "id": "trailing_json_data_rejected",
+      "expected_status": "PASS",
+      "detail": "Strict import parsing rejects trailing data."
+    },
+    {
+      "id": "zero_amount_exact",
+      "expected_status": "PASS",
+      "detail": "Zero is represented exactly under the current two-decimal profile."
+    },
+    {
+      "id": "negative_amount_exact",
+      "expected_status": "PASS",
+      "detail": "Negative exact amounts remain exact where the bounded parser accepts them."
+    },
+    {
+      "id": "excess_decimal_rejected",
+      "expected_status": "PASS",
+      "detail": "More than two decimal places are rejected by the active money profile."
+    },
+    {
+      "id": "extreme_magnitude_exact",
+      "expected_status": "PASS",
+      "detail": "Large supported decimal magnitudes remain exact through BigInt minor units."
+    },
+    {
+      "id": "jpy_explicitly_unsupported",
+      "expected_status": "PASS",
+      "detail": "Zero-decimal currency is not silently forced into the two-decimal profile."
+    },
+    {
+      "id": "kwd_explicitly_unsupported",
+      "expected_status": "PASS",
+      "detail": "Three-decimal currency is not silently forced into the two-decimal profile."
+    },
+    {
+      "id": "missing_as_of_abstains",
+      "expected_status": "PASS",
+      "detail": "Time-relative purposes abstain when the declared evaluation context is missing."
+    },
+    {
+      "id": "duplicate_lineage_event_rejected",
+      "expected_status": "PASS",
+      "detail": "Exact event replay creates a lineage conflict rather than being counted twice."
+    },
+    {
+      "id": "empty_item_lines_incomplete",
+      "expected_status": "PASS",
+      "detail": "An empty purchase does not resolve as a complete purchase declaration."
+    },
+    {
+      "id": "invalid_item_quantity_rejected",
+      "expected_status": "PASS",
+      "detail": "Imported item quantities must be positive integers before entering the active receipt state."
+    }
+  ],
+  "corpus_id": "1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603"
+}

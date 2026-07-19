@@ -1,0 +1,110 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-SET-ARTIFACT-1-D01",
+  "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+  "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+  "purpose_count": 9,
+  "identity_subject": {
+    "profile": "SR-PURPOSE-MANIFEST-1-D01",
+    "purposes": [
+      {
+        "purpose": "ACCOUNTING_CLASSIFICATION",
+        "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a"
+      },
+      {
+        "purpose": "ARITHMETIC_CHECK",
+        "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42"
+      },
+      {
+        "purpose": "AUDIT_TRACE",
+        "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e"
+      },
+      {
+        "purpose": "EXPENSE_EVIDENCE",
+        "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351"
+      },
+      {
+        "purpose": "LINEAGE_CURRENT_STATE",
+        "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118"
+      },
+      {
+        "purpose": "PAYMENT_MATCH",
+        "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f"
+      },
+      {
+        "purpose": "PURCHASE_DECLARATION",
+        "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533"
+      },
+      {
+        "purpose": "RETURN_ELIGIBILITY_EVIDENCE",
+        "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc"
+      },
+      {
+        "purpose": "WARRANTY_EVIDENCE",
+        "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125"
+      }
+    ]
+  },
+  "profiles": [
+    {
+      "purpose": "PURCHASE_DECLARATION",
+      "profile": "SR-PURCHASE-1-D01",
+      "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+      "file": "Structural_Receipt_Purpose_Profile_PURCHASE_DECLARATION_v0_5_3.json"
+    },
+    {
+      "purpose": "ARITHMETIC_CHECK",
+      "profile": "SR-ARITHMETIC-1-D01",
+      "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+      "file": "Structural_Receipt_Purpose_Profile_ARITHMETIC_CHECK_v0_5_3.json"
+    },
+    {
+      "purpose": "PAYMENT_MATCH",
+      "profile": "SR-PAYMENT-MATCH-1-D01",
+      "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+      "file": "Structural_Receipt_Purpose_Profile_PAYMENT_MATCH_v0_5_3.json"
+    },
+    {
+      "purpose": "EXPENSE_EVIDENCE",
+      "profile": "SR-EXPENSE-EVIDENCE-1-D01",
+      "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+      "file": "Structural_Receipt_Purpose_Profile_EXPENSE_EVIDENCE_v0_5_3.json"
+    },
+    {
+      "purpose": "WARRANTY_EVIDENCE",
+      "profile": "SR-WARRANTY-EVIDENCE-1-D01",
+      "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+      "file": "Structural_Receipt_Purpose_Profile_WARRANTY_EVIDENCE_v0_5_3.json"
+    },
+    {
+      "purpose": "RETURN_ELIGIBILITY_EVIDENCE",
+      "profile": "SR-RETURN-EVIDENCE-1-D01",
+      "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+      "file": "Structural_Receipt_Purpose_Profile_RETURN_ELIGIBILITY_EVIDENCE_v0_5_3.json"
+    },
+    {
+      "purpose": "LINEAGE_CURRENT_STATE",
+      "profile": "SR-LINEAGE-STATE-1-D01",
+      "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+      "file": "Structural_Receipt_Purpose_Profile_LINEAGE_CURRENT_STATE_v0_5_3.json"
+    },
+    {
+      "purpose": "ACCOUNTING_CLASSIFICATION",
+      "profile": "SR-ACCOUNTING-PROPOSAL-1-D01",
+      "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+      "file": "Structural_Receipt_Purpose_Profile_ACCOUNTING_CLASSIFICATION_v0_5_3.json"
+    },
+    {
+      "purpose": "AUDIT_TRACE",
+      "profile": "SR-AUDIT-TRACE-1-D01",
+      "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+      "file": "Structural_Receipt_Purpose_Profile_AUDIT_TRACE_v0_5_3.json"
+    }
+  ],
+  "claim_boundary": {
+    "execution_authority": "NONE",
+    "issuer_authenticity": "NOT_ESTABLISHED_BY_PURPOSE_PROFILE_IDENTITY",
+    "physical_occurrence": "NOT_ESTABLISHED_BY_PURPOSE_PROFILE_IDENTITY",
+    "third_party_verification": "NOT_CLAIMED"
+  }
+}

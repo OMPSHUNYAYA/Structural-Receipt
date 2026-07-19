@@ -1,0 +1,57 @@
+{
+  "release": "Structural Receipt v0.5.3",
+  "verification_scope": "CROSS_BOUNDARY_VERIFICATION_WITHOUT_INTEGRATION",
+  "principle": "Adopt on one side. Verify on the other. Integrate only when useful.",
+  "source": "demo/Structural_Receipt_Reference_Demo_v0_5_3.html",
+  "bundle": {
+    "reference_artifact": "examples/browser_to_verifier_roundtrip/Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json",
+    "filename_pattern": "Structural_Receipt_Evidence_Bundle_<receipt_number>_v0_5_3.json",
+    "bundle_id": "736be993cf8811d66efbfba8f8891fc396846f89188972d7d81b6769e2b8260f",
+    "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+    "structure_id": "84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd",
+    "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+    "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+    "current_lineage_state_id": "207a75376e386bf5f8e8bb38c063c5be076e1b51e677d00c5b25607730755757"
+  },
+  "standalone_browser_verifier": {
+    "artifact": "verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html",
+    "clean_bundle": {
+      "status": "PASS",
+      "reconstruction_checks_pass": 20,
+      "reconstruction_checks_total": 20
+    },
+    "tampered_bundle": {
+      "mutation": "declared_total 280.80 -> 999.99 without regenerating claimed identities",
+      "status": "FAIL",
+      "expected_rejection": true
+    },
+    "strict_duplicate_key_rejection": "PASS",
+    "claim_boundary": "PASS",
+    "public_api": "PASS",
+    "final_status": "PASS"
+  },
+  "separate_python_verifier": {
+    "artifact": "verify/Structural_Receipt_Independent_Verifier_v0_5_3.py",
+    "clean_bundle": {
+      "status": "PASS",
+      "verification_scope": "SEPARATE_IMPLEMENTATION_RECONSTRUCTION",
+      "checks_pass": 20,
+      "checks_total": 20
+    },
+    "tampered_bundle": {
+      "status": "FAIL",
+      "checks_pass": 6,
+      "checks_fail": 14,
+      "checks_total": 20,
+      "expected_rejection": true
+    },
+    "machine_result_profile": "SR-VERIFICATION-RESULT-1-D01",
+    "third_party_verification": "NOT_CLAIMED",
+    "execution_authority": "NONE"
+  },
+  "final_status": "PASS",
+  "claim_boundary": {
+    "third_party_verification": "NOT_CLAIMED",
+    "execution_authority": "NONE"
+  }
+}

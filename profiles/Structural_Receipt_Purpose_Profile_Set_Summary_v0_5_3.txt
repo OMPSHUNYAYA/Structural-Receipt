@@ -1,0 +1,29 @@
+STRUCTURAL RECEIPT v0.5.3 - PURPOSE PROFILE SET
+
+Folder: profiles/
+Profile family: SR-PURPOSE-MANIFEST-1-D01
+Purpose profiles: 9
+Purpose manifest set identity: 20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381
+
+IDENTITY RULE
+purpose_profile_id = SHA256(canonical(profile_subject))
+purpose_manifest_set_id = SHA256(canonical({profile, purposes:[{purpose,purpose_profile_id}, ...]}))
+
+PROFILE IDENTITIES
+PURCHASE_DECLARATION: 50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533
+ARITHMETIC_CHECK: b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42
+PAYMENT_MATCH: cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f
+EXPENSE_EVIDENCE: d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351
+WARRANTY_EVIDENCE: 77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125
+RETURN_ELIGIBILITY_EVIDENCE: e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc
+LINEAGE_CURRENT_STATE: 5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118
+ACCOUNTING_CLASSIFICATION: fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a
+AUDIT_TRACE: 1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e
+
+BOUNDARY
+Purpose-profile identity establishes deterministic identity of the declared governing profile data.
+It does not authenticate an issuer, prove physical occurrence, approve a downstream action, or grant execution authority.
+
+RELEASE STATUS
+All 9 standalone profile identities reconstruct from their published profile_subject data and match the v0.5.3 browser reference implementation.
+The reconstructed purpose_manifest_set_id matches the v0.5.3 browser reference implementation and verifier implementations.

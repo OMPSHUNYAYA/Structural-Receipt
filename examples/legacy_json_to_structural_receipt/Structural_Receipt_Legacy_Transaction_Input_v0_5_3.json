@@ -1,0 +1,65 @@
+{
+  "seller": {
+    "name": "Northstar Office Store",
+    "internal_vendor_code": "VENDOR-4421"
+  },
+  "receipt": {
+    "number": "LEGACY-1001",
+    "date": "2026-07-18",
+    "currency": "USD",
+    "channel": "existing-procurement-system"
+  },
+  "lines": [
+    {
+      "sku": "ITEM-1",
+      "description": "Portable document scanner",
+      "quantity": 1,
+      "unit_price": "240.00"
+    },
+    {
+      "sku": "ITEM-2",
+      "description": "USB-C cable",
+      "quantity": 2,
+      "unit_price": "15.00"
+    }
+  ],
+  "totals": {
+    "discount": "10.00",
+    "tax": "20.80",
+    "charges": "0.00",
+    "total": "280.80"
+  },
+  "payments": [
+    {
+      "reference": "PAY-LEGACY-1001",
+      "amount": "280.80",
+      "currency": "USD"
+    }
+  ],
+  "adjustments": [
+    {
+      "type": "RETURN",
+      "amount": "40.00",
+      "reference": "RET-LEGACY-1001",
+      "description": "Partial item return"
+    },
+    {
+      "type": "REFUND",
+      "amount": "40.00",
+      "reference": "RF-LEGACY-1001",
+      "description": "Refund for returned value"
+    }
+  ],
+  "context": {
+    "business_purpose": "Office document digitization",
+    "claimant_role": "Employee",
+    "warranty_item_reference": "ITEM-1",
+    "requested_return_amount": "25.00",
+    "as_of": "2026-07-18",
+    "jurisdiction_profile": "UNSPECIFIED"
+  },
+  "legacy_notes": {
+    "migration_batch": "BATCH-07-2026",
+    "source_comment": "Preserved as unmapped source data"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "WARRANTY_EVIDENCE",
+    "profile": "SR-WARRANTY-EVIDENCE-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Is bounded proof-of-purchase evidence available for a declared item reference?",
+    "authority_state": "EVIDENCE_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "purchase_declaration",
+      "warranty_item_reference",
+      "referenced_item_exists"
+    ],
+    "context_requirements": [
+      "as_of"
+    ],
+    "limitations": "This does not establish manufacturer coverage, claim eligibility, or warranty approval."
+  }
+}

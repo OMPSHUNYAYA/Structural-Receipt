@@ -1,0 +1,326 @@
+STRUCTURAL RECEIPT v0.5.3
+VERIFICATION SUMMARY
+
+Release version: v0.5.3
+Verification status: PASS
+Third-party verification: NOT_CLAIMED
+Execution authority: NONE
+
+Adopt on one side. Verify on the other. Integrate only when useful.
+
+======================================================================
+1. PURPOSE
+======================================================================
+
+This verification set records the browser producer-side audit, frozen corpus
+reconstruction, separate Python reconstruction, standalone browser bundle
+reconstruction, and the cross-boundary verification path for Structural Receipt
+v0.5.3.
+
+The evidence demonstrates deterministic reconstruction within the declared
+Structural Receipt profiles and supported input boundary.
+
+It does not establish:
+
+- issuer authenticity;
+- physical transaction occurrence;
+- legal validity;
+- payment or settlement finality;
+- reimbursement approval;
+- accounting posting authority;
+- tax admissibility;
+- independent third-party certification.
+
+Core boundary:
+
+`verification != authentication != approval != execution`
+
+======================================================================
+2. ARTIFACT PATHS
+======================================================================
+
+Browser reference:
+
+`demo/Structural_Receipt_Reference_Demo_v0_5_3.html`
+
+Verification tools and corpora:
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+`verify/Structural_Receipt_Conformance_Corpus_v0_5_3.json`
+
+`verify/Structural_Receipt_Tamper_Corpus_v0_5_3.json`
+
+`verify/Structural_Receipt_Hostile_Input_Corpus_v0_5_3.json`
+
+Verification evidence:
+
+`verify/evidence/Structural_Receipt_Browser_Audit_Result_v0_5_3.json`
+
+`verify/evidence/Structural_Receipt_Separate_Implementation_Verification_v0_5_3.json`
+
+`verify/evidence/Structural_Receipt_Cross_Boundary_Verification_v0_5_3.json`
+
+======================================================================
+3. BROWSER PRODUCER-SIDE AUDIT
+======================================================================
+
+Full audit:
+
+`221/221 PASS`
+
+Quick regression gate:
+
+`72/72 PASS`
+
+Permanent regression checks:
+
+`122`
+
+Audit groups:
+
+`27`
+
+Purpose profiles:
+
+`9`
+
+Tracked regression counters:
+
+`integrity_regression = 0`
+
+`unexpected_mutation = 0`
+
+`authority_escalation = 0`
+
+`evidence_reconstruction_regression = 0`
+
+`conformance_regression = 0`
+
+`tamper_corpus_regression = 0`
+
+`hostile_input_regression = 0`
+
+`ui_interaction_regression = 0`
+
+`ui_security_regression = 0`
+
+`release_consistency_regression = 0`
+
+The browser audit includes explicit regression coverage for imported quantity
+validation, hostile origin-class rejection before active-state admission,
+presentation-layer inertness, tactile interaction state, live audit progress,
+and monotonic local item identifiers that do not depend on ambient time.
+
+======================================================================
+4. FROZEN CORPUS RESULTS
+======================================================================
+
+Conformance corpus:
+
+`308/308 PASS`
+
+Vectors:
+
+`18`
+
+Corpus identity:
+
+`9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e`
+
+Tamper corpus:
+
+`12/12 PASS`
+
+Corpus identity:
+
+`3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5`
+
+Hostile-input corpus:
+
+`13/13 PASS`
+
+Corpus identity:
+
+`1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603`
+
+The hostile-input set includes strict duplicate-key rejection, trailing-data
+rejection, exact-money boundaries, unsupported currency exponents, missing
+required evaluation context, lineage replay rejection, empty item-line handling,
+and invalid imported quantity rejection.
+
+======================================================================
+5. SEPARATE PYTHON RECONSTRUCTION
+======================================================================
+
+Command from the `verify` folder:
+
+`python Structural_Receipt_Independent_Verifier_v0_5_3.py --all --verbose`
+
+Expected principal results:
+
+`CONFORMANCE = 308/308 PASS`
+
+`TAMPER = 12/12 PASS`
+
+`HOSTILE INPUT = 13/13 PASS`
+
+The Python verifier contains one authoritative definition for each public
+verification function and uses strict JSON loading for command-line inputs.
+
+Malformed JSON and duplicate object keys return a controlled machine-readable
+FAIL result under:
+
+`SR-VERIFICATION-RESULT-1-D01`
+
+rather than exposing a raw traceback as the verification result.
+
+Input rejection preserves:
+
+`overall verification status = FAIL`
+
+while unreached reconstruction dimensions remain:
+
+`NOT_CHECKED`
+
+======================================================================
+6. STANDALONE BROWSER RECONSTRUCTION
+======================================================================
+
+The standalone browser verifier reconstructs supported evidence bundles locally.
+
+Clean v0.5.3 reference bundle:
+
+`20/20 PASS`
+
+Tampered declared-total bundle:
+
+`FAIL`
+
+The standalone verification path does not rely on producer-generated PASS
+assertions as verification authority.
+
+The verification interface renders untrusted bundle-derived output through
+non-executable DOM text construction for the verifier result surface.
+
+======================================================================
+7. CROSS-BOUNDARY RESULT
+======================================================================
+
+Reference artifact:
+
+`examples/browser_to_verifier_roundtrip/Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json`
+
+Reference flow:
+
+`producer -> portable evidence bundle -> standalone browser verifier`
+
+or:
+
+`producer -> portable evidence bundle -> separate Python verifier`
+
+Current reference bundle identity:
+
+`736be993cf8811d66efbfba8f8891fc396846f89188972d7d81b6769e2b8260f`
+
+Receipt identity:
+
+`1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379`
+
+Structure identity:
+
+`84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd`
+
+Evaluation-context identity:
+
+`0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43`
+
+Purpose-manifest-set identity:
+
+`20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+Current-lineage-state identity:
+
+`207a75376e386bf5f8e8bb38c063c5be076e1b51e677d00c5b25607730755757`
+
+Standalone browser reconstruction:
+
+`20/20 PASS`
+
+Separate Python reconstruction:
+
+`20/20 PASS`
+
+Declared-total tamper:
+
+`FAIL`
+
+Separate Python tamper reconstruction:
+
+`14/20 checks FAIL as expected`
+
+Final cross-boundary status:
+
+`PASS`
+
+======================================================================
+8. RELEASE CHECKPOINT MODEL AND FILE CHECKSUM AUTHORITY
+======================================================================
+
+The repository-root `SHA256SUMS.txt` is the authoritative machine-readable
+checkpoint for the selected executable file bytes.
+
+Current checksum scope:
+
+`demo/Structural_Receipt_Reference_Demo_v0_5_3.html`
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+`bridge/Structural_Receipt_Bridge_v0_5_3.py`
+
+Exact SHA-256 values are maintained in `SHA256SUMS.txt` and are not duplicated
+as a second checksum registry in this summary.
+
+The broader checkpoint model is:
+
+`executable file bytes -> SHA256SUMS.txt`
+
+`semantic corpora -> corpus_id`
+
+`purpose rule data -> purpose_profile_id + purpose_manifest_set_id`
+
+`evidence bundles -> bundle_id`
+
+`verification evidence -> reconstructed identities + recorded result`
+
+This separates file-byte identity from semantic identity and reduces the risk of
+independent checksum tables drifting apart.
+
+======================================================================
+9. CURRENT BOUNDARY
+======================================================================
+
+The current verification result establishes bounded structural reconstruction
+within the declared profiles.
+
+It preserves:
+
+`integrity != authenticity`
+
+`reconstruction != third-party certification`
+
+`RESOLVED != APPROVED`
+
+`verification != execution authority`
+
+Third-party verification remains:
+
+`NOT_CLAIMED`
+
+Execution authority remains:
+
+`NONE`

@@ -1,0 +1,43 @@
+STRUCTURAL RECEIPT v0.5.3
+EXAMPLES INDEX
+
+These examples demonstrate practical adoption and verification paths while preserving the authority boundaries of the Structural Receipt model.
+
+1. legacy_json_to_structural_receipt/
+
+Purpose:
+Demonstrate one-sided adoption where an existing transaction system continues to emit its current JSON format.
+
+Flow:
+existing JSON -> declared adapter manifest -> bridge -> WRAPPED Structural Receipt -> evidence bundle -> separate verification
+
+Key boundaries:
+WRAPPED != NATIVE
+semantic_equivalence = NOT_ASSUMED
+execution_authority = NONE
+third_party_verification = NOT_CLAIMED
+
+The example preserves source provenance and unmapped-field paths. The generated bundle can be reconstructed independently of the bridge conversion result.
+
+2. browser_to_verifier_roundtrip/
+
+Purpose:
+Demonstrate producer-side export and verifier-side reconstruction without requiring the receiving side to adopt the producer application.
+
+Flow:
+Structural Receipt producer -> portable evidence bundle -> standalone browser verifier OR separate Python verifier
+
+The folder includes:
+- one clean evidence bundle expected to verify as PASS;
+- one deliberately tampered bundle expected to verify as FAIL;
+- one machine-readable expected-results file;
+- one round-trip guide.
+
+GUIDING ADOPTION PRINCIPLE
+
+Adopt on one side. Verify on the other. Integrate only when useful.
+
+CLAIM BOUNDARY
+
+These examples demonstrate deterministic structural reconstruction within the declared v0.5.3 profiles.
+They do not establish issuer authenticity, prove physical transaction occurrence, grant execution authority, approve downstream action, or constitute independent third-party certification.

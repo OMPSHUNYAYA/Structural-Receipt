@@ -1,0 +1,23 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "ARITHMETIC_CHECK",
+    "profile": "SR-ARITHMETIC-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Is the declared total arithmetically consistent with the declared monetary structure?",
+    "authority_state": "CHECK_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "item_lines",
+      "discount",
+      "tax",
+      "charges",
+      "declared_total"
+    ],
+    "context_requirements": [],
+    "limitations": "Arithmetic consistency does not establish authenticity or payment."
+  }
+}

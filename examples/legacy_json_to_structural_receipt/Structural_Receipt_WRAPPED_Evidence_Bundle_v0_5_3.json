@@ -1,0 +1,698 @@
+{
+  "format": "SR-EVIDENCE-BUNDLE-2-D01",
+  "producer": "Structural Receipt Browser Reference v0.5.3",
+  "verification_scope": "PRODUCER_EXPORT",
+  "independent_verification": "NOT_CLAIMED",
+  "profile_manifest": {
+    "architecture": "SR-CORE-5",
+    "resolver": "SR-RESOLVER-5-D01",
+    "canonicalization": "SR-CANON-1-D01",
+    "dependency": "SR-DEPENDENCY-1-D01",
+    "authority": "SR-AUTHORITY-1-D01",
+    "lineage": "SR-LINEAGE-1-D01",
+    "lineage_graph": "SR-LINEAGE-GRAPH-1-D01",
+    "money": "SR-MONEY-2DP-1-D01",
+    "purpose": "SR-PURPOSE-3",
+    "purpose_receipt": "SR-PURPOSE-RECEIPT-1-D01",
+    "bundle": "SR-EVIDENCE-BUNDLE-2-D01",
+    "verifier": "SR-VERIFIER-2-D01",
+    "independent_verifier": "SR-INDEPENDENT-VERIFIER-2-D01",
+    "conformance": "SR-CONFORMANCE-2-D01",
+    "corpus": "SR-CONFORMANCE-CORPUS-2-D01",
+    "tamper_corpus": "SR-TAMPER-CORPUS-2-D01",
+    "adapter": "SR-ADAPTER-1-D01",
+    "schema": "SR-RECEIPT-2-D02",
+    "version": "0.5.3",
+    "purpose_manifest": "SR-PURPOSE-MANIFEST-1-D01",
+    "evaluation_context": "SR-EVALUATION-CONTEXT-1-D01",
+    "trust_context": "SR-TRUST-CONTEXT-1-D01",
+    "money_context": "SR-MONEY-CONTEXT-1-D01",
+    "strict_json": "SR-JSON-INPUT-1-D01",
+    "hostile_corpus": "SR-HOSTILE-INPUT-CORPUS-1-D01"
+  },
+  "purpose_profile_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+  "purpose_profile_manifests": {
+    "PURCHASE_DECLARATION": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "PURCHASE_DECLARATION",
+      "profile": "SR-PURCHASE-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Is the bounded purchase declaration structurally complete?",
+      "authority_state": "DECLARATION_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "merchant",
+        "receipt_number",
+        "transaction_date",
+        "currency",
+        "item_lines",
+        "declared_total"
+      ],
+      "context_requirements": [],
+      "limitations": "A complete declaration does not prove payment, delivery, issuer authenticity, or physical occurrence.",
+      "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533"
+    },
+    "ARITHMETIC_CHECK": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "ARITHMETIC_CHECK",
+      "profile": "SR-ARITHMETIC-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Is the declared total arithmetically consistent with the declared monetary structure?",
+      "authority_state": "CHECK_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "item_lines",
+        "discount",
+        "tax",
+        "charges",
+        "declared_total"
+      ],
+      "context_requirements": [],
+      "limitations": "Arithmetic consistency does not establish authenticity or payment.",
+      "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42"
+    },
+    "PAYMENT_MATCH": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "PAYMENT_MATCH",
+      "profile": "SR-PAYMENT-MATCH-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Does available independent payment evidence match the declared amount and currency?",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "declared_total",
+        "transaction_currency",
+        "payment_reference",
+        "payment_amount",
+        "payment_currency"
+      ],
+      "context_requirements": [],
+      "limitations": "A match is evidence compatibility only. It does not execute settlement or prove finality.",
+      "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f"
+    },
+    "EXPENSE_EVIDENCE": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "EXPENSE_EVIDENCE",
+      "profile": "SR-EXPENSE-EVIDENCE-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Does the receipt satisfy the bounded example expense-evidence profile?",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "purchase_declaration",
+        "business_purpose"
+      ],
+      "context_requirements": [],
+      "limitations": "This is not a universal reimbursement policy and does not approve payment.",
+      "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351"
+    },
+    "WARRANTY_EVIDENCE": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "WARRANTY_EVIDENCE",
+      "profile": "SR-WARRANTY-EVIDENCE-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Is bounded proof-of-purchase evidence available for a declared item reference?",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "purchase_declaration",
+        "warranty_item_reference",
+        "referenced_item_exists"
+      ],
+      "context_requirements": [
+        "as_of"
+      ],
+      "limitations": "This does not establish manufacturer coverage, claim eligibility, or warranty approval.",
+      "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125"
+    },
+    "RETURN_ELIGIBILITY_EVIDENCE": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "RETURN_ELIGIBILITY_EVIDENCE",
+      "profile": "SR-RETURN-EVIDENCE-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Does the bounded receipt and lineage structure support the requested return amount?",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "purchase_declaration",
+        "lineage_consistency",
+        "return_request_amount",
+        "remaining_returnable_value"
+      ],
+      "context_requirements": [
+        "as_of"
+      ],
+      "limitations": "This does not approve a merchant return or override external return policy.",
+      "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc"
+    },
+    "LINEAGE_CURRENT_STATE": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "LINEAGE_CURRENT_STATE",
+      "profile": "SR-LINEAGE-STATE-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "What bounded current transaction state follows from compatible linked adjustments?",
+      "authority_state": "STATE_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "declared_total",
+        "lineage_events"
+      ],
+      "context_requirements": [
+        "as_of"
+      ],
+      "limitations": "The current state is resolved only within the supported return, refund, and credit model.",
+      "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118"
+    },
+    "ACCOUNTING_CLASSIFICATION": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "ACCOUNTING_CLASSIFICATION",
+      "profile": "SR-ACCOUNTING-PROPOSAL-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Can the available transaction evidence support a bounded accounting-classification proposal?",
+      "authority_state": "PROPOSAL_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "purchase_declaration"
+      ],
+      "context_requirements": [],
+      "limitations": "RESOLVED means the proposal question was resolved. It never means APPROVED, POSTED, or authoritative accounting treatment.",
+      "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a"
+    },
+    "AUDIT_TRACE": {
+      "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+      "purpose": "AUDIT_TRACE",
+      "profile": "SR-AUDIT-TRACE-1-D01",
+      "manifest_version": "1.0.0",
+      "question": "Can the structural identities and linked events be reconstructed into a bounded audit trace?",
+      "authority_state": "TRACE_ONLY",
+      "execution_authority": "NONE",
+      "required_dependencies": [
+        "receipt_identity",
+        "structure_identity",
+        "origin_class",
+        "lineage_event_identities"
+      ],
+      "context_requirements": [],
+      "limitations": "A reconstructable trace is producer-side evidence, not independent audit assurance or certification.",
+      "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e"
+    }
+  },
+  "evaluation_context": {
+    "profile": "SR-EVALUATION-CONTEXT-1-D01",
+    "as_of": "2026-07-18",
+    "jurisdiction_profile": "UNSPECIFIED",
+    "currency_profile": "SR-MONEY-2DP-1-D01"
+  },
+  "trust_context": {
+    "profile": "SR-TRUST-CONTEXT-1-D01",
+    "structural_integrity_state": "RECONSTRUCTABLE",
+    "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+    "issuer_authenticity_state": "NOT_ESTABLISHED",
+    "physical_occurrence_state": "NOT_ESTABLISHED",
+    "execution_authority": "NONE"
+  },
+  "adapter_contract": {
+    "profile": "SR-ADAPTER-1-D01",
+    "origin_class": "WRAPPED",
+    "source_profile": "SR-GENERIC-JSON-ADAPTER-1-D01",
+    "source_artifact_id": "SHA256:f88b2b17413c1dd5f761ab9357a676c327810a831f41cc50b706a47da13eb741",
+    "unmapped_fields": [
+      "/legacy_notes/migration_batch",
+      "/legacy_notes/source_comment",
+      "/receipt/channel",
+      "/seller/internal_vendor_code"
+    ],
+    "warnings": [
+      "UNMAPPED_SOURCE_FIELDS_PRESERVED_AS_PATH_LIST"
+    ],
+    "origin_authority": "TRANSFORMED_FROM_DECLARED_SOURCE",
+    "semantic_equivalence": "NOT_ASSUMED"
+  },
+  "receipt": {
+    "profile": "SR-RECEIPT-2-D02",
+    "schema_version": "2.1.0",
+    "ruleset_version": "SR-RULES-3.0.0",
+    "origin": {
+      "class": "WRAPPED",
+      "source_profile": "SR-GENERIC-JSON-ADAPTER-1-D01",
+      "source_artifact_id": "SHA256:f88b2b17413c1dd5f761ab9357a676c327810a831f41cc50b706a47da13eb741",
+      "unmapped_fields": [
+        "/legacy_notes/migration_batch",
+        "/legacy_notes/source_comment",
+        "/receipt/channel",
+        "/seller/internal_vendor_code"
+      ],
+      "warnings": [
+        "UNMAPPED_SOURCE_FIELDS_PRESERVED_AS_PATH_LIST"
+      ]
+    },
+    "transaction": {
+      "merchant": "Northstar Office Store",
+      "receipt_number": "LEGACY-1001",
+      "date": "2026-07-18",
+      "currency": "USD",
+      "items": [
+        {
+          "id": "ITEM-1",
+          "description": "Portable document scanner",
+          "qty": 1,
+          "unit_price": "240.00"
+        },
+        {
+          "id": "ITEM-2",
+          "description": "USB-C cable",
+          "qty": 2,
+          "unit_price": "15.00"
+        }
+      ],
+      "discount": "10.00",
+      "tax": "20.80",
+      "charges": "0.00",
+      "declared_total": "280.80"
+    },
+    "evidence": {
+      "payment": [
+        {
+          "kind": "INDEPENDENT_PAYMENT",
+          "reference": "PAY-LEGACY-1001",
+          "amount": "280.80",
+          "currency": "USD"
+        }
+      ]
+    },
+    "purpose_context": {
+      "expense": {
+        "business_purpose": "Office document digitization",
+        "claimant_role": "Employee"
+      },
+      "warranty": {
+        "item_reference": "ITEM-1"
+      },
+      "return_eligibility": {
+        "requested_amount": "25.00"
+      }
+    },
+    "lineage": [
+      {
+        "profile": "SR-LINEAGE-EVENT-1-D01",
+        "type": "RETURN",
+        "amount": "40.00",
+        "reference": "RET-LEGACY-1001",
+        "description": "Partial item return"
+      },
+      {
+        "profile": "SR-LINEAGE-EVENT-1-D01",
+        "type": "REFUND",
+        "amount": "40.00",
+        "reference": "RF-LEGACY-1001",
+        "description": "Refund for returned value"
+      }
+    ],
+    "evaluation_context": {
+      "profile": "SR-EVALUATION-CONTEXT-1-D01",
+      "as_of": "2026-07-18",
+      "jurisdiction_profile": "UNSPECIFIED",
+      "currency_profile": "SR-MONEY-2DP-1-D01"
+    }
+  },
+  "identities": {
+    "receipt_id": "e15eae20d8b788bdd89b3c757d856c8aed8547bff556ef2eeb23b34745a4a373",
+    "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+    "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+    "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381"
+  },
+  "lineage": {
+    "event_ids": [
+      "35e3827d911a196c49f4f594f6ba2f9ad857eb3c3477ae4e0362baa13d9ebea8",
+      "785785fcfa1fad4344dba65438d7a9b5665007507df9c78f5066eb1df8fb2427"
+    ],
+    "lineage_graph_id": "fe3dcb9bc01bbd18b1c503df1331f7cf812be3f838dddce94d11d697797d29ff",
+    "current_lineage_state_id": "90d136de73a53e7e075cd111a00255ae736c13e91deafa81c836f9303237e529"
+  },
+  "purpose_receipts": [
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "PURCHASE_DECLARATION",
+      "purpose_profile": "SR-PURCHASE-1-D01",
+      "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "PURCHASE_DECLARED",
+      "authority_state": "DECLARATION_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "merchant",
+        "receipt_number",
+        "transaction_date",
+        "currency",
+        "item_lines",
+        "declared_total"
+      ],
+      "satisfied_dependencies": [
+        "merchant",
+        "receipt_number",
+        "transaction_date",
+        "currency",
+        "item_lines",
+        "declared_total"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [
+        "e15eae20d8b788bdd89b3c757d856c8aed8547bff556ef2eeb23b34745a4a373"
+      ],
+      "purpose_result_id": "f3b7de84466ee8879f76641549aae64dd90930226f70be3b31ec3c9de5052ab2",
+      "purpose_receipt_id": "b1d93e7b9f7d68d77f178d3e65440fb4f048d8558857f72306fc815d91b719f8"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "ARITHMETIC_CHECK",
+      "purpose_profile": "SR-ARITHMETIC-1-D01",
+      "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "ARITHMETIC_CONSISTENT",
+      "authority_state": "CHECK_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "item_lines",
+        "discount",
+        "tax",
+        "charges",
+        "declared_total"
+      ],
+      "satisfied_dependencies": [
+        "item_lines",
+        "discount",
+        "tax",
+        "charges",
+        "declared_total"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [],
+      "purpose_result_id": "6b4bc549b3f3bec35455178759931aa12eb01b0dc9e93cec7ae4d28e0dd995ac",
+      "purpose_receipt_id": "650054ca7c5d3a623b73f9c049553be90f89924d39822134cf786e7f7abb9b3b"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "PAYMENT_MATCH",
+      "purpose_profile": "SR-PAYMENT-MATCH-1-D01",
+      "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "MATCHED",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "declared_total",
+        "transaction_currency",
+        "payment_reference",
+        "payment_amount",
+        "payment_currency"
+      ],
+      "satisfied_dependencies": [
+        "declared_total",
+        "transaction_currency",
+        "payment_reference",
+        "payment_amount",
+        "payment_currency"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [
+        "PAY-LEGACY-1001"
+      ],
+      "purpose_result_id": "6fe58e56c6289e726a92e34531d279dd738cf05cac179e28f0908cfc5021c82e",
+      "purpose_receipt_id": "96e6a6075f9539b6efaf9032b5a0c9afa5424cb71bb90dba56ed443963e78fa7"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "EXPENSE_EVIDENCE",
+      "purpose_profile": "SR-EXPENSE-EVIDENCE-1-D01",
+      "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "purchase_declaration",
+        "business_purpose"
+      ],
+      "satisfied_dependencies": [
+        "purchase_declaration",
+        "business_purpose"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [],
+      "purpose_result_id": "8e1ea9a54dedeb0c9df0a1956eeb81ef97816c27078dff6cc1b76e3105804251",
+      "purpose_receipt_id": "2f29af1723a3317c61fae5e6a44f52709dff3de506487e3d3deedbffbb7076c9"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "WARRANTY_EVIDENCE",
+      "purpose_profile": "SR-WARRANTY-EVIDENCE-1-D01",
+      "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "purchase_declaration",
+        "warranty_item_reference",
+        "referenced_item_exists"
+      ],
+      "satisfied_dependencies": [
+        "purchase_declaration",
+        "warranty_item_reference",
+        "referenced_item_exists"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [
+        "ITEM-1"
+      ],
+      "purpose_result_id": "a4c118ca2771663a8381c83f83ba8700d8531df8defd2a5db1d96eb9b8cec8aa",
+      "purpose_receipt_id": "ae8935de2ac6789888b6f27f7fd88c2a817f5d177aec240a6fba0f13fa8fcfc0"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "RETURN_ELIGIBILITY_EVIDENCE",
+      "purpose_profile": "SR-RETURN-EVIDENCE-1-D01",
+      "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+      "authority_state": "EVIDENCE_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "purchase_declaration",
+        "lineage_consistency",
+        "return_request_amount",
+        "remaining_returnable_value"
+      ],
+      "satisfied_dependencies": [
+        "purchase_declaration",
+        "lineage_consistency",
+        "return_request_amount",
+        "remaining_returnable_value"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [],
+      "purpose_result_id": "62c2aa77175b500a27830594aca5088695dbd143698ad357dcedb209a04722dc",
+      "purpose_receipt_id": "5ed409be7813a764b3af7ec3fbc1ec6966223d167d9d705ee61213accf044d05"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "LINEAGE_CURRENT_STATE",
+      "purpose_profile": "SR-LINEAGE-STATE-1-D01",
+      "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "PARTIALLY_RETURNED_AND_REFUNDED",
+      "authority_state": "STATE_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "declared_total",
+        "lineage_events"
+      ],
+      "satisfied_dependencies": [
+        "declared_total",
+        "lineage_events"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [
+        "RET-LEGACY-1001",
+        "RF-LEGACY-1001"
+      ],
+      "purpose_result_id": "a9f865eb6476eeb688d76c6d7284d22a5b395cb6b2b683c53e495c5ef5133c2d",
+      "purpose_receipt_id": "e0ff788c07dc691f7a1e1fb660d21f1ee2b1f70f05b777e103ba2843d01313d9"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "ACCOUNTING_CLASSIFICATION",
+      "purpose_profile": "SR-ACCOUNTING-PROPOSAL-1-D01",
+      "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "PROPOSED",
+      "authority_state": "PROPOSAL_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "purchase_declaration"
+      ],
+      "satisfied_dependencies": [
+        "purchase_declaration"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [],
+      "purpose_result_id": "1a31a8c100f409fcb052304d376274676f51760bf857f87d381c84d2b4bb02c3",
+      "purpose_receipt_id": "c08aed3b81231e84a2a5730cd1baffbfc920a0ea9d857f646471c3690288fa45"
+    },
+    {
+      "profile": "SR-PURPOSE-RECEIPT-1-D01",
+      "purpose": "AUDIT_TRACE",
+      "purpose_profile": "SR-AUDIT-TRACE-1-D01",
+      "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+      "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+      "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+      "resolution_state": "RESOLVED",
+      "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+      "authority_state": "TRACE_ONLY",
+      "execution_authority": "NONE",
+      "authenticity_state": "NOT_ESTABLISHED",
+      "occurrence_state": "NOT_ESTABLISHED",
+      "trust_context": {
+        "profile": "SR-TRUST-CONTEXT-1-D01",
+        "structural_integrity_state": "RECONSTRUCTABLE",
+        "provenance_state": "TRANSFORMED_FROM_DECLARED_SOURCE",
+        "issuer_authenticity_state": "NOT_ESTABLISHED",
+        "physical_occurrence_state": "NOT_ESTABLISHED",
+        "execution_authority": "NONE"
+      },
+      "required_dependencies": [
+        "receipt_identity",
+        "structure_identity",
+        "origin_class",
+        "lineage_event_identities"
+      ],
+      "satisfied_dependencies": [
+        "receipt_identity",
+        "structure_identity",
+        "origin_class",
+        "lineage_event_identities"
+      ],
+      "missing_dependencies": [],
+      "conflicting_dependencies": [],
+      "evidence_refs": [
+        "785785fcfa1fad4344dba65438d7a9b5665007507df9c78f5066eb1df8fb2427",
+        "35e3827d911a196c49f4f594f6ba2f9ad857eb3c3477ae4e0362baa13d9ebea8"
+      ],
+      "purpose_result_id": "09e285ddd802306d8dca2fbdffbec59680d0d77acb81899eaf1a954661e79beb",
+      "purpose_receipt_id": "8d3d82cf3ccdc4b03cf75dd1681a34ff68adf03e32099f56f75ea942ef79b24e"
+    }
+  ],
+  "producer_checks": {
+    "receipt_identity_reconstructed": true,
+    "structure_identity_reconstructed": true,
+    "purpose_receipts_generated": true,
+    "lineage_graph_reconstructed": true,
+    "profile_manifest_reconstructed": true,
+    "evaluation_context_reconstructed": true
+  },
+  "bundle_id": "aea6fc14ba90b0126562c39abc553b9eb9a9956c53a04d027b98102024e42137"
+}

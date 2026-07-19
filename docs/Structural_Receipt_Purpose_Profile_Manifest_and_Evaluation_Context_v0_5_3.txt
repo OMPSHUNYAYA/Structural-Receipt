@@ -1,0 +1,706 @@
+STRUCTURAL RECEIPT
+
+Purpose Profile Manifest and Declared Evaluation Context Specification
+
+Document version:
+v0.5.3 reference specification
+
+Current purpose profile family:
+`SR-PURPOSE-3`
+
+Purpose manifest profile:
+`SR-PURPOSE-MANIFEST-1-D01`
+
+Evaluation context profile:
+`SR-EVALUATION-CONTEXT-1-D01`
+
+Trust context profile:
+`SR-TRUST-CONTEXT-1-D01`
+
+Current implementation alignment:
+
+`browser reference = v0.5.3`
+
+`standalone browser verifier = v0.5.3`
+
+`separate Python verifier and frozen corpora = v0.5.3`
+
+`standalone purpose-profile artifacts = v0.5.3`
+
+Status:
+External specification of the implemented purpose-manifest, evaluation-context, and trust-context behavior used by the current Structural Receipt reference architecture.
+
+Primary relation:
+
+`receipt structure + identified purpose profile + declared evaluation context -> supported result`
+
+Primary profile identity relation:
+
+`purpose_profile_id = SHA256(canonical(purpose_profile_manifest_subject))`
+
+Primary context identity relation:
+
+`evaluation_context_id = SHA256(canonical(evaluation_context_subject))`
+
+
+1 Purpose
+
+Structural Receipt is governed by declared purpose-specific resolution.
+
+The current architecture represents each purpose profile as identified canonical structure rather than leaving the governing contract only inside implementation code.
+
+The governing relation is:
+
+`the rules governing the question are themselves declared identified structure`
+
+Executable resolver logic still exists.
+
+The manifest defines the bounded contract that the implementation claims to execute.
+
+
+2 Current Purpose Profile Set
+
+The current reference contains nine purpose profiles:
+
+`PURCHASE_DECLARATION`
+
+`ARITHMETIC_CHECK`
+
+`PAYMENT_MATCH`
+
+`EXPENSE_EVIDENCE`
+
+`WARRANTY_EVIDENCE`
+
+`RETURN_ELIGIBILITY_EVIDENCE`
+
+`LINEAGE_CURRENT_STATE`
+
+`ACCOUNTING_CLASSIFICATION`
+
+`AUDIT_TRACE`
+
+Each purpose has:
+
+- a purpose name;
+- a purpose profile identifier;
+- a bounded question;
+- a manifest version;
+- required dependencies;
+- authority state;
+- execution authority;
+- evaluation-context requirements;
+- declared limitations.
+
+The current execution authority remains:
+
+`NONE`
+
+for every purpose profile.
+
+
+3 Purpose Profile Manifest Subject
+
+The current identified manifest subject binds:
+
+`profile_family`
+
+`purpose`
+
+`profile`
+
+`manifest_version`
+
+`question`
+
+`authority_state`
+
+`execution_authority`
+
+`required_dependencies`
+
+`context_requirements`
+
+`limitations`
+
+The current profile identity is:
+
+`purpose_profile_id = SHA256(canonical(purpose_profile_manifest_subject))`
+
+Presentation-only UI text that is outside this canonical subject does not alter the profile identity.
+
+A change to any field inside the identified manifest subject changes the purpose profile identity under standard SHA-256 assumptions.
+
+
+4 Purpose Manifest Set Identity
+
+The current architecture also computes a deterministic identity over the current identified purpose-profile set.
+
+The exact current set subject is:
+
+`purpose_manifest_set_subject = {"profile":"SR-PURPOSE-MANIFEST-1-D01","purposes":[{"purpose":...,"purpose_profile_id":...},...]}`
+
+The `purposes` array is sorted deterministically by `purpose`.
+
+Each array entry contains exactly:
+
+`purpose`
+
+`purpose_profile_id`
+
+The set identity is:
+
+`purpose_manifest_set_id = SHA256(canonical(purpose_manifest_set_subject))`
+
+The set identity allows an evidence bundle or verifier to distinguish:
+
+`same receipt under same complete purpose-profile set`
+
+from:
+
+`same receipt under a changed purpose-profile set`
+
+The current profile for this behavior remains:
+
+`SR-PURPOSE-MANIFEST-1-D01`
+
+
+5 Required Dependencies
+
+Required dependencies answer:
+
+`what must be available for this purpose to attempt one supported result?`
+
+Examples include:
+
+`merchant`
+
+`declared_total`
+
+`payment_reference`
+
+`payment_amount`
+
+`payment_currency`
+
+`lineage_consistency`
+
+`return_request_amount`
+
+A dependency name is not proof that the dependency is satisfied.
+
+The resolver evaluates satisfaction against the actual receipt, evidence, lineage, and declared context.
+
+Each purpose result may therefore expose:
+
+`required_dependencies`
+
+`satisfied_dependencies`
+
+`missing_dependencies`
+
+`conflicting_dependencies`
+
+`coverage`
+
+
+6 Current Conflict Handling
+
+The current profile manifests identify required dependencies.
+
+The current resolver separately determines whether available evidence or lineage creates a conflict.
+
+The architecture preserves:
+
+`missing required dependency -> INCOMPLETE`
+
+`incompatible required evidence -> CONFLICT`
+
+`resolved negative outcome != unresolved state`
+
+A future selective-disclosure profile is expected to add explicit result-affecting and conflict-relevant disclosure closures.
+
+That future disclosure contract is not part of the current frozen profile.
+
+
+7 Resolution States
+
+The current architecture uses:
+
+`RESOLVED`
+
+`INCOMPLETE`
+
+`CONFLICT`
+
+`UNSUPPORTED`
+
+and evaluation status including:
+
+`NOT_EVALUATED`
+
+A new state that changes normative semantics requires a new applicable profile or versioned identity boundary.
+
+
+8 Purpose Outcomes
+
+Purpose outcomes are profile-specific.
+
+Current examples include:
+
+`PURCHASE_DECLARED`
+
+`ARITHMETIC_CONSISTENT`
+
+`ARITHMETIC_INCONSISTENT`
+
+`MATCHED`
+
+`NOT_MATCHED`
+
+`EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE`
+
+`PURCHASE_EVIDENCE_AVAILABLE`
+
+`STRUCTURE_SUPPORTS_REQUESTED_AMOUNT`
+
+`ACTIVE`
+
+`PARTIALLY_RETURNED`
+
+`FULLY_RETURNED`
+
+`PROPOSED`
+
+`TRACE_RECONSTRUCTABLE`
+
+The architecture preserves:
+
+`resolved negative != unresolved`
+
+and:
+
+`resolved proposal != approved`
+
+
+9 Authority Fields
+
+Every current manifest declares:
+
+`authority_state`
+
+and:
+
+`execution_authority`
+
+The current authority classes include:
+
+`DECLARATION_ONLY`
+
+`CHECK_ONLY`
+
+`EVIDENCE_ONLY`
+
+`STATE_ONLY`
+
+`PROPOSAL_ONLY`
+
+`TRACE_ONLY`
+
+The current execution authority remains:
+
+`NONE`
+
+A purpose profile must not silently gain operational authority because a result is `RESOLVED`.
+
+
+10 Declared Evaluation Context
+
+The current evaluation-context profile is:
+
+`SR-EVALUATION-CONTEXT-1-D01`
+
+The resolver relation is:
+
+`R = resolve(SR, P, X)`
+
+where:
+
+`X = declared evaluation context`
+
+The current evaluation-context identity subject contains exactly:
+
+`profile`
+
+`as_of`
+
+`jurisdiction_profile`
+
+`currency_profile`
+
+with:
+
+`profile = SR-EVALUATION-CONTEXT-1-D01`
+
+The current implementation computes:
+
+`evaluation_context_id = SHA256(canonical(evaluation_context_subject))`
+
+where:
+
+`evaluation_context_subject = {"profile":"SR-EVALUATION-CONTEXT-1-D01","as_of":...,"jurisdiction_profile":...,"currency_profile":...}`
+
+The current default context behavior includes:
+
+`jurisdiction_profile = UNSPECIFIED`
+
+where no specific jurisdiction profile is declared.
+
+The current currency profile is derived from the declared transaction currency and the supported money-context boundary unless explicitly supplied.
+
+
+11 Current Context Requirements
+
+The following current purposes require:
+
+`as_of`
+
+`WARRANTY_EVIDENCE`
+
+`RETURN_ELIGIBILITY_EVIDENCE`
+
+`LINEAGE_CURRENT_STATE`
+
+If the required `as_of` context is absent, the current resolver does not silently substitute the ambient current clock.
+
+The governing relation is:
+
+`time-relative question + explicit as_of -> deterministic supported result`
+
+not:
+
+`time-relative question + ambient now -> hidden result dependency`
+
+The hostile-input corpus includes a frozen missing-`as_of` case.
+
+
+12 Ambient Time Prohibition
+
+A deterministic purpose profile must not silently use the current wall clock as an undeclared source of resolution authority.
+
+This allows a result to remain reproducible later.
+
+The determinism relation is:
+
+`same receipt subject + same purpose profile identity + same declared evaluation context -> same supported result`
+
+Time-relative evaluation is therefore compatible with deterministic reconstruction when the relevant time is explicit input.
+
+The current browser editor likewise avoids using the ambient wall clock to generate new item identifiers. Editor-created identifiers use a monotonic local `ITEM-n` sequence. This keeps newly created receipt structure free from hidden wall-clock input while remaining separate from the declared `as_of` evaluation context.
+
+
+13 Currency and Money Context
+
+The current exact-money profile is:
+
+`SR-MONEY-2DP-1-D01`
+
+The current money-context profile is:
+
+`SR-MONEY-CONTEXT-1-D01`
+
+The current bounded currency exponent table includes:
+
+`USD -> 2`
+
+`INR -> 2`
+
+`EUR -> 2`
+
+`GBP -> 2`
+
+`AUD -> 2`
+
+`SGD -> 2`
+
+`JPY -> 0`
+
+`KWD -> 3`
+
+The current exact-money resolver supports the exponent-2 path.
+
+The exponent-0 and exponent-3 examples are explicitly unsupported by the current two-decimal profile.
+
+The governing law is:
+
+`unsupported monetary scale -> UNSUPPORTED`
+
+not:
+
+`unsupported monetary scale -> silent two-decimal coercion`
+
+
+14 Trust Context
+
+The current trust-context profile is:
+
+`SR-TRUST-CONTEXT-1-D01`
+
+The current trust context contains:
+
+`structural_integrity_state`
+
+`provenance_state`
+
+`issuer_authenticity_state`
+
+`physical_occurrence_state`
+
+`execution_authority`
+
+For the current unauthenticated reference path:
+
+`structural_integrity_state = RECONSTRUCTABLE`
+
+`issuer_authenticity_state = NOT_ESTABLISHED`
+
+`physical_occurrence_state = NOT_ESTABLISHED`
+
+`execution_authority = NONE`
+
+The provenance state is derived from the current adapter and origin boundary.
+
+The architecture preserves:
+
+`RESOLVED != AUTHENTICATED`
+
+`AUTHENTICATED != REAL-WORLD OCCURRENCE PROVEN`
+
+`REAL-WORLD OCCURRENCE PROVEN FOR ONE CLAIM != SUFFICIENT FOR EVERY PURPOSE`
+
+
+15 Purpose Result Integration
+
+The current purpose result carries, where applicable:
+
+- evaluation status;
+- resolution state;
+- purpose outcome;
+- authority state;
+- execution authority;
+- reasons;
+- evidence references;
+- required dependencies;
+- satisfied dependencies;
+- missing dependencies;
+- conflicting dependencies;
+- coverage;
+- purpose profile;
+- purpose profile identity;
+- evaluation context identity;
+- purpose result identity;
+- trust-context fields.
+
+This makes the result explicitly bound to its governing purpose and declared context.
+
+
+16 Purpose Receipt Integration
+
+The current purpose receipt carries a portable bounded representation of one purpose evaluation.
+
+It binds:
+
+- purpose;
+- purpose profile;
+- purpose profile identity;
+- structure identity;
+- evaluation context identity;
+- resolution state;
+- purpose outcome;
+- authority state;
+- execution authority;
+- authenticity state;
+- dependency state;
+- purpose result identity;
+- purpose receipt identity.
+
+The current purpose receipt remains evidence.
+
+It does not grant execution authority.
+
+
+17 Evidence Bundle Integration
+
+The current evidence bundle profile is:
+
+`SR-EVIDENCE-BUNDLE-2-D01`
+
+The bundle carries enough identified structure for the current verifier to reconstruct:
+
+- receipt identity;
+- structure identity;
+- purpose profile identities;
+- purpose manifest set identity;
+- evaluation context identity;
+- trust context;
+- lineage graph identity;
+- current lineage state identity;
+- purpose result identities;
+- purpose receipt identities;
+- adapter contract;
+- bundle identity.
+
+Producer assertions inside a bundle are not verification authority.
+
+
+18 Profile and Context Tamper Boundaries
+
+The current tamper architecture verifies that changed profile, context, trust, or identity subjects do not silently preserve the original bundle result.
+
+The current verifier is designed to detect applicable mismatches in:
+
+- receipt payload;
+- structure identity;
+- purpose receipts;
+- bundle identity;
+- adapter contract;
+- profile manifest;
+- evaluation context;
+- trust context.
+
+Unknown or unsupported verifier and bundle profiles remain explicit unsupported conditions.
+
+
+19 Current Conformance Evidence
+
+The current frozen v0.5.3 conformance corpus contains:
+
+`18 vectors`
+
+The browser reconstruction reports:
+
+`308/308 PASS`
+
+The separate Python implementation reports:
+
+`308/308 PASS`
+
+The current hostile-input corpus contains:
+
+`13 cases`
+
+including evaluation-context and money-boundary cases.
+
+The separate implementation path is demonstrated.
+
+The published purpose-manifest set identity is:
+
+`20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+Third-party verification is not claimed.
+
+
+20 Selective Disclosure Integration Direction
+
+A future Purpose Disclosure Contract is expected to reference the purpose profile identity.
+
+The future relation is:
+
+`purpose profile identity -> disclosure contract identity -> complete result-affecting disclosure closure`
+
+The architecture should preserve:
+
+`minimum sufficient disclosure != convenient positive subset`
+
+and:
+
+`WITHHELD != MISSING`
+
+The current profile-manifest specification does not yet define a frozen selective-disclosure rule language or commitment scheme.
+
+
+21 Conformance Direction
+
+Future profile-manifest and evaluation-context conformance should continue to cover:
+
+- deterministic manifest identity;
+- same manifest with reordered object keys -> same identity;
+- normative manifest change -> different identity;
+- changed `as_of` context -> different context identity;
+- missing required `as_of`;
+- changed currency profile;
+- unknown purpose profile;
+- unknown resolver profile;
+- authority escalation attempt;
+- execution authority change;
+- trust-context misstatement;
+- selective-disclosure contract mismatch after disclosure profiles are introduced.
+
+
+22 Public Explanation
+
+A purpose profile is something a reader can inspect, identify, compare, and independently reconstruct.
+
+The strongest relation is:
+
+`the rules governing the question are themselves declared identified structure`
+
+The strongest determinism relation is:
+
+`same receipt subject + same identified purpose profile + same declared evaluation context -> same supported result`
+
+The strongest trust boundary is:
+
+`a purpose profile determines a bounded answer; it does not create authority beyond its declared scope`
+
+
+23 Portable Purpose-Profile Artifacts
+
+The v0.5.3 release publishes each current purpose manifest as a standalone JSON artifact under:
+
+`profiles/`
+
+The folder contains one artifact for each current purpose plus one profile-set artifact.
+
+The standalone files preserve the same identified manifest subjects already used by the browser and verifier implementations.
+
+Therefore:
+
+`embedded manifest subject == published standalone manifest subject`
+
+within the current release.
+
+The release does not treat a filename as profile authority.
+
+The authority remains the identified canonical manifest subject and its reconstructed `purpose_profile_id`.
+
+The complete current set reconstructs to:
+
+`purpose_manifest_set_id = 20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+This enables implementations to inspect and exchange the governing profile data without reverse-engineering the browser source.
+
+
+24 v0.5.3 Interchange Boundary
+
+A portable evidence bundle binds the current purpose manifests, evaluation context, trust context, structure identities, lineage identities, and purpose receipts.
+
+A verifier may therefore check:
+
+`same receipt structure + same profile identities + same declared context -> same supported reconstructed result`
+
+A bridge-generated WRAPPED Structural Receipt does not silently gain native-origin authority.
+
+The current origin rule remains:
+
+`NATIVE != WRAPPED != DERIVED`
+
+and:
+
+`successful adapter transformation != complete semantic equivalence`
+
+The current bridge explicitly preserves:
+
+`semantic_equivalence = NOT_ASSUMED`
+
+The purpose-profile architecture remains usable across native and adapted sources because origin and provenance are part of the declared structure rather than hidden implementation state.

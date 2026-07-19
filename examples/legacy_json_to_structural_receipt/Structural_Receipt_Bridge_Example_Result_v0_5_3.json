@@ -1,0 +1,15 @@
+{
+  "profile": "SR-BRIDGE-1-D01",
+  "release_version": "0.5.3",
+  "status": "PASS",
+  "origin_class": "WRAPPED",
+  "semantic_equivalence": "NOT_ASSUMED",
+  "source_artifact_id": "SHA256:f88b2b17413c1dd5f761ab9357a676c327810a831f41cc50b706a47da13eb741",
+  "adapter_profile_id": "SR-GENERIC-JSON-ADAPTER-1-D01",
+  "adapter_manifest_id": "afe614f1cb94349e687c399f5a35ceffdfb5efcd01fae1b28290f3a53badbaf9",
+  "adapter_contract_id": "0f613de4dbd8efef0bc55dd2e21651f3beb10cbb12ac0cd06a7664212fcc65ad",
+  "unmapped_field_count": 4,
+  "warning_count": 1,
+  "output": "examples/legacy_json_to_structural_receipt/Structural_Receipt_WRAPPED_Output_v0_5_3.json",
+  "execution_authority": "NONE"
+}

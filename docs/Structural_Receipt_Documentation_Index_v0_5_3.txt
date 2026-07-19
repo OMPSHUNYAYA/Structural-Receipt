@@ -1,0 +1,142 @@
+STRUCTURAL RECEIPT
+
+Documentation Index and Repository Reading Guide
+
+Release: v0.5.3
+Status: Release guide
+
+
+1 Versioning Policy
+
+All public release artifacts in the current repository release use:
+
+`v0.5.3`
+
+Internal profile identifiers remain independently versioned identities.
+
+Examples include:
+
+`SR-CORE-5`
+
+`SR-RESOLVER-5-D01`
+
+`SR-CANON-1-D01`
+
+`SR-EVIDENCE-BUNDLE-2-D01`
+
+Those are profile identities, not competing project release versions.
+
+The release rule is:
+
+`public artifact version = v0.5.3`
+
+`internal normative identity = applicable SR-* profile identifier`
+
+
+2 Recommended Reading Order
+
+1. `Quickstart.md`
+
+Use this for the shortest practical path through the browser reference, verification tools, bridge, profiles, and examples.
+
+2. `Structural_Receipt_Entry_Document_v0_5_3.txt`
+
+Start here for the problem, core model, claim boundary, adoption model, and current verification evidence.
+
+3. `Structural_Receipt_Core_Architecture_and_Deployment_Direction_v0_5_3.txt`
+
+Use this for the complete current architecture, profiles, authority separation, lineage, adoption, bridge, verification, and future direction.
+
+4. `Structural_Receipt_Adoption_and_Interchange_Guide_v0_5_3.txt`
+
+Use this for sidecar deployment, one-sided adoption, bridge integration, verification without integration, and minimal interchange.
+
+5. `Structural_Receipt_Verification_Guide_v0_5_3.txt`
+
+Use this for reproducible browser, Python, bridge, corpus, evidence-bundle, and executable-file checksum verification procedures.
+
+6. `Structural_Receipt_Canonicalization_Profile_SR_CANON_1_D01_v0_5_3.txt`
+
+Use this for deterministic serialization, strict JSON input boundaries, Unicode behavior, money representation boundaries, and identity reconstruction.
+
+7. `Structural_Receipt_Purpose_Profile_Manifest_and_Evaluation_Context_v0_5_3.txt`
+
+Use this for identified purpose manifests, purpose-manifest set identity, declared evaluation context, trust context, and purpose receipt integration.
+
+8. `FAQ.md`
+
+Use this for concise answers about adoption, verification, trust boundaries, provenance, authority, and interoperability.
+
+9. `Structural-Receipt-Architecture-Diagram.png`
+
+Use this for the compact visual architecture and cross-boundary flow.
+
+
+3 Repository Functional Map
+
+`demo/`
+
+Interactive Structural Receipt creation, purpose resolution, lineage, evidence export, browser audit, and producer-side reconstruction.
+
+`verify/`
+
+Standalone browser verification, separate Python verification, frozen corpora, verification evidence, and the verification summary.
+
+`bridge/`
+
+Generic path-based JSON bridge and adapter manifest for provenance-preserving WRAPPED adoption.
+
+`profiles/`
+
+Nine standalone purpose-profile artifacts plus the purpose-profile set artifact.
+
+`examples/`
+
+Reproducible bridge and browser-to-verifier adoption examples.
+
+`docs/`
+
+Current public documentation, specifications, adoption guidance, and verification guidance.
+
+
+4 Future Profile Boundary
+
+Purpose-limited disclosure remains a future architecture direction and is not part of the frozen v0.5.3 implementation.
+
+Current future profile directions include:
+
+`SR-COMMIT-1-D01`
+
+`SR-DISCLOSE-1-D01`
+
+`SR-PDC-1-D01`
+
+These identifiers describe proposed profile directions only.
+
+They do not become part of the implemented release boundary until the applicable behavior is implemented, cross-implementation tested, documented, and frozen.
+
+
+5 Public Claim Boundary
+
+The documentation should preserve:
+
+`RESOLVED != AUTHENTICATED`
+
+`AUTHENTICATED != REAL-WORLD OCCURRENCE PROVEN`
+
+`VERIFIED != APPROVED`
+
+`APPROVED != EXECUTED`
+
+`project-produced separate implementation != third-party certification`
+
+Current third-party verification remains:
+
+`NOT_CLAIMED`
+
+
+6 Current Public Principles
+
+`Declare once. Resolve by purpose. Preserve through change. Verify independently.`
+
+`Adopt on one side. Verify on the other. Integrate only when useful.`

@@ -1,0 +1,22 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "LINEAGE_CURRENT_STATE",
+    "profile": "SR-LINEAGE-STATE-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "What bounded current transaction state follows from compatible linked adjustments?",
+    "authority_state": "STATE_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "declared_total",
+      "lineage_events"
+    ],
+    "context_requirements": [
+      "as_of"
+    ],
+    "limitations": "The current state is resolved only within the supported return, refund, and credit model."
+  }
+}

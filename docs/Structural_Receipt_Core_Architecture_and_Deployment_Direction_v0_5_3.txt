@@ -1,0 +1,1432 @@
+STRUCTURAL RECEIPT
+
+Core Architecture, Purpose-Resolved Evidence, Open-Boundary Adoption, Verification, and Deployment Direction
+
+Document version:
+v0.5.3
+
+Project:
+Structural Receipt
+
+Working shorthand:
+SR
+
+Status:
+Architecture and deployment document aligned with the Structural Receipt v0.5.3 release.
+
+Current release principle:
+
+`Declare once. Resolve by purpose. Preserve through change. Verify independently.`
+
+Current adoption principle:
+
+`Adopt on one side. Verify on the other. Integrate only when useful.`
+
+
+CURRENT PROFILE BOUNDARY
+
+Architecture:
+`SR-CORE-5`
+
+Resolver:
+`SR-RESOLVER-5-D01`
+
+Canonicalization:
+`SR-CANON-1-D01`
+
+Strict JSON input:
+`SR-JSON-INPUT-1-D01`
+
+Dependency:
+`SR-DEPENDENCY-1-D01`
+
+Authority:
+`SR-AUTHORITY-1-D01`
+
+Lineage:
+`SR-LINEAGE-1-D01`
+
+Lineage graph:
+`SR-LINEAGE-GRAPH-1-D01`
+
+Exact money:
+`SR-MONEY-2DP-1-D01`
+
+Money context:
+`SR-MONEY-CONTEXT-1-D01`
+
+Purpose family:
+`SR-PURPOSE-3`
+
+Purpose manifests:
+`SR-PURPOSE-MANIFEST-1-D01`
+
+Evaluation context:
+`SR-EVALUATION-CONTEXT-1-D01`
+
+Trust context:
+`SR-TRUST-CONTEXT-1-D01`
+
+Purpose receipts:
+`SR-PURPOSE-RECEIPT-1-D01`
+
+Evidence bundle:
+`SR-EVIDENCE-BUNDLE-2-D01`
+
+Browser verifier:
+`SR-VERIFIER-2-D01`
+
+Separate Python verifier:
+`SR-INDEPENDENT-VERIFIER-2-D01`
+
+Machine verification result:
+`SR-VERIFICATION-RESULT-1-D01`
+
+Conformance:
+`SR-CONFORMANCE-2-D01`
+
+Frozen conformance corpus:
+`SR-CONFORMANCE-CORPUS-2-D01`
+
+Tamper corpus:
+`SR-TAMPER-CORPUS-2-D01`
+
+Hostile-input corpus:
+`SR-HOSTILE-INPUT-CORPUS-1-D01`
+
+Adapter:
+`SR-ADAPTER-1-D01`
+
+Bridge:
+`SR-BRIDGE-1-D01`
+
+Bridge adapter manifest:
+`SR-BRIDGE-ADAPTER-MANIFEST-1-D01`
+
+Generic JSON adapter:
+`SR-GENERIC-JSON-ADAPTER-1-D01`
+
+Receipt schema:
+`SR-RECEIPT-2-D02`
+
+Future draft profile directions, not implemented or frozen in v0.5.3:
+
+`SR-COMMIT-1-D01`
+
+`SR-DISCLOSE-1-D01`
+
+`SR-PDC-1-D01`
+
+Third-party verification:
+
+`NOT_CLAIMED`
+
+Production readiness, legal certification, tax certification, accounting certification, payment-network certification, and jurisdiction-wide acceptance are not claimed.
+
+
+1 Executive Summary
+
+Structural Receipt is a deterministic architecture for turning a receipt from a passive transaction document into a portable, purpose-resolvable evidence structure.
+
+The project begins from a simple pain point:
+
+`one transaction should not have to be understood from scratch every time it is used`
+
+A purchase may pass through merchant systems, payment systems, customer archives, expense workflows, accounting processes, return workflows, refund workflows, warranty processes, audit processes, and other downstream applications.
+
+The same transaction may therefore be rendered repeatedly, extracted repeatedly, interpreted repeatedly, reconciled repeatedly, classified repeatedly, and reconstructed later from fragmented evidence.
+
+Structural Receipt asks a narrower and more explicit question:
+
+`what is this exact available structure sufficient to establish for this exact declared purpose?`
+
+The current reference release evaluates nine bounded purposes under identified canonical manifests.
+
+It separates:
+
+`receipt data != universal transaction truth`
+
+`issuer declaration != independent payment evidence`
+
+`payment evidence != delivery evidence`
+
+`delivery evidence != expense eligibility`
+
+`expense eligibility != accounting classification`
+
+`accounting classification != accounting posting`
+
+`integrity != authenticity`
+
+`authenticity != real-world occurrence`
+
+`resolution != approval`
+
+`approval != execution`
+
+The current release also extends the adoption model beyond a closed environment.
+
+A producer can adopt Structural Receipt while a recipient verifies a portable bundle locally.
+
+A recipient can adopt the bridge and verifier path while the source system remains unchanged.
+
+An existing JSON-producing system can be wrapped through a declared adapter manifest without claiming complete semantic equivalence.
+
+The practical release relation is:
+
+`existing system -> bridge or sidecar -> portable Structural Receipt evidence -> local verifier`
+
+This means coordinated bilateral migration is not required before either side gains bounded utility.
+
+
+2 Core Structural Model
+
+The current conceptual object is:
+
+`SR = (C, E, D, L, O, V)`
+
+where:
+
+`C = claims and canonical purchase declaration`
+
+`E = available evidence`
+
+`D = declared purpose dependencies`
+
+`L = linked lineage events`
+
+`O = origin and adapter provenance`
+
+`V = versioned schemas, rules, profiles, contexts, and identity subjects`
+
+The current purpose resolver receives:
+
+`P = identified purpose profile`
+
+`X = declared evaluation context`
+
+and computes:
+
+`R_P = resolve(SR, P, X)`
+
+A purpose result may contain:
+
+- evaluation status;
+- resolution state;
+- purpose outcome;
+- authority state;
+- execution authority;
+- reasons;
+- evidence references;
+- required dependencies;
+- satisfied dependencies;
+- missing dependencies;
+- conflicting dependencies;
+- dependency coverage;
+- purpose profile identity;
+- evaluation context identity;
+- purpose result identity;
+- trust-context fields.
+
+The architecture separates:
+
+`resolution_state`
+
+from:
+
+`purpose_outcome`
+
+from:
+
+`authority_state`
+
+from:
+
+`execution_authority`
+
+A resolved negative result is still resolved.
+
+A resolved proposal is still only a proposal.
+
+
+3 Primary Dependency-Elimination Model
+
+The primary dependency is repeated downstream interpretation.
+
+The common pattern is:
+
+`transaction evidence -> application-specific interpretation -> local conclusion`
+
+repeated across many systems.
+
+Structural Receipt proposes:
+
+`declared evidence structure + identified purpose profile + declared context -> deterministic supported state`
+
+The dependency statement is:
+
+`repeated application-specific interpretation no longer remains the sole authority over what transaction evidence supports`
+
+Operational applications remain.
+
+Workflow remains.
+
+The authority relationship changes.
+
+
+4 Purpose-Resolved Evidence
+
+The current purpose family contains nine bounded purposes:
+
+`PURCHASE_DECLARATION`
+
+`ARITHMETIC_CHECK`
+
+`PAYMENT_MATCH`
+
+`EXPENSE_EVIDENCE`
+
+`WARRANTY_EVIDENCE`
+
+`RETURN_ELIGIBILITY_EVIDENCE`
+
+`LINEAGE_CURRENT_STATE`
+
+`ACCOUNTING_CLASSIFICATION`
+
+`AUDIT_TRACE`
+
+Each purpose declares a bounded question, required dependencies, authority state, execution authority, context requirements, and limitations.
+
+The current profile-set identity is:
+
+`20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+The governing relation is:
+
+`same purpose name + different governing profile identity -> not silently the same rule`
+
+
+5 Resolution-State Algebra
+
+The current architecture uses resolution states including:
+
+`RESOLVED`
+
+`INCOMPLETE`
+
+`CONFLICT`
+
+`UNSUPPORTED`
+
+and evaluation status including:
+
+`NOT_EVALUATED`
+
+The core laws are:
+
+`missing required dependency -> INCOMPLETE`
+
+`incompatible required evidence -> CONFLICT`
+
+`unsupported profile or monetary boundary -> UNSUPPORTED`
+
+`resolved negative outcome != unresolved state`
+
+Examples include:
+
+`RESOLVED + ARITHMETIC_INCONSISTENT`
+
+`RESOLVED + NOT_MATCHED`
+
+`RESOLVED + PROPOSED`
+
+Those are valid resolved outcomes for their bounded questions.
+
+
+6 Authority Separation
+
+Structural Receipt preserves:
+
+`claim authority != evidence authority != resolution authority != policy authority != execution authority`
+
+The current authority classes include:
+
+`DECLARATION_ONLY`
+
+`CHECK_ONLY`
+
+`EVIDENCE_ONLY`
+
+`STATE_ONLY`
+
+`PROPOSAL_ONLY`
+
+`TRACE_ONLY`
+
+Every current purpose profile declares:
+
+`execution_authority = NONE`
+
+The project therefore preserves:
+
+`RESOLVED != APPROVED`
+
+`APPROVED != POSTED`
+
+`VERIFIED != EXECUTED`
+
+
+7 Trust Separation
+
+The current trust-context profile separates:
+
+`structural_integrity_state`
+
+`provenance_state`
+
+`issuer_authenticity_state`
+
+`physical_occurrence_state`
+
+`execution_authority`
+
+For the current unauthenticated reference path:
+
+`structural_integrity_state = RECONSTRUCTABLE`
+
+`issuer_authenticity_state = NOT_ESTABLISHED`
+
+`physical_occurrence_state = NOT_ESTABLISHED`
+
+`execution_authority = NONE`
+
+The strongest trust law remains:
+
+`RESOLVED != AUTHENTICATED != REAL-WORLD OCCURRENCE PROVEN != APPROVED != EXECUTED`
+
+
+8 Origin and Provenance Classes
+
+The current origin classes are:
+
+`NATIVE`
+
+`WRAPPED`
+
+`DERIVED`
+
+A native Structural Receipt is created from declared transaction structure at origin.
+
+A wrapped Structural Receipt is produced through a declared adapter from an existing structured source.
+
+A derived Structural Receipt is reconstructed from a presentation or manually supplied source.
+
+The governing separation is:
+
+`NATIVE != WRAPPED != DERIVED`
+
+The current browser import boundary treats these as a closed origin-class set. Unsupported imported origin-class values are rejected before admission into the active receipt state, and displayed origin labels are escaped defensively.
+
+A successful transformation does not silently become a claim of complete semantic equivalence.
+
+The current bridge preserves:
+
+`semantic_equivalence = NOT_ASSUMED`
+
+
+9 Canonicalization and Structural Identity
+
+The active canonicalization profile is:
+
+`SR-CANON-1-D01`
+
+The strict input profile is:
+
+`SR-JSON-INPUT-1-D01`
+
+The canonical pipeline is:
+
+`validated supported subject -> canonical JSON -> UTF-8 -> SHA-256 where the identity profile requires hashing`
+
+Object keys are deterministically ordered within the supported domain.
+
+Array order is preserved unless a higher-level identity subject explicitly normalizes a semantic set before canonicalization.
+
+The current profile performs no implicit Unicode normalization.
+
+Duplicate object names and trailing non-whitespace JSON input are rejected by the strict import boundary.
+
+Canonicalization does not decide which fields belong to an identity subject.
+
+Therefore:
+
+`identity subject selection != canonicalization`
+
+
+10 Identity Architecture
+
+The current architecture separates identities for separate questions.
+
+Current identity classes include:
+
+`receipt_id`
+
+`structure_id`
+
+`purpose_profile_id`
+
+`purpose_manifest_set_id`
+
+`evaluation_context_id`
+
+`lineage_event_id`
+
+`lineage_graph_id`
+
+`current_lineage_state_id`
+
+`purpose_result_id`
+
+`purpose_receipt_id`
+
+`bundle_id`
+
+This separation allows presentation changes, evidence changes, context changes, and lineage changes to affect the identities they are supposed to affect without silently changing unrelated identity domains.
+
+
+11 Declared Evaluation Context
+
+The current evaluation-context identity subject contains:
+
+`profile = SR-EVALUATION-CONTEXT-1-D01`
+
+`as_of`
+
+`jurisdiction_profile`
+
+`currency_profile`
+
+Time-relative purposes must not silently depend on ambient current time.
+
+The relation is:
+
+`time-relative question + explicit as_of -> deterministic supported result`
+
+not:
+
+`time-relative question + hidden current clock -> undeclared result dependency`
+
+The current time-relative purposes requiring `as_of` include warranty evidence, return eligibility evidence, and lineage current state.
+
+The browser editor also avoids using ambient wall-clock values to mint new item identifiers. New editor-created item identifiers use a monotonic local `ITEM-n` sequence derived from the active item set and local sequence state.
+
+This is an implementation hygiene rule distinct from purpose evaluation, but it keeps wall-clock dependence out of newly created receipt structure.
+
+
+12 Exact Money and Currency Boundary
+
+The current exact-money profile is:
+
+`SR-MONEY-2DP-1-D01`
+
+The current money-context profile is:
+
+`SR-MONEY-CONTEXT-1-D01`
+
+Supported two-decimal examples include:
+
+`USD`
+
+`INR`
+
+`EUR`
+
+`GBP`
+
+`AUD`
+
+`SGD`
+
+The current reference recognizes other exponents including:
+
+`JPY -> 0`
+
+`KWD -> 3`
+
+Those examples are explicitly unsupported by the current two-decimal arithmetic path rather than silently coerced.
+
+The governing law is:
+
+`unsupported currency exponent -> UNSUPPORTED`
+
+
+13 Non-Destructive Lineage
+
+A supported return, refund, or credit creates a linked event rather than silently rewriting the original purchase.
+
+The relation is:
+
+`change -> linked lineage event`
+
+The current architecture separates:
+
+`receipt_id`
+
+from:
+
+`lineage_graph_id`
+
+from:
+
+`current_lineage_state_id`
+
+The original purchase can remain addressable while current bounded state changes.
+
+The current resolver detects unsupported or incompatible lineage conditions such as refund amounts exceeding supported returns.
+
+Duplicate lineage-event identities are rejected as a conflict boundary.
+
+
+14 Purpose Receipts and Portable Evidence Bundles
+
+The current purpose receipt profile is:
+
+`SR-PURPOSE-RECEIPT-1-D01`
+
+A purpose receipt binds one bounded purpose result to its governing profile, structure identity, declared context, authority state, and result identity.
+
+The current evidence bundle profile is:
+
+`SR-EVIDENCE-BUNDLE-2-D01`
+
+A bundle carries enough declared structure for the current verifier paths to reconstruct:
+
+- receipt identity;
+- full structure identity;
+- purpose profile identities;
+- purpose manifest set identity;
+- evaluation context identity;
+- trust context;
+- lineage graph identity;
+- current lineage state identity;
+- purpose receipt identities;
+- adapter contract;
+- bundle identity.
+
+Producer assertions inside the bundle are not verification authority.
+
+
+15 Verification Architecture
+
+The v0.5.3 release contains three verification surfaces with different roles.
+
+Producer-side browser reconstruction:
+
+`demo/Structural_Receipt_Reference_Demo_v0_5_3.html`
+
+This is part of the interactive producer implementation family.
+
+Standalone local browser verification:
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+This provides a separate verification surface for receiving and inspecting exported bundles without requiring the producer UI, a server, an account, or prior API integration.
+
+Separate Python implementation:
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+This reconstructs the frozen corpora and evidence bundles through a separate project-produced code path.
+
+The assurance separation is:
+
+`producer reconstruction != standalone verification surface != separate Python implementation`
+
+and:
+
+`project-produced verification != independent third-party certification`
+
+Third-party verification remains:
+
+`NOT_CLAIMED`
+
+
+16 Verification Without Integration
+
+The release demonstrates:
+
+`browser producer -> portable evidence bundle -> standalone browser verifier -> PASS`
+
+and:
+
+`browser producer -> portable evidence bundle -> separate Python verifier -> PASS`
+
+A deliberate material payload mutation is rejected by both verifier paths.
+
+The standalone verifier reconstructs a clean reference bundle through:
+
+`20/20 PASS`
+
+The machine-oriented result contract is:
+
+`SR-VERIFICATION-RESULT-1-D01`
+
+This enables an existing workflow to consume a bounded machine result without reproducing the entire interactive application.
+
+The practical boundary is:
+
+`verification result -> input to local policy`
+
+not:
+
+`verification result -> automatic execution authority`
+
+
+17 Frozen Conformance Architecture
+
+The current conformance profile is:
+
+`SR-CONFORMANCE-2-D01`
+
+The frozen conformance corpus contains:
+
+`18 vectors`
+
+and reconstructs:
+
+`308/308 PASS`
+
+on both the browser and separate Python paths.
+
+Published conformance corpus identity:
+
+`9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e`
+
+The tamper corpus contains:
+
+`12 cases`
+
+with:
+
+`12/12 PASS`
+
+Published tamper corpus identity:
+
+`3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5`
+
+The hostile-input corpus contains:
+
+`13 cases`
+
+with:
+
+`13/13 PASS`
+
+Published hostile-input corpus identity:
+
+`1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603`
+
+The count `18 vectors` describes corpus subjects.
+
+The count `308 checks` describes finer-grained assertions across those vectors.
+
+Those units must not be conflated.
+
+
+18 Browser Audit and Permanent Regression Policy
+
+The current v0.5.3 browser full release audit reports:
+
+`221/221 PASS`
+
+The current quick regression audit reports:
+
+`72/72 PASS`
+
+The current browser exposes:
+
+`27 audit groups`
+
+and:
+
+`122 permanent regression checks`
+
+Tracked regression counters include:
+
+`integrity_regression = 0`
+
+`unexpected_mutation = 0`
+
+`authority_escalation = 0`
+
+`evidence_reconstruction_regression = 0`
+
+`conformance_regression = 0`
+
+`tamper_corpus_regression = 0`
+
+`hostile_input_regression = 0`
+
+`ui_interaction_regression = 0`
+
+`ui_security_regression = 0`
+
+`release_consistency_regression = 0`
+
+The governing development law remains:
+
+`bug found -> fix implemented -> permanent regression test added -> full audit must pass`
+
+Producer-side PASS labels remain producer assertions and do not replace separate reconstruction.
+
+
+19 Open-Boundary Adoption Architecture
+
+A major v0.5.3 objective is to reduce the need for coordinated adoption.
+
+The release supports three adoption modes.
+
+Producer-side sidecar adoption:
+
+`existing transaction system -> Structural Receipt sidecar -> portable evidence bundle`
+
+The receiver can verify locally without adopting the producer application.
+
+Verifier-side adoption:
+
+`existing structured source -> declared bridge -> WRAPPED Structural Receipt -> local purpose resolution or verification`
+
+The source system does not need to change first.
+
+Native bilateral adoption:
+
+`native Structural Receipt producer -> portable bundle -> Structural Receipt-aware verifier`
+
+The adoption principle is:
+
+`one adopting side -> immediate bounded utility`
+
+`two adopting sides -> richer interoperability`
+
+`many adopting sides -> broader portability`
+
+
+20 Sidecar Deployment Model
+
+Structural Receipt does not require replacing the visible receipt or existing system of record.
+
+A deployment may preserve:
+
+`receipt.pdf`
+
+or:
+
+`existing_transaction.json`
+
+and add a structural sidecar such as:
+
+`receipt.sr.json`
+
+or:
+
+`receipt.sr.bundle.json`
+
+The sidecar model changes the adoption question from:
+
+`must we replace the current system?`
+
+to:
+
+`can we add a portable structural evidence layer at a boundary?`
+
+This is the preferred incremental adoption model.
+
+
+21 Structural Receipt Bridge
+
+The v0.5.3 bridge is:
+
+`bridge/Structural_Receipt_Bridge_v0_5_3.py`
+
+The generic adapter manifest is:
+
+`bridge/Structural_Receipt_Generic_Adapter_Manifest_v0_5_3.json`
+
+The bridge accepts existing JSON and a declared mapping manifest.
+
+It produces a provenance-preserving WRAPPED Structural Receipt.
+
+The current bridge preserves:
+
+- source artifact SHA-256;
+- adapter profile;
+- source profile;
+- unmapped source fields;
+- declared warnings;
+- purpose context;
+- payment evidence;
+- supported lineage;
+- evaluation context;
+- explicit unsupported monetary-scale conditions.
+
+The bridge relation is:
+
+`source JSON + adapter manifest -> WRAPPED Structural Receipt`
+
+The current self-test reports:
+
+`21/21 PASS`
+
+The bridge does not claim:
+
+`source schema == Structural Receipt schema`
+
+It declares:
+
+`semantic_equivalence = NOT_ASSUMED`
+
+
+22 Adapter and Interchange Principles
+
+Structural Receipt should not replace mature financial-document ecosystems unnecessarily.
+
+The current interoperability principles are:
+
+1. preserve source identifiers;
+2. preserve source artifact identity;
+3. classify origin explicitly;
+4. preserve unmapped source fields;
+5. declare mapping warnings;
+6. do not silently promote derived or wrapped data to native authority;
+7. keep transport separate from semantic resolution;
+8. keep payment evidence separate from payment execution;
+9. keep accounting proposal separate from accounting posting;
+10. preserve explicit unsupported states when a source cannot be mapped safely.
+
+The compact interchange contract is:
+
+`portable bundle in -> deterministic reconstruction out`
+
+A receiver does not need to adopt the producer database, user interface, or cloud service.
+
+
+23 Standalone Purpose Profiles
+
+The v0.5.3 release publishes the nine current purpose profiles under:
+
+`profiles/`
+
+The profile-set artifact is:
+
+`profiles/Structural_Receipt_Purpose_Profile_Set_v0_5_3.json`
+
+The set reconstructs to:
+
+`purpose_manifest_set_id = 20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+This changes the adoption surface from:
+
+`profiles embedded only in implementation code`
+
+to:
+
+`profiles available as portable identified governing artifacts`
+
+The standalone files do not gain authority merely from their filenames.
+
+Their canonical identified subjects remain the authority boundary.
+
+
+24 Reproducible Examples
+
+The current release contains two example families under:
+
+`examples/`
+
+Legacy JSON to Structural Receipt:
+
+`existing JSON -> bridge -> WRAPPED Structural Receipt -> evidence bundle -> verifier`
+
+Browser to verifier round trip:
+
+`browser demo -> evidence bundle -> standalone or Python verifier`
+
+The example set includes a clean bundle and a deliberately tampered negative bundle.
+
+The examples are demonstrative fixtures.
+
+They do not establish universal compatibility with every external source schema.
+
+
+25 Security and Abuse Boundaries
+
+Structural Receipt provides deterministic structural reconstruction within declared profiles.
+
+It does not itself provide:
+
+- secure key management;
+- issuer authentication;
+- anti-fraud guarantees;
+- malware isolation;
+- universal input-size safety;
+- legal admissibility;
+- production access control;
+- confidentiality guarantees.
+
+The current browser release includes permanent regressions for inert rendering of hostile user-controlled markup across the tested display paths. The import boundary also rejects unsupported origin-class values before active-state admission, and origin labels are escaped at the verification display boundary.
+
+These controls demonstrate the tested reference paths; they are not a claim of universal browser sandboxing or malware isolation.
+
+The current strict JSON boundary rejects duplicate object keys and trailing data.
+
+The current pure deterministic hashing path processes public structural identity subjects.
+
+Future secret-bearing commitment or authenticity mechanisms require explicitly defined cryptographic implementation boundaries rather than being inferred from the current public identity-hashing path.
+
+
+26 Privacy and Retention Boundary
+
+Structural Receipt can contain sensitive transaction information.
+
+The architecture therefore preserves:
+
+`structural identity != privacy guarantee`
+
+`non-destructive lineage != mandatory indefinite plaintext retention`
+
+`selective disclosure != anonymity`
+
+`selective disclosure != unlinkability`
+
+Deployment-specific obligations concerning storage, retention, deletion, access control, encryption, and jurisdiction-specific data rights remain outside the generic architecture claim unless separately profiled.
+
+
+27 Purpose-Limited Disclosure Direction
+
+Purpose-relative resolution naturally leads to purpose-relative disclosure.
+
+The future question is:
+
+`what is the minimum complete result-affecting evidence that must be disclosed for purpose P?`
+
+The intended dependency-elimination statement is:
+
+`full-document disclosure -> no longer the sole path to purpose-specific verification`
+
+Future profiles may include:
+
+`SR-COMMIT-1-D01`
+
+`SR-DISCLOSE-1-D01`
+
+`SR-PDC-1-D01`
+
+The key law is:
+
+`minimum sufficient disclosure = complete result-affecting dependency closure`
+
+A verifier must not resolve from a convenient positive subset while withheld committed evidence could change the result.
+
+Future disclosure semantics should preserve:
+
+`WITHHELD != MISSING`
+
+and separate:
+
+`semantic receipt identity`
+
+from:
+
+`commitment root identity`
+
+Those profiles are not implemented or frozen in v0.5.3.
+
+A related future diagnostic direction is a Structural Impact Trace:
+
+`mutation -> affected dependency closure -> affected identity closure -> affected purpose-receipt closure`
+
+This would explain which supported identities and purpose receipts are affected by a change while preserving independent subjects that remain unchanged.
+
+It is not part of the frozen v0.5.3 implementation.
+
+
+28 Authenticity Evidence Extension
+
+A later profile may add detached issuer-authenticity evidence.
+
+The architecture must preserve:
+
+`authenticated issuer != transaction truth`
+
+and:
+
+`signature verification != purpose sufficiency for every downstream question`
+
+Any future signature subject should bind the relevant profile and context rather than signing an ambiguous presentation.
+
+
+29 Current Repository Architecture
+
+The current release is organized around functional boundaries.
+
+`demo/`
+
+Interactive production, resolution, lineage, export, and browser audit.
+
+`verify/`
+
+Standalone browser verifier, separate Python verifier, frozen corpora, verification summary, and verification evidence.
+
+`bridge/`
+
+Generic external-JSON bridge and adapter manifest.
+
+`profiles/`
+
+Nine standalone purpose profiles, the profile-set artifact, and the profile-set summary.
+
+`examples/`
+
+Reproducible adoption and verification examples.
+
+`docs/`
+
+Public architecture, specifications, adoption guidance, and verification guidance.
+
+The repository structure is part of the adoption model:
+
+`explore -> verify -> bridge -> inspect profiles -> reproduce examples -> read specifications`
+
+
+30 Current Release Artifacts
+
+Primary browser reference:
+
+`demo/Structural_Receipt_Reference_Demo_v0_5_3.html`
+
+Standalone local verifier:
+
+`verify/Structural_Receipt_Standalone_Verifier_v0_5_3.html`
+
+Separate Python verifier:
+
+`verify/Structural_Receipt_Independent_Verifier_v0_5_3.py`
+
+Frozen corpora:
+
+`verify/Structural_Receipt_Conformance_Corpus_v0_5_3.json`
+
+`verify/Structural_Receipt_Tamper_Corpus_v0_5_3.json`
+
+`verify/Structural_Receipt_Hostile_Input_Corpus_v0_5_3.json`
+
+Bridge:
+
+`bridge/Structural_Receipt_Bridge_v0_5_3.py`
+
+Generic adapter manifest:
+
+`bridge/Structural_Receipt_Generic_Adapter_Manifest_v0_5_3.json`
+
+Purpose profiles:
+
+`profiles/`
+
+Examples:
+
+`examples/legacy_json_to_structural_receipt/`
+
+`examples/browser_to_verifier_roundtrip/`
+
+
+31 Demonstrated v0.5.3 Evidence
+
+Browser release audit:
+
+`221/221 PASS`
+
+Browser quick regression:
+
+`72/72 PASS`
+
+Permanent regression checks:
+
+`122`
+
+Standalone verifier audit:
+
+`35/35 PASS`
+
+Standalone quick verifier regression:
+
+`12/12 PASS`
+
+Frozen conformance:
+
+`308/308 PASS`
+
+Tamper corpus:
+
+`12/12 PASS`
+
+Hostile-input corpus:
+
+`13/13 PASS`
+
+Standalone clean bundle reconstruction:
+
+`20/20 PASS`
+
+Standalone deliberate material tamper:
+
+`FAIL as expected`
+
+Separate Python clean bundle verification:
+
+`20/20 PASS`
+
+Separate Python full frozen corpus reconstruction:
+
+`308/308 PASS + 12/12 PASS + 13/13 PASS`
+
+Bridge self-test:
+
+`21/21 PASS`
+
+Purpose-manifest set identity parity:
+
+`PASS`
+
+Third-party verification:
+
+`NOT_CLAIMED`
+
+
+32 Claim Boundary
+
+Structural Receipt does not by itself prove:
+
+- that a physical purchase occurred;
+- that goods were delivered;
+- that a payment settled;
+- that an issuer identity is legitimate;
+- that a tax treatment is correct;
+- that an accounting treatment is correct;
+- that an expense must be reimbursed;
+- that a warranty claim must be approved;
+- that a refund is legally required;
+- that a transaction is free from fraud;
+- that a signed claim is true;
+- that a receipt is acceptable in every jurisdiction;
+- that a successful adapter transformation is semantically complete;
+- that project-produced verification is third-party certification;
+- that the current reference implementation is production ready.
+
+The current bounded architecture claim is:
+
+`declared receipt structure + declared evidence + declared lineage + identified purpose rules + declared context -> deterministic supported result within the declared profile`
+
+The current bounded verification claim is:
+
+`same supported subject + same frozen profiles + same declared context -> same demonstrated reconstruction across the current project-produced implementation paths`
+
+
+33 Relationship to the Shunyaya Ecosystem
+
+Structural Receipt follows the wider structural principle that operational workflows may remain while no longer retaining sole authority over resolution.
+
+Its core dependency shift is:
+
+`repeated downstream interpretation -> no longer the sole authority over what transaction evidence supports`
+
+The project keeps the structural object, purpose resolver, authority boundary, and evidence reconstruction explicit.
+
+Its role is not to eliminate every downstream system.
+
+Its role is to establish a portable structural boundary through which downstream systems can ask bounded questions without repeatedly rebuilding transaction meaning from presentation alone.
+
+
+34 Deployment Phases
+
+Phase 1 - Core browser reference
+
+Completed.
+
+Phase 2 - Dependency, authority, and purpose expansion
+
+Completed.
+
+Phase 3 - Portable evidence and verifier-facing reconstruction
+
+Completed.
+
+Phase 4 - Frozen conformance and separate Python implementation
+
+Completed for the current bounded profile family.
+
+Phase 5 - Normative foundation and hostile-input hardening
+
+Completed.
+
+Phase 6 - Open-boundary adoption tooling
+
+Completed in v0.5.3.
+
+Implemented:
+
+- standalone local browser verifier;
+- machine verification result contract;
+- one-sided sidecar adoption model;
+- generic path-based JSON bridge;
+- provenance-preserving WRAPPED output;
+- standalone purpose-profile artifacts;
+- reproducible cross-boundary examples;
+- synchronized v0.5.3 public artifact versioning;
+- strict imported-quantity boundary hardening;
+- dedicated standalone verifier regression audit.
+
+Phase 7 - Purpose-limited disclosure
+
+Future.
+
+Phase 8 - Authenticity evidence extension
+
+Future.
+
+Phase 9 - Broader transaction evidence
+
+Future and conditional on the stability of the receipt architecture.
+
+
+35 Core Architectural Invariants
+
+1. `presentation != structural identity`
+
+2. `receipt identity != full current structure identity`
+
+3. `receipt identity != lineage graph identity`
+
+4. `integrity != authenticity`
+
+5. `authenticity != real-world occurrence proof`
+
+6. `purpose result != execution authority`
+
+7. `resolved negative != unresolved`
+
+8. `missing required dependency -> INCOMPLETE`
+
+9. `incompatible required evidence -> CONFLICT`
+
+10. `unsupported profile boundary -> UNSUPPORTED`
+
+11. `NATIVE != WRAPPED != DERIVED`
+
+12. `adapter success != semantic equivalence`
+
+13. `producer assertion != verification authority`
+
+14. `project-produced verification != third-party certification`
+
+15. `ambient wall clock != hidden resolution authority`
+
+16. `unsupported currency exponent != silent coercion`
+
+17. `duplicate JSON key -> rejected input`
+
+18. `change -> linked lineage event`
+
+19. `original receipt remains addressable through supported lineage`
+
+20. `profile rules are identified declared structure`
+
+21. `one-side adoption can produce bounded utility`
+
+22. `verification can occur without adopting the producer application`
+
+23. `full-document disclosure is not assumed to be the permanent minimum for every future purpose`
+
+
+36 Recommended Public Positioning
+
+Structural Receipt should be described as:
+
+`a structural resolution layer between transaction evidence and downstream conclusions`
+
+The strongest practical statement is:
+
+`A receipt should not have to be understood from scratch every time it is used.`
+
+The strongest adoption statement is:
+
+`Adopt on one side. Verify on the other. Integrate only when useful.`
+
+The strongest verification statement is:
+
+`producer assertions are not verification authority; supported identities and states are reconstructed`
+
+The strongest claim boundary is:
+
+`do not claim more than the structurally reconstructed evidence can support`
+
+Structured invoicing and signed-document mechanisms commonly emphasize origin, integrity, authenticity, or compliance. Structural Receipt addresses a separate question: what the available transaction evidence is sufficient to support for an identified purpose under declared profiles and context.
+
+Application-centered transaction workflows commonly optimize capture, storage, classification, or processing inside an operational environment. Structural Receipt emphasizes portable reconstruction outside the producer application while preserving that downstream policy remains locally governed.
+
+
+37 Final Architecture Summary
+
+Structural Receipt v0.5.3 establishes a bounded architecture in which transaction evidence can be declared once, resolved differently by purpose, preserved through supported lineage, and reconstructed across project-produced verification paths.
+
+It also establishes an adoption surface that does not require coordinated migration before either side can gain utility.
+
+A source system may continue to exist.
+
+A bridge may wrap existing structured data while preserving provenance and limitations.
+
+A producer may export a portable evidence bundle.
+
+A recipient may verify that bundle locally without the producer application.
+
+Purpose profiles are published as standalone identified artifacts.
+
+Examples make the cross-boundary paths reproducible.
+
+The current architecture therefore combines:
+
+`purpose-specific deterministic resolution`
+
+`+ explicit incompleteness and conflict`
+
+`+ identified governing profiles`
+
+`+ declared evaluation context`
+
+`+ explicit trust and authority boundaries`
+
+`+ origin-aware evidence`
+
+`+ non-destructive lineage`
+
+`+ portable evidence bundles`
+
+`+ separate reconstruction paths`
+
+`+ bridge-based one-sided adoption`
+
+`+ standalone local verification`
+
+The next major architecture direction is purpose-limited disclosure.
+
+The long-term relation is:
+
+`declare once`
+
+`resolve only what the structure supports`
+
+`disclose only what the purpose requires`
+
+`preserve supported change without erasing origin`
+
+`verify through reconstruction`

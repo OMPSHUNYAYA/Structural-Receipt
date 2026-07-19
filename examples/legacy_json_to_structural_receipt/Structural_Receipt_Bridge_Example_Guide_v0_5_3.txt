@@ -1,0 +1,52 @@
+STRUCTURAL RECEIPT v0.5.3
+LEGACY JSON TO WRAPPED STRUCTURAL RECEIPT EXAMPLE
+
+PURPOSE
+
+This example demonstrates one-sided adoption from an existing JSON transaction source.
+The source system does not need to natively emit Structural Receipt.
+
+FLOW
+
+existing JSON -> declared adapter manifest -> Structural Receipt Bridge -> WRAPPED Structural Receipt -> portable evidence bundle -> separate verifier reconstruction
+
+FILES
+
+Structural_Receipt_Legacy_Transaction_Input_v0_5_3.json
+    Example external transaction JSON.
+
+Structural_Receipt_WRAPPED_Output_v0_5_3.json
+    Provenance-preserving Structural Receipt produced by the v0.5.3 bridge.
+
+Structural_Receipt_Bridge_Example_Result_v0_5_3.json
+    Bridge conversion result and declared boundary information.
+
+Structural_Receipt_WRAPPED_Evidence_Bundle_v0_5_3.json
+    Portable evidence bundle built from the WRAPPED Structural Receipt.
+
+Structural_Receipt_Bridge_to_Verifier_Result_v0_5_3.json
+    Separate verifier reconstruction result for the generated bundle.
+
+RUN FROM THE REPOSITORY ROOT
+
+python bridge/Structural_Receipt_Bridge_v0_5_3.py examples/legacy_json_to_structural_receipt/Structural_Receipt_Legacy_Transaction_Input_v0_5_3.json --manifest bridge/Structural_Receipt_Generic_Adapter_Manifest_v0_5_3.json --output examples/legacy_json_to_structural_receipt/Structural_Receipt_WRAPPED_Output_v0_5_3.json --summary-json
+
+VERIFY THE FROZEN EXAMPLE BUNDLE
+
+python verify/Structural_Receipt_Independent_Verifier_v0_5_3.py --bundle examples/legacy_json_to_structural_receipt/Structural_Receipt_WRAPPED_Evidence_Bundle_v0_5_3.json --verbose
+
+EXPECTED RESULT
+
+verification_status = PASS
+reconstruction_checks = 20/20 PASS
+origin_class = WRAPPED
+semantic_equivalence = NOT_ASSUMED
+separate_implementation = PASS
+third_party_verification = NOT_CLAIMED
+execution_authority = NONE
+
+BOUNDARY
+
+The bridge preserves declared source provenance and unmapped-field paths.
+It does not claim that a wrapped source is semantically identical to a natively declared Structural Receipt.
+A verifier reconstructs the resulting evidence bundle from its structural subjects rather than trusting the bridge result as verification authority.

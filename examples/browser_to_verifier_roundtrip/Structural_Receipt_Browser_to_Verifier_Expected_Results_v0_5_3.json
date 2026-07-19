@@ -1,0 +1,33 @@
+{
+  "profile": "SR-ROUNDTRIP-EXAMPLE-1-D01",
+  "release_version": "0.5.3",
+  "clean_bundle": {
+    "filename": "Structural_Receipt_Evidence_Bundle_SR-1001_v0_5_3.json",
+    "expected_status": "PASS",
+    "observed_python_status": "PASS",
+    "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+    "structure_id": "84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd",
+    "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+    "current_lineage_state_id": "207a75376e386bf5f8e8bb38c063c5be076e1b51e677d00c5b25607730755757",
+    "bundle_id": "736be993cf8811d66efbfba8f8891fc396846f89188972d7d81b6769e2b8260f",
+    "verification_scope": "SEPARATE_IMPLEMENTATION_RECONSTRUCTION",
+    "reconstruction_checks": 20,
+    "separate_implementation": "PASS",
+    "third_party_verification": "NOT_CLAIMED",
+    "execution_authority": "NONE"
+  },
+  "tampered_bundle": {
+    "filename": "Structural_Receipt_Evidence_Bundle_SR-1001_Tampered_v0_5_3.json",
+    "mutation": "receipt.transaction.declared_total changed from 280.80 to 999.99 without regenerating claimed identities",
+    "expected_status": "FAIL",
+    "observed_python_status": "FAIL",
+    "failed_checks": 14
+  },
+  "published_reference_identities": {
+    "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+    "structure_id": "84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd",
+    "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+    "current_lineage_state_id": "207a75376e386bf5f8e8bb38c063c5be076e1b51e677d00c5b25607730755757",
+    "bundle_id": "736be993cf8811d66efbfba8f8891fc396846f89188972d7d81b6769e2b8260f"
+  }
+}

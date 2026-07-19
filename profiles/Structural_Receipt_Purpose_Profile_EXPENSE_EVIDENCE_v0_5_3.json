@@ -1,0 +1,20 @@
+{
+  "release_version": "0.5.3",
+  "artifact_profile": "SR-PURPOSE-PROFILE-ARTIFACT-1-D01",
+  "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+  "profile_subject": {
+    "profile_family": "SR-PURPOSE-MANIFEST-1-D01",
+    "purpose": "EXPENSE_EVIDENCE",
+    "profile": "SR-EXPENSE-EVIDENCE-1-D01",
+    "manifest_version": "1.0.0",
+    "question": "Does the receipt satisfy the bounded example expense-evidence profile?",
+    "authority_state": "EVIDENCE_ONLY",
+    "execution_authority": "NONE",
+    "required_dependencies": [
+      "purchase_declaration",
+      "business_purpose"
+    ],
+    "context_requirements": [],
+    "limitations": "This is not a universal reimbursement policy and does not approve payment."
+  }
+}

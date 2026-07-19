@@ -1,0 +1,3605 @@
+{
+  "format": "SR-CONFORMANCE-CORPUS-2-D01",
+  "conformance_profile": "SR-CONFORMANCE-2-D01",
+  "independent_verifier_profile": "SR-INDEPENDENT-VERIFIER-2-D01",
+  "profile_manifest": {
+    "architecture": "SR-CORE-5",
+    "resolver": "SR-RESOLVER-5-D01",
+    "canonicalization": "SR-CANON-1-D01",
+    "dependency": "SR-DEPENDENCY-1-D01",
+    "authority": "SR-AUTHORITY-1-D01",
+    "lineage": "SR-LINEAGE-1-D01",
+    "lineage_graph": "SR-LINEAGE-GRAPH-1-D01",
+    "money": "SR-MONEY-2DP-1-D01",
+    "purpose": "SR-PURPOSE-3",
+    "purpose_receipt": "SR-PURPOSE-RECEIPT-1-D01",
+    "bundle": "SR-EVIDENCE-BUNDLE-2-D01",
+    "verifier": "SR-VERIFIER-2-D01",
+    "independent_verifier": "SR-INDEPENDENT-VERIFIER-2-D01",
+    "conformance": "SR-CONFORMANCE-2-D01",
+    "corpus": "SR-CONFORMANCE-CORPUS-2-D01",
+    "tamper_corpus": "SR-TAMPER-CORPUS-2-D01",
+    "adapter": "SR-ADAPTER-1-D01",
+    "schema": "SR-RECEIPT-2-D02",
+    "version": "0.5.3",
+    "purpose_manifest": "SR-PURPOSE-MANIFEST-1-D01",
+    "evaluation_context": "SR-EVALUATION-CONTEXT-1-D01",
+    "trust_context": "SR-TRUST-CONTEXT-1-D01",
+    "money_context": "SR-MONEY-CONTEXT-1-D01",
+    "strict_json": "SR-JSON-INPUT-1-D01",
+    "hostile_corpus": "SR-HOSTILE-INPUT-CORPUS-1-D01"
+  },
+  "purpose_profile_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+  "frozen_date": "2026-07-19",
+  "vectors": [
+    {
+      "id": "clean_purchase",
+      "description": "Complete bounded purchase with matching payment evidence.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "4c6cbab824f97c0b759ab39841366b393846f45365892a61512c30a1b3a8f4c9",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2271f9f2923dd70b99ec8bb9e2b2485b4190b0e44dfb5b2ba2cf45cf2ba1b1e1"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c48a5c417cdaa74a05a15143d4d91394bf29091a13356f88db876fbc3fdcd7a5"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "ceed8d60ac1d23718a854201ed75597899bf4ccf78159751340bb8164a62f55b"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8bc33d116b1db6a3bea89857115984ac9fb704263aee0fcff33fb6671b8ace3c"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "de06f4080fbc21e574abfbfd979be37784a4298aff8dfbb304c964171092e84c"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "ca4f46f44e6274bf3d6d17dceb2ffd87783d45d0449dd780c555f18c1b9c6406"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "bfb159a6f42e2e0e266b588fbe194d7f06396c4e798121c8565344fe93315d75"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "44a671ad1e79279d1155bea7a15431ddf92ceafd2f94780dca125ee9e1920a40"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2410da93017f40d870fce1432cd39d484d892bf3d17886d6d10260477c3cbb2c"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "95c673affeba3380705997d2b3aa652236398461ef3ed8a21e65cfaf15cf5b7e",
+          "ARITHMETIC_CHECK": "b773128de6c4963daf71f670f2ac5255e2382608aff3f4c4f1a39e3afcde108d",
+          "PAYMENT_MATCH": "ea85f786abb355a19cc76a142eb7d5b2f8032440dacae47dbff9c05538110ff9",
+          "EXPENSE_EVIDENCE": "33e7b26eafb602f5baa8bff63f6afda100b904b2fce062e01c96e1c5111e4478",
+          "WARRANTY_EVIDENCE": "c5e6a2935921498b3eccd2847ae8bce3f66ef6449d351d0a8959b05742847030",
+          "RETURN_ELIGIBILITY_EVIDENCE": "6ea459df44d583a34973b30f8e115ec2d447e4f9f582b70ab52baf60dc8f12cb",
+          "LINEAGE_CURRENT_STATE": "0f33a75bb3781a42a0769b2e3acaed329a6e2ed68870ac793468ae088480c945",
+          "ACCOUNTING_CLASSIFICATION": "f13f62156546fa84a70b05a7751c440cc42cb2f50bd4b0f095050f2dc57c20e3",
+          "AUDIT_TRACE": "b0cf0a18036cbba6878dc333755127592576358338caaa1d24b063038d2bcf05"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "9afaa27d488d15df2eb86db8e37812ac158c6357f71716d62d917a0056860456"
+        }
+      }
+    },
+    {
+      "id": "incorrect_total",
+      "description": "Declared total differs from exact arithmetic result.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "290.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "3c6e03717bdbf5a39d3b568e5cd6d1e43643e9fbe52fe8358f3b86527b3ec6ae",
+        "structure_id": "2b66f8f8c7608e0f33cc2b83b0ecf6991cf5fb4f5987b979ebc50b1538b77811",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "da9f632f107f26acd5d442993eafb7b9240e2c337df8d4aa7c0bb8c58a2d4c0f",
+        "current_lineage_state_id": "4257012f8a1c28e89ccae84d964cc6e8722dc872ab4bc533b4e3bfcc30f4232b",
+        "bundle_id": "f6d9769723d3aaccda95ccfa29d3bf7c62490139c68c8f3f9c8cf4af732e87b4",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8366d3a4f7e5d2dde22ebeaa2e4dd2deb1ffa9590f006498549b1c5f4ebcf9f6"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_INCONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "59e577b420976601a0dcadfa7b21ef4de7c1de73011e8eab5f88e28706f96175"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "NOT_MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "765eba5db45434e4254c24a9f750a537eb2e3ff156ce6432357c3137fad5dda1"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "758031bde6f1d3baa73d7553bd63a1b3d86407b7f0068ed7c2b93becb599dd22"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "5b41be3e64826ed2d5d70581bcab8f5033423de72d25f00b50c143622366562b"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "3e96e6c87da783d6d40cb16e56d4dc4a36ed29b257a1a11b2d03625041f112d1"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "fa21cdda8af5bdb032c17aa3d7fdb2ee7da55ac9f8a3a151ac178444447a7497"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "9394474f46129c3fb8ff4f91d38f17b93743d2125bf24038eb2541e991c77dc1"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "677b69175b04c522da111686ab68b6be3be5251ef0f878bf651e91c703c14421"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "01b03fa1703c2e745b0e5ac90df3d50756292869b1cc6ada9dcfad94e49ef01d",
+          "ARITHMETIC_CHECK": "424aa533cfe216c33a31f8a4d49ed908627a7eddf6cbdc44665b25dedda7025f",
+          "PAYMENT_MATCH": "f35c7e7d416a4b10283b2cc1686db41ca539bb4193fa16dbe829661926dce64b",
+          "EXPENSE_EVIDENCE": "7fdf0935d98f4352da269e893c5fc257afb839e3d3a660b027eb339d05feba51",
+          "WARRANTY_EVIDENCE": "cc88f0a5c4cd372242a881e8ffbdb277d8740b4ed53342f1c7d35fb52e504b36",
+          "RETURN_ELIGIBILITY_EVIDENCE": "83d2bc4e2d8b4344ce0bddbfd47e29f32e93021d064380599d45e9524ce64820",
+          "LINEAGE_CURRENT_STATE": "6a7c1acee2e9adaf7c062a8ce44bf1eec7e3ea7b4a5079f90502a1aa8f1931c9",
+          "ACCOUNTING_CLASSIFICATION": "9a93b2fd10b65a9effbacae3933bb66e84f47ce8201db0c151ffb441f518795e",
+          "AUDIT_TRACE": "f2385a1f0d051d918bccaf7c013b5189b5b82cb2bbb18c02318a0060ad0457c9"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "dbdea61f5fa0dde880ffa72ae5ccb3a17342a541c865ced7203f2a5f8eba2cf5"
+        }
+      }
+    },
+    {
+      "id": "missing_payment",
+      "description": "Purchase remains complete while payment evidence is absent.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": []
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "c741222c599794831a08822536ec0ea24490dcbba84f315ecf116eb7054baccc",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "df29aa3e49869b0c924fcb5e1792ab92af36fdd64523ba915cc44aba57d875d7",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "02074cf91af82ca28674efe517e3e1a356060602cc9589fc453d11d558a50604"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "0c26409f5d49bdf25af7d27cd76a7c6466e0fb45c4b688ff4fe87004d53c904a"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "INCOMPLETE",
+            "purpose_outcome": "PAYMENT_EVIDENCE_MISSING",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "538e775c997a9e8779fa2680092e69f88762ac0c6eb26420fb609c2f24456258"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "011f14ab8043616b392fb62879853dd261de1a72ac948d39211bedd46466e704"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8f904e0830461643566bba3f3bdbb2ddd117325d46846656d31836d8e941629a"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "6eeeafb777f669cdf38329fe73e4f6f7030009df6600c71a2deba03442a34eee"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "e94fa098c0c16b3f118a5ae9e0d23812f744a259166cdb43337ec804e1eaf784"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "87a3a44f43cd2a573b5ad7059f77600d0c3ac2f892a0cf0388ba363d04bcbbfe"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "98a0d4080fca57a2f44d38f8b6e2cbeb4134e9d4a45734277661f16adafe34d9"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "45feeea0fce3571a8b6b545ee6e4d36942739a3e9c0106900b7afc84f5b41696",
+          "ARITHMETIC_CHECK": "6836a8f8214d1c2c9d23880081c407c6e213d01f4c5ea4d5caae4c5da42aa757",
+          "PAYMENT_MATCH": "33f619a413beabf89b7fd230df1ccd0dc0cd92094f5b539971fb0123b15ffab5",
+          "EXPENSE_EVIDENCE": "60f521e15f5bbcf181f54fa460a82e0b27b1120e0cf30d1a03187816ab328e10",
+          "WARRANTY_EVIDENCE": "25e3a21493a9976a2a9584fef5807c8c37c50573a405fa078df2bbf5a7290dcd",
+          "RETURN_ELIGIBILITY_EVIDENCE": "10bcca834a49791759a7b395f42da0ce7b42bc45b34fb06b79a4f99fe0145417",
+          "LINEAGE_CURRENT_STATE": "5fcfb98f0f9cdf4644603e2adde5e8e3877c95c84e92782ab5e3756685a03cbc",
+          "ACCOUNTING_CLASSIFICATION": "b598f833cf5b747f4dd53b25b2bfb009130ad683bf7e50171396c3a9c9dd9ce4",
+          "AUDIT_TRACE": "08b3a08114321a658cf86662e327350aba47c2c880b1a0abffee7d7844a4df3d"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "63621309fcc6b68beee5ab6c0fc15a631a6606c8b6788c2bcac1bc6c28dc83b6"
+        }
+      }
+    },
+    {
+      "id": "payment_amount_mismatch",
+      "description": "Independent payment amount does not match the declaration.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "279.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "cd001b28e21763770d394d705f3d76c252d89c9010f1fafcd3950263d4287c7f",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "0ddd4070f1f3d7f7d04525eb492016f949c8fa58e34ed5d7f05488a0aa9310dd",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "6b4e4f36e645e11bf98ef03dccb5b531f3063597e59fd7c3c6574d9fa9398631"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8c84a8116bda95e367811b30c6ec301b90f64293de8a7f9a936c80d35989997d"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "NOT_MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "f7c33ed052dcc8d8ead8b33c18df88cfedf387c5b68e849c45c782cc78b5ca90"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "82a9b84dd8201fbc612a25f6ec96f9a209a9d56ce0a19bc67a539a0befd11eb1"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "d888370e68a33d5f33d1e23dd9f31e2eea888d70c5ea3c418e6b50927576e9df"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "9a49d6e6f105aaa9ce47f0c6e2cdbd7611e64753716f052a7f875c0ade72c956"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "5d0b4df2d2b681da5a923b5c8dcf503857a0fe73f7b6f4b5b3ce09b7d4e031d7"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "b05070d5488203cf50ad76b43bc921ed4bd159a72ec4952b12fe3a2e57e089ed"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "0edb8e43b9f1f34f6aba9709df1628c7507f771280e06ed10f4deec530fb7cfb"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "fc4849e4d087abef3c8d4f027ae54a655fb836ed3ffbccf22c1c76fd98b0b03d",
+          "ARITHMETIC_CHECK": "1c08a48fa3fefe0edad538fd136d01521412c97716bbc71a6f18618c01b60aec",
+          "PAYMENT_MATCH": "e475e7c37b7291618147170a684eb63a77473c140b5c855b4e9a184b0806c35e",
+          "EXPENSE_EVIDENCE": "bd8c755a7bef7fa41d63991ff6ae877772cdbf024fc4b78521f32e67f6935ef1",
+          "WARRANTY_EVIDENCE": "55f0e8c688b5200dfdb7325dfeb25d6d825acd9f89dacea3645ccc51530713dd",
+          "RETURN_ELIGIBILITY_EVIDENCE": "99103adc82a4b454282c77cb8599eb4729fbafd1eb10fdcf798b7cc18eafa681",
+          "LINEAGE_CURRENT_STATE": "0955750ade6ec1caca2bffefcb3d1d42c45aca40f05365368c1128d087cdf510",
+          "ACCOUNTING_CLASSIFICATION": "05657e7fd39ddb1ac5d0af78b6220b455e68ed35acfa58b3b56972ac77e286f7",
+          "AUDIT_TRACE": "880251b6124eeb26db08f3fd8984cf49641737e575915576f90fcad3ab91367e"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "b089d0f2c398ba2841c213fa1576104d29ea1c7bd569b86e3b9ed665f752ee0c"
+        }
+      }
+    },
+    {
+      "id": "payment_currency_mismatch",
+      "description": "Independent payment currency does not match the declaration.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "EUR"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "16fbd26357ec5bcd005619dcf996f2aeff4345c1c03ea9fdce5f7fc1d28b4cc3",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "91e235cc2530dcc0c5710c2103addf811e2e4321c8535766c46a718cb311a874",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "d2729f0c989a790d171898f0c79e49e71fa22b493cc5ec28165146c0a3634350"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "452b0a5740796160361b89cba4b3db098610ed921c83874cb647aa42d9f93380"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "NOT_MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "346b7e765df96b46c46b7293463c2a363b5f79f2a1fb234c9a4db791bf459f19"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8c5b30ef146747505f2eb3fb91e06cffeea49a8398d25b468cfdd5ec81f11702"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "23ac9e921b8235066cef79d650dfd90a5d68f93f236002ab1c577342031ce7dc"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "982766f42671964bb4d697e5bca006f5fdb5799eb1fc2951cf1f9f23947800d8"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "276faf370f04fdfab30ff699dc99ade13f08d660ecd9041dbe53331cc5a39d22"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "982af036f0eb2d2a84a035b86c5ea7c2f1eeda2490f09cf1256c60f554a6821e"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "efad28e96d4392fd7e1091dac5f22bc247b64297664e4be7b518c882b58af9ff"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "4ae15bf2dc9eb107f5c5c5a2d480b342163fae81b4ffb8aee5b08abd1efdb5ed",
+          "ARITHMETIC_CHECK": "9a6518ee074cb6feb5e7312316cef7eb81b99e018eb48781fa1d191390697722",
+          "PAYMENT_MATCH": "3b944dd864a926e4b231684f0be55267638f2bcfdcc394da668011d9708cc18d",
+          "EXPENSE_EVIDENCE": "da2c86b8cab50147571ec55d0231b5e00eb9984af9b723936cb4784efede073d",
+          "WARRANTY_EVIDENCE": "c4d2f34caf9c27605e216f2124d9c30b9e293fee674d7c640151795438d4b0c4",
+          "RETURN_ELIGIBILITY_EVIDENCE": "a9ae68cfb33e09e23d17dea2f89783471d1e88d8fc3cd4b7a933cb44534a9d28",
+          "LINEAGE_CURRENT_STATE": "d964fb67f1ae1193ec70d32ffa71863b3e2f34644eb0481530fbb3feb6c90749",
+          "ACCOUNTING_CLASSIFICATION": "99d8370ac4b478dafb0d9bb985762af4880734b9e59aa509a473d33ffdfd3ab0",
+          "AUDIT_TRACE": "b371e5307dbd9a1af0f0908b8d5cc5bffe04a4c05b1e5e9c60005bd72b3be6bc"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "2268ab72ad8a2d976870f2e28d00f44644a862c5269277cc2e41e344e6294e7a"
+        }
+      }
+    },
+    {
+      "id": "partial_return",
+      "description": "A linked partial return preserves the original receipt identity.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "RETURN",
+            "amount": "40.00",
+            "reference": "RET-1001",
+            "description": "Partial item return"
+          }
+        ],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "919312bedfb2aba71e6e2df9de235f6430a7c51b0c3cd8dff40edf810b7f405f",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "29851f6e73c98c31d26b9ed72e44af75d3c57d1a6a6e2352eed29d8d1fddbd68",
+        "current_lineage_state_id": "37a5eedbf53c0864440a5651c8aa2be39cac9679d583743697ec620adc1dd0c2",
+        "bundle_id": "f37e7f735a6f04fa076550168a7e54adf3cca0338ad5a5effa64fa9b774c10d6",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "ade4664f8894e600edb4c7ec03c204bb4b6c9cb7f7fc154fdd06f86fbb143f7f"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "71d9af2c0d023cd2cd25584bed42206ff73c1ed8eec3905911d51daaba20f50d"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a4ed8da10b01d2d754b41c5141398c05bcfed0095598f9d914e8561d3b7718e6"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "199f3b4cfa98ef901a6e99985f735e9a0d1d6229c24c657d6b5ccb2b4031812a"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "4d87bb1596d4dabd3770695c4875ac1f450177e31575350adf6b249fa708edbe"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "77392acbdf22f53dced03ae2aa50f00632044e32f61f9b8fa6b1b7f6b96d0972"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PARTIALLY_RETURNED",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "0f5afe8ea19485b81c7a37bc1bb2012d3cfe0d56c9e2af7b1936a0668a6a8192"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "0c6dc330f9ebeac5a0cc1db8bd7e9b98c4ed46200964d52b17c16705dcd2b455"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "4b23fbc23ba646dfed4c06e3d8459998cc683826ac640fafee8ba90dfd285b4a"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "315931e395054ccd4075e35a077b75287fa07555a29d50b4140cabc6967f0931",
+          "ARITHMETIC_CHECK": "399de8787c4cd170d92d6e1a89874d2c124a16657a205213bfaab450907087c1",
+          "PAYMENT_MATCH": "43d1c5f42c95c0d0a8ecc566cb2204451c210896a133b3c0e5c6f92ee35bb4e6",
+          "EXPENSE_EVIDENCE": "264965cf2d836b53c509d28f14bf22cf2b59aa9754847da1604b8ddcaa6943b0",
+          "WARRANTY_EVIDENCE": "e040fcfb86975682f0c66e980c71f4fe7592e132fc102f8b056aad8c380f0a50",
+          "RETURN_ELIGIBILITY_EVIDENCE": "bf255b08fe3d3eae42ced4bcd96b12718e46ffdf9ce920c5c7b11cfae2a815cf",
+          "LINEAGE_CURRENT_STATE": "93efcf8f0b77a0896dbcdd5cc34d93e3f7f75314b8c4db76f281a7fe307d7964",
+          "ACCOUNTING_CLASSIFICATION": "6f39d1973cb651559288cea859e6d74650c07daef6b0386598faa883ced8e8e5",
+          "AUDIT_TRACE": "a8f8500a06844f9882554fed063f07d61f6ac28de1a2776c5835f108443f80a3"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "b78c7c9a337bfd0b24f58bda18950f0ef32bd62ed3c8a3f3822be15c926e0842"
+        }
+      }
+    },
+    {
+      "id": "full_return",
+      "description": "The bounded lineage state resolves a full return.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "RETURN",
+            "amount": "280.80",
+            "reference": "RET-FULL",
+            "description": "Full return"
+          }
+        ],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "c0b8a7493a395573146a080998a5fb1691c356dceec8353156baa77e6a4c97be",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "23756d567fcc5901112b0c31097cfd48fd9905f39473164639836f744adbafb3",
+        "current_lineage_state_id": "7972a681610a0c44045cd22cb109dfb94928970590ad2d4e2d1b3644fe55187f",
+        "bundle_id": "f1915838c60cd440aa292f3a34aa15365605cd70561bc44789281679814b5ae1",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "249b272fb31d6e465a37319efe9a8945b1004abc06c45fa3591da0632f19d570"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "66d7e2a1a7a92ca836ce23ffc0b22a8c13b0cddefeb70a461ecef39b804984b0"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "98a5539d509fbc66486478069bcf78936daf5838397874928fabde4b4bed6afc"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "51dfd900232ffb6f68dd6bf54abd951fcda06569f1927811ea1199104981dfc5"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "64f903d2d72c513473096829a97a44b448006348293f68e0f19d507ad064fbb8"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_DOES_NOT_SUPPORT_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "cae869978b2a4f456323419ddeca692171788e3ca70903f8bf13ab9f44d119ae"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "FULLY_RETURNED",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "14675e9fdacabaecbaf46a6da62e913bdd2766e25633ef0b1047ccf4de730b16"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "79d56313c0900aa552f8393442b552ca191eb51396c3c0706a213b785590d002"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "9dab11167bc1baf9cf76fa0938f6897f574f6696942da1ef3ef318650fcd6c48"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "7717534e2f30b0392921f56f33868c202a51fda8e2fe3e25f9bf8e5ba6469fba",
+          "ARITHMETIC_CHECK": "c0e8389503acd6af1a775897b1df7a035428e7d63643886c49d243da87db3730",
+          "PAYMENT_MATCH": "96346d89c54e88943b4015971cf3d259bafd1cd168bfbb42e80bde238e30a902",
+          "EXPENSE_EVIDENCE": "5c10febf321bd90575d394a9e2aab19c0a0c400acb66f9953679334488897ce4",
+          "WARRANTY_EVIDENCE": "efbe82bed89ddeae21fabeb328b6e1930bb21d8dbcbb8f391338108e13ef5a39",
+          "RETURN_ELIGIBILITY_EVIDENCE": "f4dfc613e90c9f74800c0c6db700b979d81616d49256c2aa23b858b2176a65b4",
+          "LINEAGE_CURRENT_STATE": "5321014659e81f644c3e4dacbb63e60cacefbc9b608aa53fd0e289346d7fd06a",
+          "ACCOUNTING_CLASSIFICATION": "d167dd0758f8b72708154cef81f32e0043b4c1ad71c86d8f3a4a89aaf910faa7",
+          "AUDIT_TRACE": "fb5fc56f70b789db1e4b674b61f3fdf54e288e827a6bd0a18e75a17085747a29"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "7bc30a8fe6d3eeca0a2d9d8edf12d60fd1350088b06687aa881217641fcec5ab"
+        }
+      }
+    },
+    {
+      "id": "return_and_refund",
+      "description": "Compatible return and refund events reconcile.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "RETURN",
+            "amount": "40.00",
+            "reference": "RET-1001",
+            "description": "Partial return"
+          },
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "REFUND",
+            "amount": "40.00",
+            "reference": "RF-1001",
+            "description": "Matching refund"
+          }
+        ],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "02e68006f510ef6b442135b8f683418f545f912426bebd78de845a073b2c6ba6",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "3ec725c3f3a542f21187aeebcbca4c313429e5abe2f468f85b83150012c11b59",
+        "current_lineage_state_id": "5e75bb0a3d91a24cbfbb5e68105c63b76d41c75cfa33b1619fe4de440f1e19bc",
+        "bundle_id": "f40e0b283c3c96b46cc4752ba7d05ccec2c09d28608340f8a06aac58efe41533",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c8c7fb39c5b7fa3bb9a133732afc915355d4aeb025a2a8074f4f4b0cda0f8994"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "cd1071130829b6a125945ec35f05fe83eb8efeb0e2e88e6b41d16d821649a139"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a0d94f0da0b5d2297744122ab46c1cd5e8775cfde4e29f03b8e01df102d0e042"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "63179cfc81e0132a6e63c56e7a3d926cdc0ef817c601dbd801b64080863fe021"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "1096400cab44a60a58567351d184ee59165b465a37596f5b7684b31a7432d7e8"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "6e119988d958f46b770c3e4c50de1be720a568d44c19cfa623c7a70d1ab37ae1"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PARTIALLY_RETURNED_AND_REFUNDED",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "072c3c3f5daeab4cc56257dc748051b6f3af319b4bca55e3e0f8afabf0114980"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "4251fce1c0fb78ce176b2f49d07acc304766ac8ea692ff5d52c78b14f73fe20a"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "9a711abe4de30a992795b2a6870192571086a7c5cb268ae13d45eef2b3390519"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "f176c6e1ab6e92a47c24a53a2a621f8357dfd3b1fe0a6fff91713e697ff6ffd4",
+          "ARITHMETIC_CHECK": "29357b5319ee32acd29777c72e704e99cd3cf2d79ed08c54ed68f875f2070bf6",
+          "PAYMENT_MATCH": "e47562fa732f1bcb5001df33aea35f18ce01c5bee84ed15adf038be1ed0583b9",
+          "EXPENSE_EVIDENCE": "615b0ae75be00686aee581a9926db628efc95d9adc504aceba759ff5e033f22b",
+          "WARRANTY_EVIDENCE": "53b4e1b61ad30285c0ef065cc07c49ff5c6c55465cf6bfb3407ec551f650ed07",
+          "RETURN_ELIGIBILITY_EVIDENCE": "be718b97738bb0a16f153db13fc579ff4c77582429b39e0fdb45046cfdd0af4d",
+          "LINEAGE_CURRENT_STATE": "4899bfe1543bd9ca416842ecd94f6cd596dc2c2b905b635c30801200158074c2",
+          "ACCOUNTING_CLASSIFICATION": "607e5eddea63663d39e286ada5ff609d765d905ae0e78bb30b625bfd5bcf2e17",
+          "AUDIT_TRACE": "12ddc5529c9d8200b25173a89dcd38b5f1864a5bba56e0531c5cbda1ac3ba28d"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "1ee0489628974c73119cc197542472184bfcfd79bc134bcf34ddc1e5db75ebea"
+        }
+      }
+    },
+    {
+      "id": "conflicting_refund",
+      "description": "Refunded amount exceeds supported returned amount.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "RETURN",
+            "amount": "40.00",
+            "reference": "RET-1001",
+            "description": "Partial return"
+          },
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "REFUND",
+            "amount": "60.00",
+            "reference": "RF-1001",
+            "description": "Excess refund"
+          }
+        ],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "c722a51538f8637922b2e33f18cf3eed7bd782fe6d9ae1d12b99ec87e2699158",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "6a9c10b3c39542824126ab9639f00742842553f7823c642f466e2b87eb61f3ad",
+        "current_lineage_state_id": "624d588c610dde773317ff7e42eb4561a5b8de56077b28ce7c5678ed4791987b",
+        "bundle_id": "118f4ed7c567b8a5ce0850d8636f2510d34620a871e72d558178b41ecabbf1ad",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "0cc203155dedda90862d9102d466b47021c889c6229171f88512217de46ce499"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "848ae3c077ac7542358234c7c61496e719b518d96c054ce6368254f716ed0946"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "22745020beb49fbb5d163d5af11b8dbcc5ba92e19a018dc94d8dc78be8f45ec9"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c24805d9d203bbd7c9171f4a21264d6e52a6348170d0468e6b535aa93b2cfe18"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a5c15c9ee7fda807f2d181b3e85a9f23aa6bd3136f50acf7be398135936dd3f3"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "CONFLICT",
+            "purpose_outcome": "RETURN_EVIDENCE_CONFLICT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2bbe3d2264e2f6bca6a502bc3b17519e2cc337374daf624ed8091f5a98eeca5b"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "CONFLICT",
+            "purpose_outcome": "LINEAGE_CONFLICT",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "891438466c5ff84073478f225e35760320145a8603678b8aa5f5bfe30daa38da"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "9a7c869db82e95bb38f1ae92caa9bb133936c6730e69a1c22e49252fa3e27b12"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "3fd9cc1cd47d41c3c81fe55515cc1bd7d68a7dcd572f66b9206811063bc76779"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "feb439ac0a586265efc62d53e859ec4d753e07ba824d3684931d542db20dda6e",
+          "ARITHMETIC_CHECK": "b9466187e1e5ce55c6ff96044d98649f98635aca63b1b19ec3749efabf4ad79c",
+          "PAYMENT_MATCH": "02b9977a4c7106a984aecbe6383847e8cf6169db2cd5177f7a1cf4c8cc69e51e",
+          "EXPENSE_EVIDENCE": "cd009ebc5c8547d6ad1cd26bbd58e82c428f3865a4ad42b6c656e30674edde11",
+          "WARRANTY_EVIDENCE": "cb0f687ebde998de2140979710e2c0e598a399b91daedae1e89a55b61336a544",
+          "RETURN_ELIGIBILITY_EVIDENCE": "83c2b2ff37b6ace1a87b2f733edc26fd5a755b1d1bd7462ee7e8da7fb3e77b3e",
+          "LINEAGE_CURRENT_STATE": "ecd66e5e487e0b8d1ac4b606af90d2e369b8469a2bccdb1642be50a6d169d9d4",
+          "ACCOUNTING_CLASSIFICATION": "e4954487bb880dae93cac3243dc8eeb852f5c8f48333fab91d9ac537f7fda688",
+          "AUDIT_TRACE": "7bf0a74daff67e1d8bac16fa80a18f6a15957bd82e1fcd6cc95d0ffc47cbc2db"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "ce6eec108adc07ae267e7980da5e168c14fd95a7033d439df29965ee0ed81baf"
+        }
+      }
+    },
+    {
+      "id": "warranty_missing_item",
+      "description": "Warranty evidence is incomplete when the declared item reference is absent.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": ""
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "8c12bc4346fed55d1de21515418fec780276bc3ab70f654861184a9dd909a73d",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "f72fcc8b8898a83a768402e0d4f23a5b41ec42d81aaf6d4334a9897c6db29b7a",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "4c05f6c0e6330779beb9ec8c4d56578a6cc0710ee2a1ca605b7df14aa843a4ae"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a8e0ba9b1755205bd88f9fe400ef26171ac8fd4a57bb2f1568b545f8d3518bab"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "948604c10b918055dc460e098e63980c8f274908ef55b0c71844f9b8c8652dc2"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "284c364b719c98ce8dc792b0e1992054df56349653b3c312280d3b0d1c745c76"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "INCOMPLETE",
+            "purpose_outcome": "WARRANTY_EVIDENCE_INCOMPLETE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "5909992c75ba6858cc3ce134f931c2a28c8e6918863ae0e9b454ad9642679ab2"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "24c67dbaf72b0c4f439d33ae0311054f2fceaf46f2105e267d50b9cadaaf9894"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8aeda8214376718624c19624aeb4b0d53722546d8d069635e2fbf94f5a1f41e2"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "6db79797550cbf589a098014b05601020f3b73836bc8dabb89cf9712e887d680"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "f9affae1aa294c72f636c19a5e6924f1bb1b16dcaa44e559f17844f8fd0af6fc"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "246684292c265abfb103a43117e490d6eb9519fa4c27f4e93915d9dee47c480f",
+          "ARITHMETIC_CHECK": "1ae503c832042d2803eebd8edfc438bf50ef946961e492f1954100850f64d2af",
+          "PAYMENT_MATCH": "fc830117e517687a40b3b4c25d8cbdc76c0b504619961162cbb876da6814ff2f",
+          "EXPENSE_EVIDENCE": "67ca6af6c7bc1bcc988c45372862d9b179e7dbf87f764c760b6dfb0d8a8d8d21",
+          "WARRANTY_EVIDENCE": "cf032561743ea6626c38cd193dd5cc1d9b944dacc03c455fde8b236cad1f3319",
+          "RETURN_ELIGIBILITY_EVIDENCE": "2314ff02558a94b5e7bb7d21f3a4c4feccc43c03569d5ed0043aaea0b331963e",
+          "LINEAGE_CURRENT_STATE": "df18c398b44d81bfe978e175140592f335d3d1307f2019bf0bf6b19e3a1fa6c4",
+          "ACCOUNTING_CLASSIFICATION": "a5f6b97f48b8fadd58fdcbb647a5a40cda15279dcfb39ffe755e473b4a5085e4",
+          "AUDIT_TRACE": "2437b9cb732493379ca534e0f8840af577fb67c23b7c3273ecbfeed6f98bf18e"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "2d9b0fb9da0472b421afb676d8767da0d37584dc609ac74632577720e9c3a631"
+        }
+      }
+    },
+    {
+      "id": "accounting_proposal",
+      "description": "Accounting resolution remains proposal-only and carries no execution authority.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "4c6cbab824f97c0b759ab39841366b393846f45365892a61512c30a1b3a8f4c9",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2271f9f2923dd70b99ec8bb9e2b2485b4190b0e44dfb5b2ba2cf45cf2ba1b1e1"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c48a5c417cdaa74a05a15143d4d91394bf29091a13356f88db876fbc3fdcd7a5"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "ceed8d60ac1d23718a854201ed75597899bf4ccf78159751340bb8164a62f55b"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8bc33d116b1db6a3bea89857115984ac9fb704263aee0fcff33fb6671b8ace3c"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "de06f4080fbc21e574abfbfd979be37784a4298aff8dfbb304c964171092e84c"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "ca4f46f44e6274bf3d6d17dceb2ffd87783d45d0449dd780c555f18c1b9c6406"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "bfb159a6f42e2e0e266b588fbe194d7f06396c4e798121c8565344fe93315d75"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "44a671ad1e79279d1155bea7a15431ddf92ceafd2f94780dca125ee9e1920a40"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2410da93017f40d870fce1432cd39d484d892bf3d17886d6d10260477c3cbb2c"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "95c673affeba3380705997d2b3aa652236398461ef3ed8a21e65cfaf15cf5b7e",
+          "ARITHMETIC_CHECK": "b773128de6c4963daf71f670f2ac5255e2382608aff3f4c4f1a39e3afcde108d",
+          "PAYMENT_MATCH": "ea85f786abb355a19cc76a142eb7d5b2f8032440dacae47dbff9c05538110ff9",
+          "EXPENSE_EVIDENCE": "33e7b26eafb602f5baa8bff63f6afda100b904b2fce062e01c96e1c5111e4478",
+          "WARRANTY_EVIDENCE": "c5e6a2935921498b3eccd2847ae8bce3f66ef6449d351d0a8959b05742847030",
+          "RETURN_ELIGIBILITY_EVIDENCE": "6ea459df44d583a34973b30f8e115ec2d447e4f9f582b70ab52baf60dc8f12cb",
+          "LINEAGE_CURRENT_STATE": "0f33a75bb3781a42a0769b2e3acaed329a6e2ed68870ac793468ae088480c945",
+          "ACCOUNTING_CLASSIFICATION": "f13f62156546fa84a70b05a7751c440cc42cb2f50bd4b0f095050f2dc57c20e3",
+          "AUDIT_TRACE": "b0cf0a18036cbba6878dc333755127592576358338caaa1d24b063038d2bcf05"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "9afaa27d488d15df2eb86db8e37812ac158c6357f71716d62d917a0056860456"
+        }
+      }
+    },
+    {
+      "id": "wrapped_provenance",
+      "description": "A wrapped source preserves transformation provenance without assuming equivalence.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "WRAPPED",
+          "source_profile": "Frozen structured-source adapter",
+          "source_artifact_id": "SOURCE-WRAPPED-001",
+          "unmapped_fields": [
+            "legacy_note"
+          ],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "351e0e6ef6b7b10217cf5cd0b95789e2ebde407acf39170eb5222fbed3a0cef1",
+        "structure_id": "a990ac05d0038a60ccb09001ed801494bfbca6920a15aa55b73b6828f2fdbcf5",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "d53b89fdd024b81e18188286a7b89de016afdf7e1854d0edbb5f4f8cc5a1f3b8",
+        "current_lineage_state_id": "34c3340b296df942383808fdb3bb4273f9357d202c7d07c4d5e22febd1e2e00a",
+        "bundle_id": "3875e933e2669dba58add27b2f4a3a7fa914e93e81afd3bd9e3975d4503106ec",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "b7e25c06f7a6cc8d943e7ca5987606421ab6ad3dc1f98efae7e1f041432bd2f0"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "0df00e869f00d190681adb9e2c651552a8f3e4d03475d710b1c2dd6f4550c672"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "1952e0dbe4b5a73191581ceffc1b71fb237db522205633ed3496207a9b8ae2bb"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "d7b56ac934431929b3b767783b6bc2cdec0ddb01b0b0d1d544e72bc7540782f0"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "ed143737ce1df97cbbb0c9190c2260075579ab46cbe4ed748c540f96666b20d1"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "13fd49197944d5792e7c892d0677165a18c5d660c28d80ca54b738f03ba72d4c"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "92ab74db063ff35f9833c1185cd47d78827c07ccf40f98a264267157cc3260b5"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2d3b4ed6a8b730eddf2b54d21c26810de474a292ef743a8d019fb2627b028ee7"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8f2d37b5485f57695fc39e313c3444584c974764858a963db2018d7afeeabcaa"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "97d8d689d3b2e62c9cf181f8b3a977599236f951fe0d7e5889de1502c0b2a191",
+          "ARITHMETIC_CHECK": "5a3f981f0e263f11f1096aade6d34b813e39a71b2d3f8bae2864a9e6d1f6c5cd",
+          "PAYMENT_MATCH": "f45b05a44194336e3cf1ec60f02fdcb7786cd715d38f5bdd691abfe4fac337a8",
+          "EXPENSE_EVIDENCE": "d1c5a93dae80b111bd49720dbb043a21ef005cc001f80fd80d8405e54fa0464a",
+          "WARRANTY_EVIDENCE": "fcfe98f1319748339cf2576f68e4fa192061c6673e9062f86b1e326b6887e469",
+          "RETURN_ELIGIBILITY_EVIDENCE": "6f3474f455b0478e79e91d4d21ea2658b8b46dc3300d7ccfd9b1122bc5347239",
+          "LINEAGE_CURRENT_STATE": "d54dcd2f5a85240396c0bf727cae1689d069b567e1f5d9623fd8b023080c7306",
+          "ACCOUNTING_CLASSIFICATION": "dd78c9d3dc8b5f8f28f54822fbfa202f1baa68c5ac90430d8f12217c0baed814",
+          "AUDIT_TRACE": "de1b86b62b4dbfb186e7cb8b70b8d9ed983a9a57474b5659e505e9f9a87c54a8"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "0985253f9458af3ef81371f6ea5d55ce9325c73ab048fc494661bfe8619f3263"
+        }
+      }
+    },
+    {
+      "id": "derived_provenance",
+      "description": "Derived evidence remains distinct from origin-declared evidence.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "DERIVED",
+          "source_profile": "Frozen document extraction",
+          "source_artifact_id": "SOURCE-DERIVED-001",
+          "unmapped_fields": [],
+          "warnings": [
+            "Source interpretation required"
+          ]
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "186b00aaae527bca9ef8cedd4c54ca2cfaae9ee982a0f897626ae30c0fa27b82",
+        "structure_id": "6496067403f21abe85b12d40fc931cefc3f7b31d5d8f0832398f2e25942806e2",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "2687cd601ff76a440b3709f18504035ea23b789a4362caaaaf6b61f987d32b4b",
+        "current_lineage_state_id": "c3dd19c4e50b8a6fb98c7f8a78ca3469536ae5b515f387ceb773fbd8175bd282",
+        "bundle_id": "930add4ec3ee4892c34bb1d626e12cf0c590d8c13403ddc13f5c5e6629b8abae",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c3122c922c2a210b2ef0df6f6b9877d5ab5295365c31762ff1ebb810bc1549ce"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "f9bdbed7383f033b7af7aa5a823d069f21d706a06789593adc60ae8c3e87ef2e"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a040bea741a57cc79a27a7b2e404fd03a124125ef95d9e19b10391bda0874567"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "18c04c2b83370cf95fc227393a5f5bae0fffc4e9868f0d2d659eba5eeb793606"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c992c8236de19a19e16cad60806fdb37dcddb55d79c493eb1dc1db97b1102fc5"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "8fc8de1bc3e520ecccee69b8e6679e3419eba1863a6bc8782daf0dd07dfbf224"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "2d5e6da81f28c071ca7d22635db5c4d1bd950a3ebb91272ebd6a9d98c494f2ef"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a73b68adb78bde497af97f64135f2e2eb29c83fe34211c0c4e52a5641618249b"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "565ee500d7e2554984831fb08272e11b4c456db0ad8c9bdd79cf1180e4259064"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "c94eca61727ab49644997d79dcf1b2256aa44d1dd5df138754d10b039935864d",
+          "ARITHMETIC_CHECK": "6d59337ee6b0a5c09dd52d7679659eddf546f784a29c16f79798f6f76a4b83c4",
+          "PAYMENT_MATCH": "1eb937ac8f91db1ec5ac774b378e2a0dd9370d26ac0f1a3d528008b613641b99",
+          "EXPENSE_EVIDENCE": "2207bb6cf1ea11f3dfc5c1d7a5147f794128d147ce526ef6e476e9650ea08b44",
+          "WARRANTY_EVIDENCE": "07f987173548eb83b0a4ff96e6dfc879bf8edc63cca3643de7fc5e56ada4c06d",
+          "RETURN_ELIGIBILITY_EVIDENCE": "879dabaa7eec979e4c1f74c63d4169f3c760ce8321e0ecf906115655ca83fb61",
+          "LINEAGE_CURRENT_STATE": "68c7b670fe82e8b866d998b5d1d0f578cf73c468e7ba1b34d56b6bb7751fa1b1",
+          "ACCOUNTING_CLASSIFICATION": "2104c27d69db332e7a6a89fb0dbd3c4015bd24e5c1987be47c721f0b4d31c80e",
+          "AUDIT_TRACE": "8e20d75efe6852ce257a06b3d349756210870a3453a65f158d4a873f7411382b"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "d530c4aa53a6f667dd69f47a31dc1b60b67f508567f79b66dea90e46f24105f5"
+        }
+      }
+    },
+    {
+      "id": "expense_missing_purpose",
+      "description": "Expense evidence remains incomplete without a declared business purpose.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "6719709b97b1d9547a5be328c8e2b0e1b282840b6cde22cfe9c0f6f67b552914",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "612855500b574700bdfa9599f1e17faa436cac761eec8e0926fd813ad33a7b14",
+        "bundle_id": "d726eb8b8cb67d42605e6f92c0f88261858ca43ea3f15961ccfc03ca89c3c7da",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "a4160c8f1b1ca0155ecd2321fe7c1c42caee2f8cb64b1cb532c2b07084f92e19"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "b1df9fd709f329cc32464aafbc08f91bf9d359e803a2020f7b711fbafb4e87bb"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "beb8acf84c788ef479c243995b81d9b555853989015efed078f8613f8b692efb"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "INCOMPLETE",
+            "purpose_outcome": "EXPENSE_EVIDENCE_INCOMPLETE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "7c790019707d884b8c72925f8b184985f275c71a8fe1c8e30a6457f5e2f6c2a6"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "3fd7e639ed05b80cbcee3e0a481c290bd6a90b1f471d3072927716d49b23dd9e"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "STRUCTURE_SUPPORTS_REQUESTED_AMOUNT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "7585e72d2ef8c6f94f74872794f277c61545cebbaeb38c2608aea1dc4f7f2e25"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ACTIVE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "9970b326aec7263ea962944ab54f21654432f35ac6c9b97f5818feb3b8da384a"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "86c0e9fd2ee100d36d18b01c57b2bc35d75db2aabd1e455065a02dde6db6c588"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "830c2c220274b78aa42df8c458cf550ae271276cc9eb832df44ff032a65a42c9"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "cb1a86ae57adac09c840bedf84ff185b3eacb1e2348c4c97ea5124498f2e0946",
+          "ARITHMETIC_CHECK": "3a802f97a253c22f6e4e323cfe2ffd3b98abffaf12577a927ede1ebde6d2683e",
+          "PAYMENT_MATCH": "a2d8c34c65384f6c87e1e558012051d02b4c5765a7a3a4dd60872f95f96e8941",
+          "EXPENSE_EVIDENCE": "1fc1572970771ee60df2c37a017e150d51451c2e4278c818eb701c7f3d28be32",
+          "WARRANTY_EVIDENCE": "7649dfbed125fa0623b12ea367add1a19a6e945b025b41eb7870c36723090bcc",
+          "RETURN_ELIGIBILITY_EVIDENCE": "4d1ce2ec4e2c5361f41e43b26105d0ef04c7312d0d750a748ed8a23c9fd98588",
+          "LINEAGE_CURRENT_STATE": "a9c7b7082ed3d02169f1cd96d6ae9a467549161b8e800e6e69b0fdb16a9ceed9",
+          "ACCOUNTING_CLASSIFICATION": "662821bf0ac5b2e8e4ba0b1183c4e5837991f4928f4c9ca5c7e7b7645c2da4de",
+          "AUDIT_TRACE": "58ce2240eee304a97637b4b14c129a1e6851f161629e97169df116cac87d2a7c"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "05a296c2a691a7638a75fed2a76957ea7b6b515ea20cc951f839d73d32b3c237"
+        }
+      }
+    },
+    {
+      "id": "jpy_exponent_unsupported",
+      "description": "Zero-decimal currency is explicitly unsupported by the current 2dp money profile.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "JPY",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "UNSUPPORTED_CURRENCY_EXPONENT"
+        }
+      },
+      "expected": {
+        "receipt_id": "5a74823d3892c4d95e2d07e4b85bd0f90cd6d845943210e007415f7256ca31fa",
+        "structure_id": "9cc0cefab9d4ac35c43d486e6a1d5d4a01c4908de90335e903f46b830f17696b",
+        "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "91ec77ce996424258ce0b0f509a4a7e6e02ecafff2008e95e60b033f608d2352",
+        "current_lineage_state_id": "0e1873ba74d1a3bed0cabe8746a587d6085a518bbb279c0131b24de0594d3d6b",
+        "bundle_id": "ff14291e354b4062665455527be2b4b0e8bcd98723487ef54d02fd88d13c2fb7",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "e1443ed5bcb93fec7d25d35116d676e14801add84d9a8d108ee5f61bbcbb0bf0"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "a70597dc3490327fe7baeaa317f023b01dccc1bbcee51aca327d9d774dd98c3e"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "5484b30d5c20d03d48125b917896989cc1363bbdf57fece19fa30a148c4cd3de"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "a421bb75d848e84b39ac50a39d136b72e3e4da886cb66607253bec1a1906b931"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "aedba6d4404b3304d361f664c40b64cc962e518822b404af4b3a709aebd042d5"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "7124723f6e0f6fc4c3c303cebeeeb44548615ec223aff4ba5666e3c4e7238430"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "2cd8bd865f0599d5a2d2cbe66dde07a12f52cffe5c6abe862dd1d59cd859c393"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "61284a714f9f2afc07473c40d0bb0c1378777e6f3dfefa545c183f6270d4ec79"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "37554e856ecf2e37c5c185e3cda6fd52ba6f9d65e47eb98e38a3d1a4682ac2f5"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "e56ec7c03d5ae50a77ce0451ef05b31a791bbd5cc4d2a36a098626d170e6b400",
+          "ARITHMETIC_CHECK": "335e1fbeddcbb9523b3e770e73206851de8f2e18827d58606aa1a8261ee0d31c",
+          "PAYMENT_MATCH": "eded1ef27e0a1c4eab4ea28e1fae1b28ed07a2e24e3a427b3e617906de8d176c",
+          "EXPENSE_EVIDENCE": "eb8621a95e73a4b30ad38028424ed4c2a5e9c927f0ea79ce334b4a1587e9385f",
+          "WARRANTY_EVIDENCE": "20db4b08086d214b3eef406ffdc75c523c434fffbbad0f323cacce186ced8c99",
+          "RETURN_ELIGIBILITY_EVIDENCE": "eec46c7afbff5a73c42fcb05e5827975f4c926d0462a8bb29366d96992b7d58c",
+          "LINEAGE_CURRENT_STATE": "335c578468c48b11838efd395c429bb28236ed1aaadfaede1234849ba4c778ec",
+          "ACCOUNTING_CLASSIFICATION": "8944f4529d13e1f4cdacd7247db7b2cdcd99c5b0c75629a493696aebae8dc70b",
+          "AUDIT_TRACE": "d13bc108bdc45dbd18b91d6db567ffecdca6f0507fc534d2d76619cea4e65d7f"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "e54149d9a99c72c8eb98e3c09b54d732c452cd47dc3355d1bbe6bde365ec09cf"
+        }
+      }
+    },
+    {
+      "id": "kwd_exponent_unsupported",
+      "description": "Three-decimal currency is explicitly unsupported by the current 2dp money profile.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "KWD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "UNSUPPORTED_CURRENCY_EXPONENT"
+        }
+      },
+      "expected": {
+        "receipt_id": "42e1766deb1912cd66dc3fd8387e8379ae04b54d576f76ed5749fdec2385de9a",
+        "structure_id": "1c1bb1e0d8644fe5854f07bdf4233a27ccf385719021948bea1e21b8efa31af9",
+        "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "93a927bce995da595a27e5cb3ea87b1ec3c86b19c77a441aaaaf2b4dfb1415c7",
+        "current_lineage_state_id": "250457be30716cb5198d862451a88f2eaed5da03d1c3bcda1ffececfcefdf2a3",
+        "bundle_id": "46250778a6124a7e717e55ccf63a9dfe0937ef01d9ab7f219890b2f49fc98700",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "c2f8b0126d6f1012e5b2246b0f8d1a26c408f43f590c45aa5afc2bb7b79ee5d3"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "92a758574fc10d5afa0d391308912c95aad387cf0a734665d71a54520e70e655"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "e9d3a367ea37f30afaba5f5957660c989b53192e22646f1fd87fb0a081cf064f"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "1548494cd7ae97efb3991e1e215e4176153c39d984ecd2f8e8c393c473975722"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "87becb67ed400129701fbc256410a8186606a98854f4ebbed0497fca17549ae9"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "048840ecf20429d04988f4bc9d7208f12f44d540bf12144628ad41cc5d630cd1"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "ba3189277aa1b89c974bf6e676ea36b5276df5c82763467b0cdea951993e7e81"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "UNSUPPORTED",
+            "purpose_outcome": "CURRENCY_EXPONENT_UNSUPPORTED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "905ed7f4512e911ee2a98f60b3b5ef4b564be340af7987bb0c4d49ac640cbfb7"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "219ea5aafc7bf6ad7e6695bcfcd9eb335c7c31ce8a133a7646da31fbb048695b",
+            "purpose_result_id": "4a052e053035e3da3a59c3a22bd06890529b9e84c593bd934d8a75617cf843c2"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "5b75b3e9ca16a46f0118815d9651affff9bec90cb8a9497c6b5124b6afc84c02",
+          "ARITHMETIC_CHECK": "337173d55b9bf45b303177ec9d3486ef2a2f0490e575cf1762dbdc6d555474c7",
+          "PAYMENT_MATCH": "79c8d0f274bf860b475a402653a4f36e88def1691884d8caeae75cbd1e545d78",
+          "EXPENSE_EVIDENCE": "404f7ab72bf33044dc38609e2666603cd02c6774df9c5dc75db5549c8394018a",
+          "WARRANTY_EVIDENCE": "8628b014e519b3f0d399f0ac3104c969b8cd3a2e53447e412f4e1edb6c05d2e2",
+          "RETURN_ELIGIBILITY_EVIDENCE": "10f3a985f0c8a43924f20a15610b6e828939efe5ed16f414baad2f7bbbe91b96",
+          "LINEAGE_CURRENT_STATE": "80614730c18fbb18ad9fc2bc61144dbead25bbdf7d045fbf008a3b8e1a06c1b6",
+          "ACCOUNTING_CLASSIFICATION": "b4ca25dcfec9362486e2a28b1e43cc7bab27c18211c23b635cc53152997b4300",
+          "AUDIT_TRACE": "1ee44720c24796a3887777b045726ad51a3b72ed560eb88cee057529d28d7144"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "4430ed61d09370dc506fb4b99ed0fc00285014606c48bda9c3c00b42a474a7d7"
+        }
+      }
+    },
+    {
+      "id": "missing_as_of_context",
+      "description": "Time-relative purpose profiles abstain when the declared as-of context is missing.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "84bf3553e1b36fb1e5d648cab190d84f2395d3f4f2baba0bb7cd2d9069e58cdd",
+        "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "b814dd84363bea0363df3d4350be04859d34b76f37764bf12797b2c71d4027b5",
+        "current_lineage_state_id": "ffa34af9226a38ccf07b6be1d05a829751353b74b545fb05033832e2ab870ba8",
+        "bundle_id": "be3f29fdd3ec394c54284adac2a6143fd3ed4d24b4185fb28ebfdae86fc61984",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "883274ff11fe9408e8118c743d06accafb30f290ee21167736763e43818c8f29"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "8daae86d209578a38e6e68cdd886b4b7ce1bcf10be49b1b415caadc6f54af1ff"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "2ab078a4c23002f6f2470f1953f1a7ddc6a3e399d0aaddd39ea695db6b6a4dbc"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "862c936ae7d36cfdfe93404a7340100c01087e38c16e17c0d244c42a8daabcf8"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "INCOMPLETE",
+            "purpose_outcome": "EVALUATION_CONTEXT_INCOMPLETE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "e000c49f7276b011a971e46662eb63f3150fe953ec1b555c4458b6927749e52b"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "INCOMPLETE",
+            "purpose_outcome": "EVALUATION_CONTEXT_INCOMPLETE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "9c42310db750454fbf1a9ac6f88fcae0fca7a1b64ea0a9fa86c0d3cae6630ba6"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "INCOMPLETE",
+            "purpose_outcome": "EVALUATION_CONTEXT_INCOMPLETE",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "f6266d317531e23722dbeddc936c72ecc97e012904ec488cbb9966ea4a91ca53"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "68d82933e0914559dabf732ba9bed5fa508fe10461d5fe54d631f25028f74956"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "bf1c4396173695cebf3eeabdf5bacd17b9632eb0a93493e733053f655e9709d7",
+            "purpose_result_id": "3995de1a77dfb494fcc4a82462b47b319d58b502e2379b78da9325a57b1c0acd"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "6180e63cb7d77614aea22ee5b1db25fa6e02959c227d3d2eb050e776dd6a6e0b",
+          "ARITHMETIC_CHECK": "ebdcfce651f49b983e48095aff0f368875f1a661bceb7708a764617dcb4a8a71",
+          "PAYMENT_MATCH": "15d7d90722da76c36e8e03960d7c00deaed3e3dc2700f83c2ff86715c6fca7fa",
+          "EXPENSE_EVIDENCE": "a618041b68fae25597bb1abd02ae06c56b660bcef606a7d978fdb343837c960a",
+          "WARRANTY_EVIDENCE": "97fc093591d3916f77c6b80c39aa57cef85d4f63c4c3e4fb6e264e79ddfb25b6",
+          "RETURN_ELIGIBILITY_EVIDENCE": "7b31fd02071e7e5deab748fd19416c9e326894f72583dfed586feb915413df7c",
+          "LINEAGE_CURRENT_STATE": "2de9c47c7de97b6d4ace4c7d2ed6d6bc6ed471c9af90c87bf1208546395634bf",
+          "ACCOUNTING_CLASSIFICATION": "93597d9ab252f9a2aeece03c905a44fa9f5bd695dae1b47d618a4ae0cfc4e1e2",
+          "AUDIT_TRACE": "7ee18d2d7d9505eb624281fda3debcc23a259b6eedc72bf3a9adf65ad1221781"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "5b8a5d5b00d6bbec2b1848b53c826dae612ba72aa8689e477b75bb671943e204"
+        }
+      }
+    },
+    {
+      "id": "duplicate_lineage_event",
+      "description": "Duplicate lineage event identities are rejected as replay conflict.",
+      "receipt": {
+        "profile": "SR-RECEIPT-2-D02",
+        "schema_version": "2.1.0",
+        "ruleset_version": "SR-RULES-3.0.0",
+        "origin": {
+          "class": "NATIVE",
+          "source_profile": "Native browser reference",
+          "source_artifact_id": "",
+          "unmapped_fields": [],
+          "warnings": []
+        },
+        "transaction": {
+          "merchant": "Northstar Office Store",
+          "receipt_number": "SR-1001",
+          "date": "2026-07-18",
+          "currency": "USD",
+          "items": [
+            {
+              "id": "ITEM-1",
+              "description": "Portable document scanner",
+              "qty": 1,
+              "unit_price": "240.00"
+            },
+            {
+              "id": "ITEM-2",
+              "description": "USB-C cable",
+              "qty": 2,
+              "unit_price": "15.00"
+            }
+          ],
+          "discount": "10.00",
+          "tax": "20.80",
+          "charges": "0.00",
+          "declared_total": "280.80"
+        },
+        "evidence": {
+          "payment": [
+            {
+              "kind": "INDEPENDENT_PAYMENT",
+              "reference": "PAY-1001",
+              "amount": "280.80",
+              "currency": "USD"
+            }
+          ]
+        },
+        "purpose_context": {
+          "expense": {
+            "business_purpose": "Office document digitization",
+            "claimant_role": "Employee"
+          },
+          "warranty": {
+            "item_reference": "ITEM-1"
+          },
+          "return_eligibility": {
+            "requested_amount": "40.00"
+          }
+        },
+        "lineage": [
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "RETURN",
+            "amount": "10.00",
+            "reference": "RET-DUP",
+            "description": "Duplicate replay"
+          },
+          {
+            "profile": "SR-LINEAGE-EVENT-1-D01",
+            "type": "RETURN",
+            "amount": "10.00",
+            "reference": "RET-DUP",
+            "description": "Duplicate replay"
+          }
+        ],
+        "evaluation_context": {
+          "profile": "SR-EVALUATION-CONTEXT-1-D01",
+          "as_of": "2026-07-19",
+          "jurisdiction_profile": "UNSPECIFIED",
+          "currency_profile": "SR-MONEY-2DP-1-D01"
+        }
+      },
+      "expected": {
+        "receipt_id": "1c7fedb8b57ff84ee23521d4da44603229ebd265845c9a9b21a51d6b6fab0379",
+        "structure_id": "0cb1da02be054bd812b4fb9c01de1fe40a55989dadbe7eac9a757b368984ac20",
+        "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+        "purpose_manifest_set_id": "20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381",
+        "lineage_graph_id": "f690913c5704fd34091b2bb777b354f69d19c0ca75052f06ff62c71c8564a71a",
+        "current_lineage_state_id": "2571665bda7b17c613b7c7ebea4b9777562a71bb913b4009507951fb318f2faf",
+        "bundle_id": "112876f95ded3ea63067a9bc9708ca3971d721a6becb4a8f617121940e737056",
+        "purpose_results": {
+          "PURCHASE_DECLARATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_DECLARED",
+            "authority_state": "DECLARATION_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "50e105e59bc2e670f98a0ed0de2e2cf5d1a37d925ed771b8dc29fc07c9ce9533",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "103854c5a5d38519b8e276e42170046a09147a3be26d5b5e4fcdc92abc72e4ca"
+          },
+          "ARITHMETIC_CHECK": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "ARITHMETIC_CONSISTENT",
+            "authority_state": "CHECK_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "b6079ac0efc885e928b506f48cf98697c5aaadb946696968cb5f4b7ad1b8fc42",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "c777c51dbaf2ca2ca8e3d0bb973dd57f4e3005be65ef103c7b2a9b9146e0aa67"
+          },
+          "PAYMENT_MATCH": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "MATCHED",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "cf5a24e88782869e39067464b1c631da016128bd3d4ee6f907f68af5911b0b3f",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "3716583bed5a968bed774c57b2bef60580a906c31f6dfc3942494cec08f7eae2"
+          },
+          "EXPENSE_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "EVIDENCE_SUFFICIENT_FOR_EXAMPLE_PROFILE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "d0f359b1eff8eebb0a5a93374cd8807185a66c8348a3984936bfd19b56496351",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "41db6afa21d30317cf1548d5e8740262744915510639fb66eb652d03da4a5370"
+          },
+          "WARRANTY_EVIDENCE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PURCHASE_EVIDENCE_AVAILABLE",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "77f103556ed655137f6edd8ce6fe5e749dba344d6dacd4e4392a29e399598125",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "34067553a0eb23afa81971dbf1d2038419054fc55264c83a360d79bd4205855c"
+          },
+          "RETURN_ELIGIBILITY_EVIDENCE": {
+            "resolution_state": "CONFLICT",
+            "purpose_outcome": "RETURN_EVIDENCE_CONFLICT",
+            "authority_state": "EVIDENCE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "e8e401f3e06e7c0787caffd707e107f530beec2f062b94f9066b085bd10e2cdc",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "185edf43e0f327a959deec71410c50cfa5b55d65c7fab414cfc9fa62fa9cbd80"
+          },
+          "LINEAGE_CURRENT_STATE": {
+            "resolution_state": "CONFLICT",
+            "purpose_outcome": "LINEAGE_DUPLICATE_EVENT_ID",
+            "authority_state": "STATE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "5293fea4c64036e0173233b999d44b0b14b47c8e2c25a92b2c2b0d9b06b9c118",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "3c08c24141527984ac7556e2843e95b87ad1b4456f636231c43083c72f2a5ae8"
+          },
+          "ACCOUNTING_CLASSIFICATION": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "PROPOSED",
+            "authority_state": "PROPOSAL_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "fb864cc507daec5924a7a5190afe8baa150be66b59e883897e5df18f6633b07a",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "1eae2e950c4486b01dff9b7a083e85ba363cc76a00b7b780a07428cdab8a22f3"
+          },
+          "AUDIT_TRACE": {
+            "resolution_state": "RESOLVED",
+            "purpose_outcome": "TRACE_RECONSTRUCTABLE",
+            "authority_state": "TRACE_ONLY",
+            "execution_authority": "NONE",
+            "authenticity_state": "NOT_ESTABLISHED",
+            "occurrence_state": "NOT_ESTABLISHED",
+            "purpose_profile_id": "1a309136581f0f92eff6c14a62136f347aa9ad0be6b99d84c9877ce83fb84e2e",
+            "evaluation_context_id": "50ed08536f61223f747690c530dd128cb8fd134c3c69e367e7dd7d0dfef0c6ca",
+            "purpose_result_id": "dc99bb103f5d0920c1c7c1370276ab5727ee7f86fe830edd1c65a77d8d26dff1"
+          }
+        },
+        "purpose_receipt_ids": {
+          "PURCHASE_DECLARATION": "34bb5527e827dc4c302f7027bea71c4752c382729f52a0b15a542e4d4f374dba",
+          "ARITHMETIC_CHECK": "70260e3a12febed58950747bbbcde7861b333e52f2f9463de73c639675c638c6",
+          "PAYMENT_MATCH": "0139febd63db327f1cc3538fb40d05e00ee2b61e86cf43b7fdb65b0e991412bb",
+          "EXPENSE_EVIDENCE": "618a76214768c9f5d6ef41c7466beb2367d63bec2ffe994ac4830fb8c673f867",
+          "WARRANTY_EVIDENCE": "00a5edce19dff694d721dd99a6a7a4b4dd7c9c00f48a60c3d95f4af4da3fa36d",
+          "RETURN_ELIGIBILITY_EVIDENCE": "edfc6722fcc06e489f728e137a4d4dedb96ee4daa01a7262078efdd256139574",
+          "LINEAGE_CURRENT_STATE": "08e9f143dd3b2855d81170deb7b47e36c9d85350387122cc857a71fcf36600ef",
+          "ACCOUNTING_CLASSIFICATION": "f0e38045c9f3f350496418acbb2e60d55bdb6ff9bdb0ac1a0eda8bd48df3b49d",
+          "AUDIT_TRACE": "6251b91f151e7df290b1dce1043e21ffc317f04980e39bc981383130524d4f8a"
+        },
+        "unsupported_purpose": {
+          "resolution_state": "UNSUPPORTED",
+          "purpose_outcome": "PURPOSE_PROFILE_UNSUPPORTED",
+          "purpose_receipt_id": "5a25fc949a7400a7edc728b4e4b92c9c233977bd8ae9343255168973a34c1765"
+        }
+      }
+    }
+  ],
+  "corpus_id": "9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e"
+}

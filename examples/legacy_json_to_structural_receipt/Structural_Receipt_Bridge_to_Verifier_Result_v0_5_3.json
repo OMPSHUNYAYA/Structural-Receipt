@@ -1,0 +1,143 @@
+{
+  "profile": "SR-EXAMPLE-VERIFICATION-1-D01",
+  "release_version": "0.5.3",
+  "example": "LEGACY_JSON_TO_WRAPPED_STRUCTURAL_RECEIPT",
+  "status": "PASS",
+  "verification_scope": "SEPARATE_IMPLEMENTATION_RECONSTRUCTION",
+  "separate_implementation": "PASS",
+  "independent_verification": "NOT_CLAIMED",
+  "third_party_verification": "NOT_CLAIMED",
+  "receipt_id": "e15eae20d8b788bdd89b3c757d856c8aed8547bff556ef2eeb23b34745a4a373",
+  "structure_id": "5fd1965d0b4758917f1848cc7bea519433ac141bece59f3c75c0e415d534fde6",
+  "evaluation_context_id": "0afe461fe3bff5dfa855f407f435860a56717a079d63d5380a852b27d0281c43",
+  "current_lineage_state_id": "90d136de73a53e7e075cd111a00255ae736c13e91deafa81c836f9303237e529",
+  "bundle_id": "aea6fc14ba90b0126562c39abc553b9eb9a9956c53a04d027b98102024e42137",
+  "origin_class": "WRAPPED",
+  "semantic_equivalence": "NOT_ASSUMED",
+  "unmapped_fields": [
+    "/legacy_notes/migration_batch",
+    "/legacy_notes/source_comment",
+    "/receipt/channel",
+    "/seller/internal_vendor_code"
+  ],
+  "execution_authority": "NONE",
+  "checks": [
+    {
+      "name": "Receipt identity",
+      "status": "PASS",
+      "detail": "Reconstructed from receipt payload."
+    },
+    {
+      "name": "Structure identity",
+      "status": "PASS",
+      "detail": "Reconstructed from full structural payload."
+    },
+    {
+      "name": "Evaluation context identity",
+      "status": "PASS",
+      "detail": "Reconstructed from declared evaluation context."
+    },
+    {
+      "name": "Purpose manifest set identity",
+      "status": "PASS",
+      "detail": "Frozen purpose profile manifests reconstruct."
+    },
+    {
+      "name": "Purpose profile identities",
+      "status": "PASS",
+      "detail": "All frozen purpose profile manifests match their identified data."
+    },
+    {
+      "name": "Evaluation context",
+      "status": "PASS",
+      "detail": "Declared evaluation context reconstructs."
+    },
+    {
+      "name": "Trust context",
+      "status": "PASS",
+      "detail": "Bounded trust context reconstructs."
+    },
+    {
+      "name": "Lineage graph identity",
+      "status": "PASS",
+      "detail": "Reconstructed from root receipt and linked event set."
+    },
+    {
+      "name": "Current lineage state identity",
+      "status": "PASS",
+      "detail": "Reconstructed from current bounded lineage state and evaluation context."
+    },
+    {
+      "name": "Purpose receipt PURCHASE_DECLARATION",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt ARITHMETIC_CHECK",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt PAYMENT_MATCH",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt EXPENSE_EVIDENCE",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt WARRANTY_EVIDENCE",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt RETURN_ELIGIBILITY_EVIDENCE",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt LINEAGE_CURRENT_STATE",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt ACCOUNTING_CLASSIFICATION",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Purpose receipt AUDIT_TRACE",
+      "status": "PASS",
+      "detail": "Reconstructed purpose receipt identity matches."
+    },
+    {
+      "name": "Bundle identity",
+      "status": "PASS",
+      "detail": "Bundle subject reconstructs to the claimed identity."
+    },
+    {
+      "name": "Adapter contract",
+      "status": "PASS",
+      "detail": "Declared transformation boundary reconstructs."
+    }
+  ],
+  "result_contract": {
+    "profile": "SR-VERIFICATION-RESULT-1-D01",
+    "release_version": "0.5.3",
+    "verification_status": "PASS",
+    "receipt_identity_status": "PASS",
+    "structure_identity_status": "PASS",
+    "profile_status": "PASS",
+    "lineage_status": "PASS",
+    "purpose_receipt_status": "PASS",
+    "bundle_identity_status": "PASS",
+    "unsupported_conditions": [],
+    "claim_boundary": {
+      "separate_implementation": "PROJECT_PRODUCED",
+      "third_party_verification": "NOT_CLAIMED",
+      "execution_authority": "NONE"
+    }
+  }
+}

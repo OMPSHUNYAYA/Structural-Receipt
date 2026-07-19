@@ -1,0 +1,191 @@
+{
+  "profile": "SR-BRIDGE-ADAPTER-MANIFEST-1-D01",
+  "release_version": "0.5.3",
+  "adapter_profile_id": "SR-GENERIC-JSON-ADAPTER-1-D01",
+  "source_kind": "JSON",
+  "origin_class": "WRAPPED",
+  "semantic_equivalence": "NOT_ASSUMED",
+  "description": "Generic path-based adapter manifest for converting declared external transaction JSON into a provenance-preserving Structural Receipt sidecar. Paths are arrays of object keys and array indexes. Adapt the paths to the source system without changing the bridge code.",
+  "declared_warnings": [],
+  "mapping": {
+    "merchant": {
+      "path": [
+        "seller",
+        "name"
+      ],
+      "required": true
+    },
+    "receipt_number": {
+      "path": [
+        "receipt",
+        "number"
+      ],
+      "required": true
+    },
+    "transaction_date": {
+      "path": [
+        "receipt",
+        "date"
+      ],
+      "required": true
+    },
+    "currency": {
+      "path": [
+        "receipt",
+        "currency"
+      ],
+      "required": true
+    },
+    "items": {
+      "path": [
+        "lines"
+      ],
+      "fields": {
+        "id": {
+          "path": [
+            "sku"
+          ]
+        },
+        "description": {
+          "path": [
+            "description"
+          ],
+          "required": true
+        },
+        "qty": {
+          "path": [
+            "quantity"
+          ],
+          "required": true
+        },
+        "unit_price": {
+          "path": [
+            "unit_price"
+          ],
+          "required": true
+        }
+      }
+    },
+    "discount": {
+      "path": [
+        "totals",
+        "discount"
+      ],
+      "default": "0.00"
+    },
+    "tax": {
+      "path": [
+        "totals",
+        "tax"
+      ],
+      "default": "0.00"
+    },
+    "charges": {
+      "path": [
+        "totals",
+        "charges"
+      ],
+      "default": "0.00"
+    },
+    "declared_total": {
+      "path": [
+        "totals",
+        "total"
+      ],
+      "required": true
+    },
+    "payments": {
+      "path": [
+        "payments"
+      ],
+      "fields": {
+        "reference": {
+          "path": [
+            "reference"
+          ],
+          "required": true
+        },
+        "amount": {
+          "path": [
+            "amount"
+          ],
+          "required": true
+        },
+        "currency": {
+          "path": [
+            "currency"
+          ]
+        }
+      }
+    },
+    "lineage": {
+      "path": [
+        "adjustments"
+      ],
+      "fields": {
+        "type": {
+          "path": [
+            "type"
+          ],
+          "required": true
+        },
+        "amount": {
+          "path": [
+            "amount"
+          ],
+          "required": true
+        },
+        "reference": {
+          "path": [
+            "reference"
+          ]
+        },
+        "description": {
+          "path": [
+            "description"
+          ]
+        }
+      }
+    },
+    "purpose_context": {
+      "business_purpose": {
+        "path": [
+          "context",
+          "business_purpose"
+        ]
+      },
+      "claimant_role": {
+        "path": [
+          "context",
+          "claimant_role"
+        ]
+      },
+      "warranty_item_reference": {
+        "path": [
+          "context",
+          "warranty_item_reference"
+        ]
+      },
+      "requested_return_amount": {
+        "path": [
+          "context",
+          "requested_return_amount"
+        ]
+      }
+    },
+    "evaluation_context": {
+      "as_of": {
+        "path": [
+          "context",
+          "as_of"
+        ]
+      },
+      "jurisdiction_profile": {
+        "path": [
+          "context",
+          "jurisdiction_profile"
+        ]
+      }
+    }
+  }
+}

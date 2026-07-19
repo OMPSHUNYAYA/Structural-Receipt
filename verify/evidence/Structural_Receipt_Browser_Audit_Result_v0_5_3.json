@@ -1,0 +1,200 @@
+{
+  "release": "Structural Receipt v0.5.3",
+  "browser_file": "demo/Structural_Receipt_Reference_Demo_v0_5_3.html",
+  "verification_scope": "BROWSER_PRODUCER_SIDE_FULL_RELEASE_AUDIT",
+  "execution_origin": "MANUAL_BROWSER_RELEASE_TEST",
+  "result": {
+    "pass": 221,
+    "fail": 0,
+    "total": 221,
+    "status": "PASS"
+  },
+  "quick_regression": {
+    "pass": 72,
+    "total": 72,
+    "status": "PASS"
+  },
+  "groups": {
+    "CANONICALIZATION": {
+      "pass": 12,
+      "total": 12
+    },
+    "EXACT MONEY": {
+      "pass": 9,
+      "total": 9
+    },
+    "PURPOSE RESOLUTION": {
+      "pass": 20,
+      "total": 20
+    },
+    "DEPENDENCY MODEL": {
+      "pass": 10,
+      "total": 10
+    },
+    "AUTHORITY BOUNDARY": {
+      "pass": 14,
+      "total": 14
+    },
+    "PROVENANCE & IDENTITY": {
+      "pass": 8,
+      "total": 8
+    },
+    "LINEAGE": {
+      "pass": 11,
+      "total": 11
+    },
+    "COMPARISON": {
+      "pass": 5,
+      "total": 5
+    },
+    "METAMORPHIC SAFETY": {
+      "pass": 9,
+      "total": 9
+    },
+    "TRUST SEPARATION": {
+      "pass": 6,
+      "total": 6
+    },
+    "PORTABLE EVIDENCE": {
+      "pass": 14,
+      "total": 14
+    },
+    "LINEAGE IDENTITY": {
+      "pass": 6,
+      "total": 6
+    },
+    "ADAPTER BOUNDARY": {
+      "pass": 6,
+      "total": 6
+    },
+    "VERIFIER RECONSTRUCTION": {
+      "pass": 6,
+      "total": 6
+    },
+    "FROZEN CONFORMANCE": {
+      "pass": 8,
+      "total": 8
+    },
+    "TAMPER CORPUS": {
+      "pass": 7,
+      "total": 7
+    },
+    "INDEPENDENT VERIFIER FIXTURES": {
+      "pass": 4,
+      "total": 4
+    },
+    "DEMONSTRATION CASES": {
+      "pass": 10,
+      "total": 10
+    },
+    "PURPOSE PROFILE DATA": {
+      "pass": 6,
+      "total": 6
+    },
+    "EVALUATION CONTEXT": {
+      "pass": 8,
+      "total": 8
+    },
+    "TRUST CONTEXT": {
+      "pass": 6,
+      "total": 6
+    },
+    "MONEY PROFILE BOUNDARY": {
+      "pass": 5,
+      "total": 5
+    },
+    "HOSTILE INPUT": {
+      "pass": 6,
+      "total": 6
+    },
+    "V0.5 RELEASE FIXTURES": {
+      "pass": 5,
+      "total": 5
+    },
+    "RELEASE CONSISTENCY": {
+      "pass": 9,
+      "total": 9
+    },
+    "UI SECURITY": {
+      "pass": 7,
+      "total": 7
+    },
+    "UI INTERACTION": {
+      "pass": 4,
+      "total": 4
+    }
+  },
+  "permanent_regression_checks": 122,
+  "corpora": {
+    "conformance": {
+      "status": "PASS",
+      "pass": 308,
+      "fail": 0,
+      "total": 308,
+      "vectors": 18,
+      "corpus_id": "9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e",
+      "published_identity_parity": true
+    },
+    "tamper": {
+      "status": "PASS",
+      "pass": 12,
+      "fail": 0,
+      "total": 12,
+      "cases": 12,
+      "corpus_id": "3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5",
+      "published_identity_parity": true
+    },
+    "hostile_input": {
+      "status": "PASS",
+      "pass": 13,
+      "fail": 0,
+      "total": 13,
+      "cases": 13,
+      "corpus_id": "1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603",
+      "published_identity_parity": true
+    }
+  },
+  "evidence_bundle_reconstruction": {
+    "status": "PASS",
+    "checks_pass": 20,
+    "checks_total": 20,
+    "verification_scope": "VERIFIER_FACING_RECONSTRUCTION",
+    "independent_verification": "NOT_CLAIMED"
+  },
+  "regressions": {
+    "integrity_regression": 0,
+    "unexpected_mutation": 0,
+    "authority_escalation": 0,
+    "evidence_reconstruction_regression": 0,
+    "conformance_regression": 0,
+    "tamper_corpus_regression": 0,
+    "hostile_input_regression": 0,
+    "ui_interaction_regression": 0,
+    "ui_security_regression": 0,
+    "release_consistency_regression": 0
+  },
+  "profiles": {
+    "architecture": "SR-CORE-5",
+    "resolver": "SR-RESOLVER-5-D01",
+    "canonicalization": "SR-CANON-1-D01",
+    "strict_json": "SR-JSON-INPUT-1-D01",
+    "purpose_family": "SR-PURPOSE-3",
+    "purpose_manifest": "SR-PURPOSE-MANIFEST-1-D01",
+    "evaluation_context": "SR-EVALUATION-CONTEXT-1-D01",
+    "trust_context": "SR-TRUST-CONTEXT-1-D01",
+    "money_context": "SR-MONEY-CONTEXT-1-D01",
+    "bundle": "SR-EVIDENCE-BUNDLE-2-D01",
+    "verifier": "SR-VERIFIER-2-D01",
+    "independent_verifier": "SR-INDEPENDENT-VERIFIER-2-D01",
+    "conformance": "SR-CONFORMANCE-2-D01",
+    "conformance_corpus": "SR-CONFORMANCE-CORPUS-2-D01",
+    "tamper_corpus": "SR-TAMPER-CORPUS-2-D01",
+    "hostile_corpus": "SR-HOSTILE-INPUT-CORPUS-1-D01",
+    "receipt_schema": "SR-RECEIPT-2-D02",
+    "machine_result": "SR-VERIFICATION-RESULT-1-D01"
+  },
+  "claim_boundary": {
+    "third_party_verification": "NOT_CLAIMED",
+    "execution_authority": "NONE"
+  }
+}

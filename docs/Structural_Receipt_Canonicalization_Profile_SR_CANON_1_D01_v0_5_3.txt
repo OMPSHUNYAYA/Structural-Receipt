@@ -1,0 +1,525 @@
+STRUCTURAL RECEIPT
+
+SR-CANON-1-D01 Canonicalization Profile Specification
+
+Document version:
+v0.5.3 reference specification
+
+Profile:
+`SR-CANON-1-D01`
+
+Companion strict input profile:
+`SR-JSON-INPUT-1-D01`
+
+Current implementation alignment:
+
+`browser reference = v0.5.3`
+
+`standalone browser verifier = v0.5.3`
+
+`separate Python verifier and frozen corpora = v0.5.3`
+
+Status:
+Specification of the canonicalization behavior used by the Structural Receipt v0.5.3 release within its declared supported input boundary.
+
+Primary relation:
+
+`canonical_subject -> canonical JSON text -> UTF-8 bytes -> SHA-256 where an identity profile requires hashing`
+
+Strict input relation:
+
+`external JSON text -> SR-JSON-INPUT-1-D01 validation -> supported parsed value -> SR-CANON-1-D01`
+
+
+1 Purpose
+
+SR-CANON-1-D01 defines the deterministic structured serialization used by the current Structural Receipt identity and verification profiles.
+
+It is used for subjects including:
+
+- receipt identity subjects;
+- full-structure identity subjects;
+- purpose-profile manifest identity subjects;
+- purpose-manifest set identity subjects;
+- evaluation-context identity subjects;
+- lineage event identity subjects;
+- lineage graph identity subjects;
+- current lineage state identity subjects;
+- purpose result identity subjects;
+- purpose receipt identity subjects;
+- evidence bundle identity subjects;
+- conformance corpus identity subjects;
+- tamper corpus identity subjects;
+- hostile-input corpus identity subjects.
+
+Canonicalization does not determine which fields belong to an identity subject.
+
+That responsibility belongs to the profile defining the subject.
+
+Therefore:
+
+`identity subject selection != canonicalization`
+
+Input validation is also separate.
+
+Therefore:
+
+`input parsing and validation != canonicalization`
+
+
+2 Supported Data Model
+
+The current frozen reference profiles use a constrained JSON-compatible data model consisting of:
+
+- objects;
+- arrays;
+- strings;
+- integers;
+- finite numeric values only where a higher-level profile permits them;
+- booleans;
+- null;
+- decimal money represented as strings under `SR-MONEY-2DP-1-D01`;
+- internal exact-integer metrics converted to canonical decimal strings where the applicable identity subject requires cross-implementation agreement.
+
+The current Structural Receipt identity subjects do not require arbitrary non-integral binary floating-point values as normative money values.
+
+External inputs that depend on implementation-specific non-integral floating-point serialization remain outside the frozen money identity boundary unless a higher-level profile converts them into a supported canonical form.
+
+
+3 Strict JSON Input Boundary
+
+The current strict JSON input profile is:
+
+`SR-JSON-INPUT-1-D01`
+
+The strict browser import path accepts one complete JSON value and rejects parser-ambiguous or trailing input.
+
+The current strict input behavior includes:
+
+`duplicate object key -> rejected input`
+
+`trailing non-whitespace data -> rejected input`
+
+`malformed JSON -> rejected input`
+
+`non-finite numeric value -> rejected input`
+
+The strict input profile is applied before canonicalization.
+
+This separation is important:
+
+`valid JSON parse result -> candidate canonical subject`
+
+not:
+
+`arbitrary text -> canonical identity`
+
+The current hostile-input corpus contains frozen cases for duplicate-key rejection, trailing-data rejection, and invalid imported item quantity rejection.
+
+
+4 Object Canonicalization
+
+For every supported object:
+
+1. canonicalize each property value recursively;
+2. order property names in ascending deterministic order;
+3. emit the object with no insignificant whitespace.
+
+The current profile's normative schema property names are ASCII.
+
+Within the frozen supported profile set:
+
+`ASCII key order -> lexicographic ascending order`
+
+The browser and separate Python implementation agree on the frozen object-key subjects.
+
+Future profiles that permit unrestricted non-ASCII property names should define their ordering rule explicitly rather than silently expanding the D01 claim boundary.
+
+
+5 Duplicate Object Names
+
+Duplicate object names are rejected by the current strict JSON input profile before canonicalization.
+
+The governing law is:
+
+`duplicate object name -> invalid input`
+
+This prevents parser-dependent ambiguity in which one runtime preserves the first value while another preserves the last value.
+
+An object containing duplicate names therefore has no supported canonical identity under the current strict import path.
+
+
+6 Array Canonicalization
+
+Array order is preserved exactly.
+
+The relation is:
+
+`[A, B] != [B, A]`
+
+unless a higher-level identity profile explicitly converts a semantic set into a canonically sorted array before SR-CANON-1-D01 is applied.
+
+Examples include:
+
+- lineage graph node sets sorted by event identity before canonicalization;
+- event identity lists sorted by the defining bundle profile;
+- purpose receipt collections normalized by the defining verification profile where order independence is declared.
+
+Canonicalization itself does not sort arrays.
+
+
+7 String Canonicalization
+
+String values are preserved as supplied to the canonical subject.
+
+SR-CANON-1-D01 does not perform Unicode normalization.
+
+Therefore:
+
+`different Unicode code-point sequences -> potentially different canonical subjects`
+
+even where two strings render visually the same.
+
+The current hostile-input corpus explicitly freezes the boundary that canonically distinct NFC and NFD strings remain distinct under the current profile.
+
+A future normalization profile may define a preprocessing relation such as:
+
+`validated input -> declared normalization profile -> SR-CANON profile`
+
+Any normative normalization change that alters identity results requires a new applicable profile identity.
+
+
+8 Number Canonicalization
+
+Structural Receipt does not use ordinary binary floating-point numbers as normative money values.
+
+Money values are represented as exact decimal strings under the current exact-money profile.
+
+Integer quantity fields are represented as integers.
+
+Internal exact-integer metrics that cross the browser and Python verification boundary are converted to canonical decimal strings by the relevant identity-subject construction.
+
+The current frozen boundary does not claim a universal canonical representation for arbitrary non-integral JSON numbers.
+
+Such values are outside the demonstrated identity domain unless a higher-level profile converts them into a supported canonical form before canonicalization.
+
+Exact release-file SHA-256 checkpoints remain separate from semantic identities defined by this profile. A file digest identifies published bytes; a `receipt_id`, `structure_id`, `corpus_id`, `purpose_profile_id`, or `bundle_id` identifies its declared canonical subject.
+
+
+9 Money Representation
+
+The current exact-money profile is:
+
+`SR-MONEY-2DP-1-D01`
+
+The current money-context profile is:
+
+`SR-MONEY-CONTEXT-1-D01`
+
+Supported monetary values on the two-decimal path are decimal strings with:
+
+- optional leading minus sign;
+- one or more integer digits;
+- optional decimal point;
+- one or two decimal digits.
+
+Examples:
+
+`"10"`
+
+`"10.5"`
+
+`"10.50"`
+
+The current exact-money implementation interprets supported values in exact hundredths.
+
+The current money-context boundary recognizes that currencies may use different exponents.
+
+The current supported exponent-2 examples include:
+
+`USD`
+
+`INR`
+
+`EUR`
+
+`GBP`
+
+`AUD`
+
+`SGD`
+
+The current reference also recognizes exponent examples including:
+
+`JPY -> 0`
+
+`KWD -> 3`
+
+Those examples are explicitly unsupported by the current two-decimal arithmetic profile rather than silently coerced.
+
+The governing law is:
+
+`unsupported currency exponent -> UNSUPPORTED`
+
+The money profile, not SR-CANON-1-D01, determines whether two textual money forms are semantically equivalent before they become an identity subject.
+
+
+10 JSON Emission
+
+The canonical JSON text is emitted:
+
+- without indentation;
+- without optional spaces;
+- with object properties already in canonical order;
+- with array order preserved;
+- with Unicode string content preserved;
+- using standard JSON escaping for required characters.
+
+The canonical text is then encoded as UTF-8 where hashing is required.
+
+The SHA-256 digest is represented as lowercase hexadecimal.
+
+
+11 Unsupported Scalar Conditions
+
+Identity subjects should not contain:
+
+- non-finite numbers;
+- runtime-specific objects;
+- functions;
+- undefined values;
+- binary values without an explicit encoding profile.
+
+The strict import path rejects non-finite numeric results.
+
+The browser reference does not use unsupported runtime values in the frozen supported identity subjects.
+
+
+12 Canonicalization and Identity Profiles
+
+SR-CANON-1-D01 does not define a universal Structural Receipt identity.
+
+Each identity profile selects its own subject.
+
+Current conceptual relations include:
+
+`receipt_id = SHA256(canonical(purchase_identity_subject))`
+
+`structure_id = SHA256(canonical(full_structure_subject))`
+
+`purpose_profile_id = SHA256(canonical(purpose_profile_manifest_subject))`
+
+`purpose_manifest_set_id = SHA256(canonical(purpose_manifest_set_subject))`
+
+where the current set subject is exactly:
+
+`{"profile":"SR-PURPOSE-MANIFEST-1-D01","purposes":[{"purpose":...,"purpose_profile_id":...},...]}`
+
+with `purposes` sorted deterministically by purpose and containing only the `purpose` and `purpose_profile_id` fields.
+
+`evaluation_context_id = SHA256(canonical(evaluation_context_subject))`
+
+where the current evaluation-context subject contains exactly:
+
+`profile`
+
+`as_of`
+
+`jurisdiction_profile`
+
+`currency_profile`
+
+and:
+
+`profile = SR-EVALUATION-CONTEXT-1-D01`
+
+`lineage_event_id = SHA256(canonical(lineage_event_subject))`
+
+`lineage_graph_id = SHA256(canonical(lineage_graph_subject))`
+
+`current_lineage_state_id = SHA256(canonical(current_lineage_state_subject))`
+
+`purpose_result_id = SHA256(canonical(purpose_result_subject))`
+
+`purpose_receipt_id = SHA256(canonical(purpose_receipt_subject))`
+
+`bundle_id = SHA256(canonical(bundle_subject))`
+
+The subject definition must be frozen separately.
+
+The governing separation is:
+
+`subject selection -> identity profile responsibility`
+
+`input validation -> strict input profile responsibility`
+
+`deterministic serialization -> SR-CANON responsibility`
+
+`digest construction -> identity profile responsibility`
+
+
+13 Cross-Implementation Agreement
+
+The current browser and separate Python implementation reproduce the frozen v0.5.3 conformance expectations under the supported D01 domain.
+
+Current frozen evidence includes:
+
+`18 conformance vectors`
+
+`308/308 conformance checks PASS on the browser path`
+
+`308/308 conformance checks PASS on the separate Python path`
+
+`13/13 hostile-input cases PASS on both implementation paths`
+
+`published conformance corpus_id = 9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e`
+
+`published hostile-input corpus_id = 1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603`
+
+The current evidence establishes agreement for the frozen subjects and vectors.
+
+It does not establish equivalence for every possible JSON value.
+
+The correct bounded claim is:
+
+`same supported frozen subject + SR-CANON-1-D01 + same identity profile -> same demonstrated reconstructed identity across the current two implementation paths`
+
+
+14 Relationship to Established Canonicalization Approaches
+
+SR-CANON-1-D01 follows a familiar deterministic-JSON pattern:
+
+- recursive object-key ordering;
+- preserved array order;
+- no insignificant whitespace;
+- UTF-8 hashing;
+- deterministic identity subjects.
+
+The current profile is not claimed to be a complete implementation of any external named canonicalization standard.
+
+It has its own bounded supported data model, strict input boundary, frozen fixtures, and implementation history.
+
+Future interoperability work should explicitly decide whether to:
+
+- retain SR-CANON-1-D01 for compatibility;
+- introduce a new profile aligned to another public canonicalization approach;
+- introduce a declared normalization step before canonicalization.
+
+Any normative identity change must receive a new profile identity.
+
+
+15 Security and Interoperability Boundaries
+
+Canonicalization does not establish:
+
+- authenticity;
+- truth;
+- issuer legitimacy;
+- semantic equivalence across different schemas;
+- legal validity;
+- safe interpretation outside the supported profile boundary.
+
+Strict parsing reduces parser ambiguity but does not make every accepted semantic claim true.
+
+Therefore:
+
+`parser agreement is a prerequisite to canonical agreement`
+
+and:
+
+`canonical agreement != semantic truth`
+
+The current profile does not freeze universal limits for:
+
+- maximum nesting depth;
+- maximum string length;
+- maximum array length;
+- maximum object size.
+
+Deployments may impose defensive parser limits.
+
+A future normative limit profile would require its own declared boundary if those limits affect accepted input semantics.
+
+
+16 Current Hostile-Input Coverage
+
+The current hostile-input corpus includes frozen cases for:
+
+- Unicode NFC and NFD distinction;
+- duplicate JSON key rejection;
+- trailing JSON data rejection;
+- exact zero amount;
+- exact negative amount;
+- excess decimal rejection;
+- extreme exact magnitude;
+- explicit unsupported handling for a zero-decimal currency example;
+- explicit unsupported handling for a three-decimal currency example;
+- missing required `as_of` evaluation context;
+- duplicate lineage-event rejection;
+- empty item-line incompleteness.
+
+Not every hostile-input case is a canonicalization case.
+
+The corpus intentionally exercises adjacent boundaries where parsing, canonicalization, money representation, context, and lineage interact.
+
+
+17 Conformance Direction
+
+Future canonicalization vectors should continue to expand coverage for:
+
+- nested object-key permutations;
+- array-order preservation;
+- empty objects;
+- empty arrays;
+- null;
+- booleans;
+- large integers;
+- Unicode composed and decomposed strings;
+- non-ASCII values;
+- non-ASCII property-name cases under any future profile that supports them;
+- duplicate-key rejection;
+- trailing-data rejection;
+- invalid non-finite numbers;
+- deep nesting limits if a future normative limit profile is introduced;
+- large input limits if a future normative limit profile is introduced.
+
+The strongest rule remains:
+
+`normative canonicalization change -> new profile identity`
+
+
+18 v0.5.3 Release Integration
+
+SR-CANON-1-D01 remains the active canonicalization profile for the v0.5.3 release.
+
+The release publishes identified purpose manifests as standalone artifacts under:
+
+`profiles/`
+
+The same profile identities reconstruct to the current purpose-manifest set identity:
+
+`20c55cd83bce5eb9590c757fc972880c11126249a2ed033f1f3b49249de6e381`
+
+The release also publishes frozen conformance, tamper, and hostile-input corpora under:
+
+`verify/`
+
+The canonical corpus subjects reconstruct to:
+
+`conformance = 9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e`
+
+`tamper = 3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5`
+
+`hostile = 1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603`
+
+These semantic corpus identities are separate from exact file-byte SHA-256 values.
+
+The distinction is:
+
+`corpus_id -> canonical corpus subject identity`
+
+`file SHA-256 -> exact published artifact bytes`
+
+The current canonicalization profile remains intentionally bounded.
+
+A future normative change to Unicode normalization, unrestricted non-ASCII key ordering, arbitrary floating-number encoding, or another identity-relevant serialization rule requires a new applicable profile identity.

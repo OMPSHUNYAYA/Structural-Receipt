@@ -1,0 +1,1738 @@
+{
+  "release": "Structural Receipt v0.5.3",
+  "verification_scope": "SEPARATE_IMPLEMENTATION_FROZEN_CORPUS_RECONSTRUCTION",
+  "separate_implementation_path": "PASS",
+  "third_party_verification": "NOT_CLAIMED",
+  "published_corpus_ids": {
+    "conformance": "9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e",
+    "tamper": "3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5",
+    "hostile": "1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603"
+  },
+  "results": {
+    "FROZEN CONFORMANCE": {
+      "status": "PASS",
+      "pass": 308,
+      "fail": 0,
+      "total": 308,
+      "checks": [
+        {
+          "name": "Published conformance corpus identity",
+          "status": "PASS",
+          "detail": "Expected 9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e; reconstructed 9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e."
+        },
+        {
+          "name": "Corpus identity",
+          "status": "PASS",
+          "detail": "Frozen corpus subject reconstructs."
+        },
+        {
+          "name": "Purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Frozen purpose profile manifest set reconstructs."
+        },
+        {
+          "name": "clean_purchase receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "clean_purchase PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "clean_purchase unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "incorrect_total PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "incorrect_total unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "missing_payment receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "missing_payment PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_payment unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_amount_mismatch unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "payment_currency_mismatch unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "partial_return receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "partial_return PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "partial_return unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "full_return receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "full_return structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "full_return evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "full_return purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "full_return lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "full_return lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "full_return bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "full_return PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "full_return unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "return_and_refund PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "return_and_refund unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "conflicting_refund PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "conflicting_refund unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "warranty_missing_item unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "accounting_proposal PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "accounting_proposal unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "wrapped_provenance unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "derived_provenance PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "derived_provenance unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "expense_missing_purpose unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "jpy_exponent_unsupported unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "kwd_exponent_unsupported unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "missing_as_of_context unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event receipt identity",
+          "status": "PASS",
+          "detail": "Receipt identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event structure identity",
+          "status": "PASS",
+          "detail": "Structure identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event evaluation context identity",
+          "status": "PASS",
+          "detail": "Evaluation context identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event purpose manifest set identity",
+          "status": "PASS",
+          "detail": "Purpose manifest set identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event lineage graph identity",
+          "status": "PASS",
+          "detail": "Lineage graph identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event lineage state identity",
+          "status": "PASS",
+          "detail": "Current lineage state identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event bundle identity",
+          "status": "PASS",
+          "detail": "Evidence bundle identity matches frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event PURCHASE_DECLARATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event ARITHMETIC_CHECK",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event PAYMENT_MATCH",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event EXPENSE_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event WARRANTY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event RETURN_ELIGIBILITY_EVIDENCE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event LINEAGE_CURRENT_STATE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event ACCOUNTING_CLASSIFICATION",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event AUDIT_TRACE",
+          "status": "PASS",
+          "detail": "Purpose state, profile, trust boundary, context, and identities match frozen expectation."
+        },
+        {
+          "name": "duplicate_lineage_event unsupported purpose",
+          "status": "PASS",
+          "detail": "Unsupported-purpose behavior matches frozen expectation."
+        }
+      ],
+      "corpus_id": "9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e",
+      "vector_count": 18,
+      "verification_scope": "SEPARATE_IMPLEMENTATION_FROZEN_CONFORMANCE",
+      "independent_implementation": "PASS",
+      "third_party_verification": "NOT_CLAIMED",
+      "published_corpus_id": "9f1d59ce40ab2c4a56e0d4f3753ae41d13844cd580377bbf565ef54330df889e",
+      "published_corpus_id_match": true
+    },
+    "TAMPER CORPUS": {
+      "status": "PASS",
+      "pass": 12,
+      "fail": 0,
+      "total": 12,
+      "checks": [
+        {
+          "name": "Published tamper corpus identity",
+          "status": "PASS",
+          "detail": "Expected 3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5; reconstructed 3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5."
+        },
+        {
+          "name": "receipt_payload_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "structure_identity_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "purpose_receipt_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "bundle_identity_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "adapter_contract_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "missing_purpose_receipt",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "missing_verifier_profile",
+          "status": "PASS",
+          "detail": "Expected UNSUPPORTED; reconstructed UNSUPPORTED."
+        },
+        {
+          "name": "unknown_bundle_profile",
+          "status": "PASS",
+          "detail": "Expected UNSUPPORTED; reconstructed UNSUPPORTED."
+        },
+        {
+          "name": "producer_assertion_change",
+          "status": "PASS",
+          "detail": "Expected PASS; reconstructed PASS."
+        },
+        {
+          "name": "evaluation_context_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "purpose_profile_identity_tamper",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        },
+        {
+          "name": "trust_context_escalation",
+          "status": "PASS",
+          "detail": "Expected FAIL; reconstructed FAIL."
+        }
+      ],
+      "case_count": 12,
+      "verification_scope": "SEPARATE_IMPLEMENTATION_TAMPER_CORPUS",
+      "independent_implementation": "PASS",
+      "third_party_verification": "NOT_CLAIMED",
+      "corpus_id": "3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5",
+      "published_corpus_id": "3c681d0d3b3a20a16796fea0273cab0a6412ad17ecd2da433ad470a8bdc9c0e5",
+      "published_corpus_id_match": true
+    },
+    "HOSTILE INPUT CORPUS": {
+      "status": "PASS",
+      "pass": 13,
+      "fail": 0,
+      "total": 13,
+      "checks": [
+        {
+          "name": "Published hostile corpus identity",
+          "status": "PASS",
+          "detail": "Expected 1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603; reconstructed 1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603."
+        },
+        {
+          "name": "unicode_nfc_nfd_distinct",
+          "status": "PASS",
+          "detail": "No Unicode normalization is performed by SR-CANON-1-D01."
+        },
+        {
+          "name": "duplicate_json_keys_rejected",
+          "status": "PASS",
+          "detail": "Strict import parsing rejects duplicate decoded object keys."
+        },
+        {
+          "name": "trailing_json_data_rejected",
+          "status": "PASS",
+          "detail": "Strict import parsing rejects trailing data."
+        },
+        {
+          "name": "zero_amount_exact",
+          "status": "PASS",
+          "detail": "Zero is represented exactly under the current two-decimal profile."
+        },
+        {
+          "name": "negative_amount_exact",
+          "status": "PASS",
+          "detail": "Negative exact amounts remain exact where the bounded parser accepts them."
+        },
+        {
+          "name": "excess_decimal_rejected",
+          "status": "PASS",
+          "detail": "More than two decimal places are rejected by the active money profile."
+        },
+        {
+          "name": "extreme_magnitude_exact",
+          "status": "PASS",
+          "detail": "Large supported decimal magnitudes remain exact through BigInt minor units."
+        },
+        {
+          "name": "jpy_explicitly_unsupported",
+          "status": "PASS",
+          "detail": "Zero-decimal currency is not silently forced into the two-decimal profile."
+        },
+        {
+          "name": "kwd_explicitly_unsupported",
+          "status": "PASS",
+          "detail": "Three-decimal currency is not silently forced into the two-decimal profile."
+        },
+        {
+          "name": "missing_as_of_abstains",
+          "status": "PASS",
+          "detail": "Time-relative purposes abstain when the declared evaluation context is missing."
+        },
+        {
+          "name": "duplicate_lineage_event_rejected",
+          "status": "PASS",
+          "detail": "Exact event replay creates a lineage conflict rather than being counted twice."
+        },
+        {
+          "name": "empty_item_lines_incomplete",
+          "status": "PASS",
+          "detail": "An empty purchase does not resolve as a complete purchase declaration."
+        },
+        {
+          "name": "invalid_item_quantity_rejected",
+          "status": "PASS",
+          "detail": "Imported item quantities must be positive integers before entering the active receipt state."
+        }
+      ],
+      "case_count": 13,
+      "corpus_id": "1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603",
+      "verification_scope": "SEPARATE_IMPLEMENTATION_HOSTILE_INPUT_CORPUS",
+      "independent_implementation": "PASS",
+      "third_party_verification": "NOT_CLAIMED",
+      "published_corpus_id": "1bc1a5a52719025c9d092df825d500c7b883e0a84bd695726163798323ef6603",
+      "published_corpus_id_match": true
+    }
+  }
+}
