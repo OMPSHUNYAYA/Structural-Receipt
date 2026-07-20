@@ -1,81 +1,132 @@
-Structural Receipt Open Use License v1.0
+STRUCTURAL RECEIPT LICENSE v1.0
 
-1. Reference Implementation
+1. Scope
 
-Permission is granted, free of charge, on a worldwide, perpetual, non-exclusive, royalty-free, and irrevocable basis, provided that these terms are followed, to any person or organization obtaining a copy of the Structural Receipt reference implementation.
+This license applies to the Structural Receipt materials distributed with this
+repository unless a specific file or directory states otherwise.
 
-This permission includes the right to use, execute, study, copy, reproduce, publish, distribute, modify, implement, extend, and deploy the reference implementation, in whole or in part, for commercial or non-commercial purposes.
+The covered materials are divided into:
 
-No registration, fee, or prior approval is required.
+- reference implementation and verification artifacts; and
+- documentation and architecture materials.
 
+2. Reference Implementation and Verification Artifacts
 
-2. Conditions
+The reference implementation and verification artifacts include, where present,
+the browser demonstration, standalone and separate verification tooling, bridge
+tooling, frozen conformance and adversarial corpora, machine-readable profiles,
+adapter manifests, schemas, examples, and other implementation or verification
+files.
 
-Redistributions of the reference implementation, or substantial portions of it, must include a copy of this license.
+Permission is granted, without a license fee, to use, copy, modify, test, study,
+and redistribute these materials for lawful purposes, including commercial and
+non-commercial use, subject to the terms of this license.
 
-Applicable third-party license notices and attributions must be retained.
+A substantial redistribution of these materials must retain this license and any
+applicable copyright or attribution notices included with the original materials.
 
-Modified or extended versions must be clearly identified as modified and must not be represented as the official or canonical Structural Receipt reference implementation unless explicitly authorized by the authors or maintainers.
-
-The name "Structural Receipt" may be used for accurate descriptive reference, but must not imply official authorship, endorsement, certification, approval, conformance, governance authority, independent verification, third-party verification, or production readiness.
-
-The name "Shunyaya Framework" may be used for accurate descriptive reference to the framework within which the project is developed, but must not imply endorsement or authorization beyond that descriptive reference.
-
-No right to use any trademark, service mark, logo, or other branding is granted except for accurate descriptive reference.
-
-Attribution is not required for use of the reference implementation, but is encouraged.
-
-Suggested attribution:
-
-Based on the Structural Receipt reference implementation developed within the Shunyaya Framework.
-
-Attribution must not imply endorsement.
+Modified implementation or verification files must be clearly identified as
+modified and must not imply that the modifications were verified, certified,
+endorsed, or authored by the original project maintainers.
 
 Third-party components remain subject to their own licenses and notices.
 
+3. Documentation and Architecture Materials
 
-3. Architecture and Documentation
+Unless a file or section states otherwise, Structural Receipt documentation,
+architectural descriptions, specifications, diagrams, and explanatory materials
+are licensed under the Creative Commons Attribution-NonCommercial 4.0
+International License (CC BY-NC 4.0).
 
-Unless a file or section states otherwise, architecture descriptions, diagrams, and documentation are licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
-
-Under that license, these materials may be shared and adapted for non-commercial purposes with appropriate credit, a link to the license, and an indication of whether changes were made.
-
-Attribution must not imply endorsement.
+Under that license, these materials may be shared and adapted for non-commercial
+purposes with appropriate attribution, a link to the license, and an indication
+of whether changes were made.
 
 The full license terms govern these materials:
 
 https://creativecommons.org/licenses/by-nc/4.0/legalcode
 
-Commercial use of the architecture descriptions, diagrams, and documentation requires separate written permission from the relevant rights holder.
+Commercial use of substantial portions of the documentation or architecture
+materials requires separate permission from the relevant rights holder unless the
+use is limited to factual reference, interoperability, review, or implementation
+of independently written software without substantial copying of the protected
+materials.
 
+Nothing in this license is intended to restrict rights that may otherwise be
+available under applicable law.
 
-4. Reference Scope and Responsibility
+4. Attribution
 
-Use of the reference implementation is entirely at the user's own risk.
+Attribution is not required for use, modification, or redistribution of the
+reference implementation or verification artifacts, but it is appreciated.
 
-The reference implementation, architecture, documentation, examples, verification materials, test results, and related artifacts are provided for reference and evaluation purposes.
+Where attribution is required for documentation or architecture materials, or
+where voluntary attribution is provided for the reference implementation, a
+reasonable attribution is:
 
-Published tests, demonstrations, verification results, identities, checksums, or other evidence do not guarantee universal correctness, absence of defects, regulatory compliance, production readiness, suitability for any particular purpose, or fitness for financial, medical, safety-critical, or other high-risk use.
+Structural Receipt
+Developed within the Shunyaya Framework
 
-Users are responsible for independently evaluating the implementation and determining whether it is appropriate for their intended use.
+Attribution may be provided in documentation, notices, credits, or another
+reasonable location appropriate to the form of redistribution or adaptation.
 
-No result produced by the reference implementation should be interpreted as granting operational, legal, financial, regulatory, or other authority unless such authority is established independently outside the reference implementation.
+Attribution must not imply endorsement.
 
+5. Names and Marks
 
-5. No Warranty
+This license does not grant trademark rights or permission to imply endorsement.
 
-THE STRUCTURAL RECEIPT REFERENCE IMPLEMENTATION, ARCHITECTURE, DIAGRAMS, AND DOCUMENTATION ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+The names Structural Receipt, Shunyaya Framework, Shunyaya, and related project
+names may be used for accurate factual reference and attribution.
 
-THIS INCLUDES, BUT IS NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY, RELIABILITY, SECURITY, OR FITNESS FOR FINANCIAL, MEDICAL, SAFETY-CRITICAL, OR OTHER HIGH-RISK USE.
+6. Verification and Assurance Claims
 
+A passing producer audit, conformance result, tamper result, hostile-input result,
+bridge self-test, standalone verification result, separate reconstruction result,
+bundle reconstruction result, checksum result, or other verification result
+applies only to the declared files, profiles, inputs, corpora, contexts, schemas,
+and verification boundary associated with that result.
 
-6. Limitation of Liability
+Modified files, changed rules, changed profiles, changed contexts, changed corpora,
+changed schemas, changed evidence, or changed verification artifacts require their
+own verification.
 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE AUTHORS AND CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGE, LOSS, OR OTHER LIABILITY ARISING FROM THE USE, MODIFICATION, DISTRIBUTION, IMPLEMENTATION, EXTENSION, OR DEPLOYMENT OF STRUCTURAL RECEIPT.
+Redistribution, modification, or use of the covered materials must not imply
+third-party verification, certification, production qualification, legal approval,
+financial approval, regulatory approval, security approval, or endorsement by the
+original project maintainers unless such a claim has been separately and expressly
+authorized.
 
+Producer-side audits and separate implementation reconstruction do not, by
+themselves, constitute independent third-party verification or certification.
 
-7. Severability
+7. No Security, Financial, or Safety Warranty
 
-If any provision of this license is held unenforceable, the remaining provisions remain in effect.
+THE STRUCTURAL RECEIPT REFERENCE IMPLEMENTATION, VERIFICATION ARTIFACTS,
+ARCHITECTURE, DIAGRAMS, SPECIFICATIONS, AND DOCUMENTATION ARE PROVIDED "AS IS",
+WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY,
+RELIABILITY, SECURITY, SAFETY, AVAILABILITY, OR CORRECTNESS.
 
-Exercise of the permissions granted under this license is subject to these terms.
+Structural Receipt is not a replacement for authentication, issuer verification,
+payment authorization, settlement systems, accounting controls, tax review,
+warranty approval, reimbursement approval, legal authorization, regulatory
+compliance, organizational approval, application security, or domain-specific
+controls.
+
+A structurally reconstructed or resolved result does not by itself establish
+real-world occurrence, authenticity, legal validity, financial approval, policy
+approval, or execution authority.
+
+8. Limitation of Liability
+
+To the maximum extent permitted by applicable law, the authors and contributors
+shall not be liable for any claim, damages, loss, or other liability arising from
+use, modification, distribution, implementation, extension, deployment,
+publication, verification, or reliance on Structural Receipt or the covered
+materials.
+
+9. Acceptance
+
+Using, modifying, or redistributing the covered materials indicates acceptance of
+these terms.
