@@ -1413,11 +1413,11 @@ not:
 
 See: [LICENSE](LICENSE)
 
-This repository is a publicly available reference implementation provided under the license terms stated in the repository.
+The Structural Receipt reference implementation and associated verification artifacts are free to use, copy, modify, test, study, and redistribute without a license fee, subject to the license terms stated in the repository.
 
-Architecture documentation is subject to the applicable licensing terms declared in the repository, including CC BY-NC 4.0 where stated.
+Documentation, architecture materials, specifications, diagrams, and explanatory content are subject to the separate terms stated in the LICENSE.
 
-This repository does not claim recognition as a formal technical standard.
+This repository does not claim recognition as a formal technical standard, security certification, production qualification, or third-party verification.
 
 ---
 
