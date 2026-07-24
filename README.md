@@ -6,7 +6,6 @@
 
 ![Structural Receipt](https://img.shields.io/badge/Structural%20Receipt-Purpose%20Resolvable%20Evidence-black)
 ![Version](https://img.shields.io/badge/Release-v0.5.3-blue)
-![Audit](https://img.shields.io/badge/Browser%20Audit-221%2F221%20PASS-green)
 ![Conformance](https://img.shields.io/badge/Conformance-308%2F308%20PASS-green)
 ![Tamper](https://img.shields.io/badge/Tamper%20Corpus-12%2F12%20PASS-green)
 ![Hostile Input](https://img.shields.io/badge/Hostile%20Input-13%2F13%20PASS-green)
@@ -15,8 +14,6 @@
 ![Operation](https://img.shields.io/badge/Operation-Local%20and%20Portable-orange)
 ![Deterministic](https://img.shields.io/badge/Core%20Model-Deterministic-purple)
 ![Shunyaya](https://img.shields.io/badge/Part%20of-Shunyaya%20Framework-gold)
-
-[![Structural Receipt Verify](https://github.com/OMPSHUNYAYA/Structural-Receipt/actions/workflows/structural-receipt-verify.yml/badge.svg?branch=main)](https://github.com/OMPSHUNYAYA/Structural-Receipt/actions/workflows/structural-receipt-verify.yml)
 
 ---
 
